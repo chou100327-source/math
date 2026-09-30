@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>數學 Ch1 重點</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: 一欄式讀書筆記，淡方格紙底；每小節一張卡，公式用等寬字卡片，代號上方標中文 */
+:root {
+  --bg: #f8f5f8;
+  --paper: #ffffff;
+  --grid: #ede5ed;
+  --fg: #1a1f33;
+  --muted: #596079;
+  --line: #e0d5e0;
+  --accent: #8a3f8f;
+  --accent-soft: #f4e8f4;
+  --ch1: #4553b8;
+  --ch2: #d9860a;
+  --ch3: #2f9a6a;
+  --warn: #c2412d;
+  --warn-soft: #fbe9e5;
+  --hl: #fff2b8;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #000000; --paper: #0f0e12; --grid: #0b0b0d; --fg: #e4e1ea; --muted: #a09bac; --line: #26242d;
+  --accent: #bba8e0; --accent-soft: #1d1a24; --ch1: #bba8e0; --ch2: #f0a53a; --ch3: #5fd09c;
+  --warn: #eba08f; --warn-soft: #231a1c; --hl: #3b3524;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #000000; --paper: #0f0e12; --grid: #0b0b0d; --fg: #e4e1ea; --muted: #a09bac; --line: #26242d;
+  --accent: #bba8e0; --accent-soft: #1d1a24; --ch1: #bba8e0; --ch2: #f0a53a; --ch3: #5fd09c;
+  --warn: #eba08f; --warn-soft: #231a1c; --hl: #3b3524;
+  color-scheme: dark }
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  padding-inline: 16px;
+  padding-block: 28px 64px;
+}
+.wrap { max-width: 900px; margin: 0 auto; display: grid; gap: 28px; }
+
+header.top { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: grid; gap: 10px; }
+header.top .eyebrow { font-size: 13px; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+header.top h1 { margin: 0; font-size: clamp(26px, 5vw, 36px); font-weight: 900; line-height: 1.25; text-wrap: balance; }
+header.top p { margin: 0; color: var(--muted); }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 14px; text-decoration: none; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; background: var(--bg); }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+nav.toc a.c1 { border-left: 4px solid var(--ch1); }
+nav.toc a.c2 { border-left: 4px solid var(--ch2); }
+nav.toc a.c3 { border-left: 4px solid var(--ch3); }
+
+.chapter { display: flex; align-items: baseline; gap: 14px; margin-top: 12px; padding-bottom: 8px; border-bottom: 2px dashed var(--line); }
+.chapter .num { font-family: var(--mono); font-size: 44px; font-weight: 700; line-height: 1; }
+.chapter.c1 .num { color: var(--ch1); }
+.chapter.c2 .num { color: var(--ch2); }
+.chapter.c3 .num { color: var(--ch3); }
+.chapter h2 { margin: 0; font-size: 28px; font-weight: 900; }
+
+section.sec { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; display: grid; gap: 14px; min-width: 0; scroll-margin-top: 16px; }
+section.sec h3 { margin: 0; font-size: 20px; font-weight: 700; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+section.sec h3 .id { font-family: var(--mono); font-size: 15px; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 1px 8px; }
+section.sec.lab { border-style: dashed; }
+
+.tbl { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { font-size: 13px; letter-spacing: .06em; color: var(--muted); font-weight: 700; background: var(--bg); }
+td:first-child { font-weight: 700; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+
+.f { font-family: var(--mono); font-weight: 500; }
+ruby { ruby-position: over; ruby-align: center; margin-inline: 1px; }
+rt { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0; line-height: 1.2; }
+td .f, td.f { line-height: 2.3; }
+.formulas { display: flex; flex-wrap: wrap; gap: 10px; }
+.formulas .f { background: var(--accent-soft); color: var(--fg); border-radius: 8px; padding: 12px 12px 6px; font-size: 16px; line-height: 2.1; }
+mark { background: var(--hl); color: inherit; padding: 0 3px; border-radius: 3px; }
+
+.note { border-radius: 10px; padding: 10px 14px; font-size: 15px; display: grid; gap: 4px; }
+.note b.tag { font-size: 13px; letter-spacing: .08em; }
+.note.warn { background: var(--warn-soft); }
+.note.warn b.tag { color: var(--warn); }
+.note.ex { background: var(--bg); border: 1px dashed var(--line); }
+.note.ex b.tag { color: var(--accent); }
+.note p { margin: 0; }
+ul.pts { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+
+.graphs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.graph { border: 1px solid var(--line); border-radius: 10px; padding: 10px; display: grid; gap: 4px; min-width: 0; }
+.graph svg { width: 100%; height: auto; display: block; }
+.graph .cap { font-size: 14px; color: var(--muted); }
+.graph .cap b { color: var(--fg); }
+svg .ax { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+svg .ln { stroke: var(--accent); stroke-width: 3; fill: none; }
+svg .area { fill: var(--accent-soft); }
+svg text { fill: var(--muted); font-family: var(--mono); font-size: 13px; }
+
+footer { color: var(--muted); font-size: 13px; text-align: center; }
+@media (max-width: 520px) {
+  section.sec { padding: 16px 14px; }
+  th, td { padding: 7px 7px; }
+  td:first-child { white-space: normal; }
+}
+.ol { text-decoration: overline; }
+svg .ok { stroke: var(--accent); stroke-width: 6; stroke-linecap: round; }
+svg .xax { stroke: var(--muted); stroke-width: 1.5; }
+svg .dot { fill: var(--accent); }
+.calc { display: grid; gap: 10px; border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.calc .row { display: flex; flex-wrap: wrap; gap: 14px; }
+.calc label { display: grid; gap: 2px; font-size: 13px; color: var(--muted); min-width: 120px; flex: 1; }
+.calc input[type=range] { accent-color: var(--accent); width: 100%; }
+.calc .out { font-family: var(--mono); font-size: 15px; display: grid; gap: 2px; }
+.calc svg { width: 100%; max-width: 420px; height: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+
+.toprow { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.theme-btn { font: inherit; font-size: 14px; font-weight: 700; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.theme-btn:hover { border-color: var(--muted); }
+.theme-btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+@media print { .theme-btn { display: none !important; } }
+</style>
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body><div class="wrap">
+
+<header class="top">
+  <div class="toprow"><div class="eyebrow">高職一年級 · 數學 · 第一次段考</div><button type="button" class="theme-btn" id="themeBtn">切換深色模式</button></div>
+  <h1>第一章 坐標系與函數圖形 重點整理</h1>
+  <p>先看每節的公式卡，再看表格；公式裡每個代號上方都標了中文名稱。紅色框是常考陷阱，虛線框是例題。</p>
+  <nav class="toc" aria-label="目錄">
+    <a class="c1" href="#s1-1">1-1 實數</a><a class="c1" href="#s1-2">1-2 絕對值與坐標系</a><a class="c1" href="#s1-3">1-3 函數圖形</a><a class="c1" href="#s1-4">1-4 二次不等式</a>
+    <a href="#sum">公式總表</a>
+  </nav>
+</header>
+
+<div class="chapter c1"><span class="num">01</span><h2>坐標系與函數圖形</h2></div>
+
+<!-- 1-1 -->
+<section class="sec" id="s1-1">
+  <h3><span class="id">1-1</span>實數</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>數系</th><th>符號</th><th>說明與例子</th></tr></thead>
+    <tbody>
+      <tr><td>自然數（正整數）</td><td class="f">N</td><td>1, 2, 3, …</td></tr>
+      <tr><td>整數</td><td class="f">Z</td><td>…, −2, −1, 0, 1, 2, …</td></tr>
+      <tr><td>有理數</td><td class="f">Q</td><td>可以寫成 <span class="f"><ruby>p<rt>整數</rt></ruby>/<ruby>q<rt>非零整數</rt></ruby></span>；包含整數、<b>有限小數、循環小數</b></td></tr>
+      <tr><td>無理數</td><td>—</td><td><b>無限不循環小數</b>：√2、√3、π</td></tr>
+      <tr><td>實數</td><td class="f">R</td><td>有理數 + 無理數；實數和數線上的點<b>一一對應</b></td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0"><b>循環小數化成分數</b></p>
+  <div class="tbl"><table>
+    <thead><tr><th>類型</th><th>做法</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td>純循環</td><td>循環節 ÷ 同位數的 9</td><td class="f">0.<span class="ol">3</span> = 3/9 = 1/3；0.<span class="ol">12</span> = 12/99 = 4/33</td></tr>
+      <tr><td>混循環</td><td>(全部數字 − 不循環部分) ÷（循環幾位就幾個 9，後面補不循環幾位的 0）</td><td class="f">0.1<span class="ol">2</span> = (12 − 1)/90 = 11/90</td></tr>
+      <tr><td>帶整數</td><td>整數部分另外加</td><td class="f">1.<span class="ol">3</span> = 1 + 1/3 = 4/3</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0"><b>根式運算</b>（a、b &gt; 0）</p>
+  <div class="formulas">
+    <span class="f">√<ruby>a<rt>正數</rt></ruby> × √<ruby>b<rt>正數</rt></ruby> = √(<ruby>a<rt>正數</rt></ruby><ruby>b<rt>正數</rt></ruby>)</span>
+    <span class="f">√<ruby>a<rt>正數</rt></ruby> / √<ruby>b<rt>正數</rt></ruby> = √(<ruby>a<rt>正數</rt></ruby>/<ruby>b<rt>正數</rt></ruby>)</span>
+    <span class="f">分母有理化：1 / (√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby>) = (√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby>) / (<ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby>)</span>
+    <span class="f">雙重根號：√(<ruby>a<rt>大的數</rt></ruby> + <ruby>b<rt>小的數</rt></ruby> ± 2√(<ruby>a<rt>大的數</rt></ruby><ruby>b<rt>小的數</rt></ruby>)) = √<ruby>a<rt>大的數</rt></ruby> ± √<ruby>b<rt>小的數</rt></ruby></span>
+  </div>
+  <p style="margin:0"><b>乘法公式</b></p>
+  <div class="formulas">
+    <span class="f">(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² + 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²</span>
+    <span class="f">(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² − 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²</span>
+    <span class="f">(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>) = <ruby>a<rt>第一項</rt></ruby>² − <ruby>b<rt>第二項</rt></ruby>²</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>區間寫法</th><th>意思</th><th>數線畫法</th></tr></thead>
+    <tbody>
+      <tr><td class="f">[a, b]</td><td class="f">a ≤ x ≤ b（閉區間）</td><td>兩端實心點</td></tr>
+      <tr><td class="f">(a, b)</td><td class="f">a &lt; x &lt; b（開區間）</td><td>兩端空心點</td></tr>
+      <tr><td class="f">[a, b)</td><td class="f">a ≤ x &lt; b</td><td>左實心、右空心</td></tr>
+      <tr><td class="f">(a, ∞)</td><td class="f">x &gt; a</td><td>無限大那一邊一定用小括號</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="pts">
+    <li>不等式兩邊同乘（除）<b>負數</b>，不等號要<b>反向</b>。</li>
+    <li>有理數 + 無理數 = 無理數；但無理數 + 無理數不一定是無理數（√2 + (−√2) = 0）。</li>
+  </ul>
+  <div class="note ex"><b class="tag">例題</b><p>化簡 √(5 + 2√6)：找兩數相加 5、相乘 6 → 3 和 2，答案 = <b>√3 + √2</b>。<br>有理化 1/(√3 − √2) = (√3 + √2)/(3 − 2) = <b>√3 + √2</b>。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>0.<span class="ol">9</span> = 1。√(a + b) ≠ √a + √b。π 是無理數，3.14 和 22/7 只是近似值。</p></div>
+</section>
+
+<!-- 1-2 -->
+<section class="sec" id="s1-2">
+  <h3><span class="id">1-2</span>絕對值與平面直角坐標系</h3>
+  <div class="formulas">
+    <span class="f">|<ruby>a<rt>實數</rt></ruby>| = <ruby>a<rt>實數</rt></ruby>（a ≥ 0）；= −<ruby>a<rt>實數</rt></ruby>（a &lt; 0）</span>
+    <span class="f">√(<ruby>a<rt>實數</rt></ruby>²) = |<ruby>a<rt>實數</rt></ruby>|</span>
+    <span class="f">數線兩點距離 = |<ruby>a<rt>點A坐標</rt></ruby> − <ruby>b<rt>點B坐標</rt></ruby>|</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>絕對值方程式／不等式（a &gt; 0）</th><th>解</th><th>記法</th></tr></thead>
+    <tbody>
+      <tr><td class="f">|x| = a</td><td class="f">x = a 或 x = −a</td><td>離原點 a</td></tr>
+      <tr><td class="f">|x| &lt; a</td><td class="f">−a &lt; x &lt; a</td><td><b>小於夾中間</b></td></tr>
+      <tr><td class="f">|x| &gt; a</td><td class="f">x &gt; a 或 x &lt; −a</td><td><b>大於跑兩邊</b></td></tr>
+      <tr><td class="f">|x − c| ≤ r</td><td class="f">c − r ≤ x ≤ c + r</td><td>以 c 為中心、半徑 r</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="pts">
+    <li>性質：|ab| = |a||b|；<b>|a + b| ≤ |a| + |b|</b>（三角不等式）；|a| ≥ 0。</li>
+    <li>|x| = −3 <b>無解</b>（絕對值不可能是負數）。</li>
+  </ul>
+  <p style="margin:0"><b>坐標平面</b></p>
+  <div class="formulas">
+    <span class="f">兩點距離 = √((<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)² + (<ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>)²)</span>
+    <span class="f">中點 = ((<ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby>)/2, (<ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby>)/2)</span>
+    <span class="f">分點 AP:PB = <ruby>m<rt>前段比</rt></ruby>:<ruby>n<rt>後段比</rt></ruby> → P = ((<ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby>)/(<ruby>m<rt>前段比</rt></ruby>+<ruby>n<rt>後段比</rt></ruby>), (<ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby>)/(<ruby>m<rt>前段比</rt></ruby>+<ruby>n<rt>後段比</rt></ruby>))</span>
+    <span class="f">重心 = ((<ruby>x₁<rt>A的x</rt></ruby>+<ruby>x₂<rt>B的x</rt></ruby>+<ruby>x₃<rt>C的x</rt></ruby>)/3, (<ruby>y₁<rt>A的y</rt></ruby>+<ruby>y₂<rt>B的y</rt></ruby>+<ruby>y₃<rt>C的y</rt></ruby>)/3)</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>象限</th><th>第一</th><th>第二</th><th>第三</th><th>第四</th></tr></thead>
+    <tbody>
+      <tr><td>(x, y) 正負</td><td class="f">(+, +)</td><td class="f">(−, +)</td><td class="f">(−, −)</td><td class="f">(+, −)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>點 (a, b) 的對稱點</th><th>結果</th><th>記法</th></tr></thead>
+    <tbody>
+      <tr><td>對 x 軸</td><td class="f">(a, −b)</td><td>y 變號</td></tr>
+      <tr><td>對 y 軸</td><td class="f">(−a, b)</td><td>x 變號</td></tr>
+      <tr><td>對原點</td><td class="f">(−a, −b)</td><td>兩個都變號</td></tr>
+      <tr><td>對直線 y = x</td><td class="f">(b, a)</td><td>x、y 交換</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note ex"><b class="tag">例題</b><p>A(1, 2)、B(4, 6)：距離 = √(3² + 4²) = <b>5</b>，中點 = <b>(2.5, 4)</b>。<br>解 |x − 2| &lt; 3：−3 &lt; x − 2 &lt; 3 → <b>−1 &lt; x &lt; 5</b>。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>在 x 軸或 y 軸上的點<b>不屬於任何象限</b>。分點公式是「比例交叉乘」：靠近 A 的比例 n 乘在 A 的坐標上。</p></div>
+</section>
+
+<!-- 1-3 -->
+<section class="sec" id="s1-3">
+  <h3><span class="id">1-3</span>常見的函數圖形</h3>
+  <ul class="pts">
+    <li><b>函數</b>：每一個 x 都只對應<b>一個</b> y。圖形判斷：畫鉛直線，最多只碰到圖形一次。</li>
+    <li><b>定義域</b>：x 可以用的範圍；<b>值域</b>：y 得到的範圍。</li>
+  </ul>
+  <div class="formulas">
+    <span class="f">一次函數：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>斜率</rt></ruby><ruby>x<rt>自變數</rt></ruby> + <ruby>b<rt>y截距</rt></ruby></span>
+    <span class="f">斜率 <ruby>m<rt>斜率</rt></ruby> = (<ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>) / (<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)</span>
+    <span class="f">常數函數：<ruby>y<rt>函數值</rt></ruby> = <ruby>c<rt>常數</rt></ruby></span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>一次函數 y = ax + b</th><th>圖形</th></tr></thead>
+    <tbody>
+      <tr><td>a &gt; 0</td><td>直線往右<b>上升</b></td></tr>
+      <tr><td>a &lt; 0</td><td>直線往右<b>下降</b></td></tr>
+      <tr><td>a = 0</td><td>水平線（常數函數）</td></tr>
+      <tr><td>b</td><td>和 y 軸交點 (0, b)</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0"><b>二次函數（拋物線）</b></p>
+  <div class="formulas">
+    <span class="f">一般式：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby><ruby>x<rt>自變數</rt></ruby>² + <ruby>b<rt>一次項係數</rt></ruby><ruby>x<rt>自變數</rt></ruby> + <ruby>c<rt>常數項</rt></ruby></span>
+    <span class="f">配方式：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby>(<ruby>x<rt>自變數</rt></ruby> − <ruby>h<rt>頂點x</rt></ruby>)² + <ruby>k<rt>頂點y</rt></ruby></span>
+    <span class="f">頂點 <ruby>h<rt>頂點x</rt></ruby> = −<ruby>b<rt>一次項係數</rt></ruby> / 2<ruby>a<rt>二次項係數</rt></ruby></span>
+    <span class="f"><ruby>k<rt>頂點y</rt></ruby> = −(<ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>) / 4<ruby>a<rt>二次項係數</rt></ruby></span>
+    <span class="f">判別式 <ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>看什麼</th><th>結論</th></tr></thead>
+    <tbody>
+      <tr><td>a &gt; 0</td><td>開口<b>向上</b>，頂點是<b>最低點</b>，最小值 = k</td></tr>
+      <tr><td>a &lt; 0</td><td>開口<b>向下</b>，頂點是<b>最高點</b>，最大值 = k</td></tr>
+      <tr><td>|a| 越大</td><td>開口越<b>窄</b></td></tr>
+      <tr><td>對稱軸</td><td class="f">x = h = −b/2a</td></tr>
+      <tr><td>c</td><td>和 y 軸交點 (0, c)</td></tr>
+      <tr><td>D &gt; 0</td><td>和 x 軸交<b>兩點</b></td></tr>
+      <tr><td>D = 0</td><td>和 x 軸<b>相切</b>（交一點，就是頂點）</td></tr>
+      <tr><td>D &lt; 0</td><td>和 x 軸<b>不相交</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>圖形平移</th><th>由 y = f(x) 變成</th></tr></thead>
+    <tbody>
+      <tr><td>向右 h 單位</td><td class="f">y = f(x − h)（括號裡是減號才是往右）</td></tr>
+      <tr><td>向上 k 單位</td><td class="f">y = f(x) + k</td></tr>
+      <tr><td>例</td><td class="f">y = 2x² 右移 3、下移 1 → y = 2(x − 3)² − 1，頂點 (3, −1)</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="pts">
+    <li>絕對值函數 y = |x|：V 字形，頂點在原點，以 y 軸對稱。y = |x − h| + k 的頂點是 (h, k)。</li>
+  </ul>
+
+  <div class="calc" id="play">
+    <b>拋物線練習器：拉拉看 a、b、c</b>
+    <div class="row">
+      <label for="pa"><span>a = <b id="pav"></b></span><input type="range" id="pa" min="-3" max="3" step="0.5" value="1"></label>
+      <label for="pb"><span>b = <b id="pbv"></b></span><input type="range" id="pb" min="-6" max="6" step="1" value="-2"></label>
+      <label for="pc"><span>c = <b id="pcv"></b></span><input type="range" id="pc" min="-6" max="6" step="1" value="-3"></label>
+    </div>
+    <svg id="plot" viewBox="0 0 240 240" style="max-width:320px" role="img" aria-label="拋物線圖形"></svg>
+    <div class="out" id="pout" aria-live="polite"></div>
+  </div>
+
+  <div class="note ex"><b class="tag">例題</b><p>y = x² − 4x + 1 配方：y = (x − 2)² − 3。頂點 <b>(2, −3)</b>，對稱軸 x = 2，開口向上，最小值 <b>−3</b>；D = 16 − 4 = 12 &gt; 0，和 x 軸交兩點。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>y = (x + 2)² 的頂點在 <b>(−2, 0)</b>，不是 (2, 0)。求最大、最小值前先看 a 的正負。</p></div>
+</section>
+
+<!-- 1-4 -->
+<section class="sec" id="s1-4">
+  <h3><span class="id">1-4</span>一元二次不等式</h3>
+  <p style="margin:0"><b>先準備：一元二次方程式 ax² + bx + c = 0</b></p>
+  <div class="formulas">
+    <span class="f">公式解 <ruby>x<rt>根</rt></ruby> = (−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby>) / 2<ruby>a<rt>二次項係數</rt></ruby></span>
+    <span class="f">兩根和 <ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = −<ruby>b<rt>一次項係數</rt></ruby> / <ruby>a<rt>二次項係數</rt></ruby></span>
+    <span class="f">兩根積 <ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <ruby>c<rt>常數項</rt></ruby> / <ruby>a<rt>二次項係數</rt></ruby></span>
+  </div>
+  <p style="margin:0"><b>解題步驟</b>：① 移項，右邊變 0　② 讓 x² 係數變正（乘 −1 時不等號反向）　③ 因式分解或公式解找出兩根 α &lt; β　④ 套下表</p>
+  <div class="tbl"><table>
+    <thead><tr><th>（a &gt; 0，兩根 α &lt; β）</th><th>解</th><th>記法</th></tr></thead>
+    <tbody>
+      <tr><td class="f">(<ruby>x<rt>未知數</rt></ruby> − <ruby>α<rt>小根</rt></ruby>)(<ruby>x<rt>未知數</rt></ruby> − <ruby>β<rt>大根</rt></ruby>) &gt; 0</td><td class="f">x &lt; α 或 x &gt; β</td><td><b>大於跑兩邊</b></td></tr>
+      <tr><td class="f">(<ruby>x<rt>未知數</rt></ruby> − <ruby>α<rt>小根</rt></ruby>)(<ruby>x<rt>未知數</rt></ruby> − <ruby>β<rt>大根</rt></ruby>) &lt; 0</td><td class="f">α &lt; x &lt; β</td><td><b>小於夾中間</b></td></tr>
+      <tr><td class="f">≥ 0 或 ≤ 0</td><td>同上，<b>端點也要包含</b></td><td>用 ≤ 或 ≥</td></tr>
+    </tbody>
+  </table></div>
+  <div class="graphs" aria-label="判別式三種情況">
+    <div class="graph">
+      <svg viewBox="0 0 220 130" role="img" aria-label="D大於0，拋物線和x軸交兩點">
+        <path class="xax" d="M10 80 H210"/>
+        <path class="ln" d="M40 20 Q110 170 180 20"/>
+        <circle class="dot" cx="67" cy="80" r="5"/><circle class="dot" cx="153" cy="80" r="5"/>
+        <text x="60" y="104">α</text><text x="148" y="104">β</text>
+      </svg>
+      <div class="cap"><b>D &gt; 0：交兩點</b>，&gt;0 解在兩邊，&lt;0 解在中間</div>
+    </div>
+    <div class="graph">
+      <svg viewBox="0 0 220 130" role="img" aria-label="D等於0，拋物線和x軸相切">
+        <path class="xax" d="M10 100 H210"/>
+        <path class="ln" d="M50 20 Q110 180 170 20"/>
+        <circle class="dot" cx="110" cy="100" r="5"/>
+        <text x="104" y="122">α</text>
+      </svg>
+      <div class="cap"><b>D = 0：相切</b>，&gt;0 解為 x ≠ α；≥0 全部實數；&lt;0 無解；≤0 只有 x = α</div>
+    </div>
+    <div class="graph">
+      <svg viewBox="0 0 220 130" role="img" aria-label="D小於0，拋物線在x軸上方">
+        <path class="xax" d="M10 110 H210"/>
+        <path class="ln" d="M50 10 Q110 150 170 10"/>
+      </svg>
+      <div class="cap"><b>D &lt; 0：不相交</b>，&gt;0 解為全部實數；&lt;0 無解</div>
+    </div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>恆成立的條件</th><th>條件</th></tr></thead>
+    <tbody>
+      <tr><td>ax² + bx + c &gt; 0 對所有 x 成立（恆正）</td><td class="f">a &gt; 0 且 D &lt; 0</td></tr>
+      <tr><td>ax² + bx + c &lt; 0 對所有 x 成立（恆負）</td><td class="f">a &lt; 0 且 D &lt; 0</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note ex"><b class="tag">例題</b><p>解 x² − x − 6 &gt; 0：(x − 3)(x + 2) &gt; 0，兩根 −2、3 → <b>x &lt; −2 或 x &gt; 3</b>。<br>解 −x² + 4x − 3 ≥ 0：先乘 −1 → x² − 4x + 3 ≤ 0，(x − 1)(x − 3) ≤ 0 → <b>1 ≤ x ≤ 3</b>。<br>已知解為 1 &lt; x &lt; 3，反推不等式：(x − 1)(x − 3) &lt; 0 → <b>x² − 4x + 3 &lt; 0</b>。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>x² 係數是負的時候，一定要先乘 −1 並<b>把不等號反過來</b>，再套「大於兩邊、小於中間」。x² + 1 &gt; 0 的解是<b>所有實數</b>，x² + 1 &lt; 0 <b>無解</b>。</p></div>
+</section>
+
+<!-- 總表 -->
+<section class="sec" id="sum">
+  <h3><span class="id">總表</span>考前 1 分鐘公式總複習</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>主題</th><th>公式／口訣</th></tr></thead>
+    <tbody>
+      <tr><td>循環小數</td><td class="f">0.<span class="ol">ab</span> = ab/99；0.a<span class="ol">b</span> = (ab − a)/90</td></tr>
+      <tr><td>分母有理化</td><td class="f">1/(√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby>) = (√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby>)/(<ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby>)</td></tr>
+      <tr><td>絕對值不等式</td><td class="f">|x| &lt; a ⇔ −a &lt; x &lt; a；|x| &gt; a ⇔ x &gt; a 或 x &lt; −a</td></tr>
+      <tr><td>兩點距離</td><td class="f">√((<ruby>x₂<rt>B的x</rt></ruby>−<ruby>x₁<rt>A的x</rt></ruby>)² + (<ruby>y₂<rt>B的y</rt></ruby>−<ruby>y₁<rt>A的y</rt></ruby>)²)</td></tr>
+      <tr><td>中點</td><td class="f">((<ruby>x₁<rt>A的x</rt></ruby>+<ruby>x₂<rt>B的x</rt></ruby>)/2, (<ruby>y₁<rt>A的y</rt></ruby>+<ruby>y₂<rt>B的y</rt></ruby>)/2)</td></tr>
+      <tr><td>重心</td><td class="f">(三個 x 相加 ÷ 3, 三個 y 相加 ÷ 3)</td></tr>
+      <tr><td>斜率</td><td class="f"><ruby>m<rt>斜率</rt></ruby> = (<ruby>y₂<rt>B的y</rt></ruby>−<ruby>y₁<rt>A的y</rt></ruby>)/(<ruby>x₂<rt>B的x</rt></ruby>−<ruby>x₁<rt>A的x</rt></ruby>)</td></tr>
+      <tr><td>拋物線頂點</td><td class="f"><ruby>h<rt>頂點x</rt></ruby> = −<ruby>b<rt>一次項係數</rt></ruby>/2<ruby>a<rt>二次項係數</rt></ruby>，<ruby>k<rt>頂點y</rt></ruby> = −<ruby>D<rt>判別式</rt></ruby>/4<ruby>a<rt>二次項係數</rt></ruby></td></tr>
+      <tr><td>判別式</td><td class="f"><ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>：&gt;0 兩交點、=0 相切、&lt;0 不相交</td></tr>
+      <tr><td>公式解</td><td class="f"><ruby>x<rt>根</rt></ruby> = (−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby>)/2<ruby>a<rt>二次項係數</rt></ruby></td></tr>
+      <tr><td>根與係數</td><td class="f"><ruby>α<rt>根1</rt></ruby>+<ruby>β<rt>根2</rt></ruby> = −b/a，<ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = c/a</td></tr>
+      <tr><td>二次不等式</td><td>a &gt; 0 時：<b>大於跑兩邊，小於夾中間</b></td></tr>
+      <tr><td>恆正</td><td class="f">a &gt; 0 且 D &lt; 0</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>依課本目錄 1-1～1-4 整理。寫法以一般高職數學課本為準，若與你的課本有出入，以課本和老師上課為主。</footer>
+</div>
+
+<script>
+(function () {
+  var S = 20, O = 120; // 每單位 20px，原點在中心
+  function X(x) { return O + x * S; }
+  function Y(y) { return O - y * S; }
+  function n(v) { return Math.round(v * 100) / 100; }
+  function update() {
+    var a = +document.getElementById("pa").value, b = +document.getElementById("pb").value, c = +document.getElementById("pc").value;
+    document.getElementById("pav").textContent = a;
+    document.getElementById("pbv").textContent = b;
+    document.getElementById("pcv").textContent = c;
+    var svg = '<path class="ax" d="M0 ' + O + ' H240 M' + O + ' 0 V240"/>';
+    var out = [];
+    if (a === 0) {
+      svg += '<path class="ln" d="M' + X(-6) + ' ' + Y(b * -6 + c) + ' L' + X(6) + ' ' + Y(b * 6 + c) + '"/>';
+      out.push("a = 0 時不是二次函數，是直線 y = " + b + "x + " + c);
+    } else {
+      var d = "", first = true;
+      for (var x = -6; x <= 6.001; x += 0.1) {
+        var y = a * x * x + b * x + c;
+        if (y > 7) y = 7; if (y < -7) y = -7;
+        d += (first ? "M" : " L") + X(x).toFixed(1) + " " + Y(y).toFixed(1); first = false;
+      }
+      var h = -b / (2 * a), D = b * b - 4 * a * c, k = -D / (4 * a);
+      svg += '<path class="ln" d="' + d + '"/><circle class="dot" cx="' + X(h) + '" cy="' + Y(k) + '" r="4"/>';
+      out.push("頂點 (h, k) = (" + n(h) + ", " + n(k) + ")，對稱軸 x = " + n(h));
+      out.push("開口" + (a > 0 ? "向上，最小值 " : "向下，最大值 ") + n(k));
+      out.push("判別式 D = " + D + (D > 0 ? " > 0，和 x 軸交兩點" : D === 0 ? " = 0，和 x 軸相切" : " < 0，和 x 軸不相交"));
+      if (D >= 0) {
+        var r1 = (-b - Math.sqrt(D)) / (2 * a), r2 = (-b + Math.sqrt(D)) / (2 * a);
+        var lo = Math.min(r1, r2), hi = Math.max(r1, r2);
+        out.push("x 軸交點：x = " + n(lo) + (D > 0 ? "、" + n(hi) : ""));
+      }
+    }
+    document.getElementById("plot").innerHTML = svg;
+    document.getElementById("pout").innerHTML = out.map(function (t) { return "<div>" + t + "</div>"; }).join("");
+  }
+  ["pa", "pb", "pc"].forEach(function (id) { document.getElementById(id).addEventListener("input", update); });
+  update();
+})();
+</script>
+
+
+<script>
+(function () {
+  var KEY = "study-theme", root = document.documentElement, btn = document.getElementById("themeBtn");
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  try { var saved = localStorage.getItem(KEY); if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved); } catch (e) {}
+  function current() { var t = root.getAttribute("data-theme"); return t || (mq && mq.matches ? "dark" : "light"); }
+  function label() {
+    var dark = current() === "dark";
+    btn.innerHTML = dark ? "<span aria-hidden=\"true\">☀</span> 切換淺色模式" : "<span aria-hidden=\"true\">☾</span> 切換深色模式";
+    btn.setAttribute("aria-label", dark ? "切換成淺色模式" : "切換成深色模式");
+  }
+  btn.addEventListener("click", function () {
+    var next = current() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    label();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener("change", label);
+  new MutationObserver(label).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  label();
+})();
+</script>
+</body>
+</html>
