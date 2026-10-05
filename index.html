@@ -160,30 +160,47 @@ svg .dot { fill: var(--accent); }
 <!-- 1-1 -->
 <section class="sec" id="s1-1">
   <h3><span class="id">1-1</span>實數</h3>
+  <div class="formulas">
+    <span class="f">有理數的定義：可以用 <span class="frac"><span class="num"><ruby>q<rt>整數</rt></ruby></span><span class="den"><ruby>p<rt>整數</rt></ruby></span></span> 表示的數，其中 <ruby>p<rt>分母</rt></ruby> ≠ 0，且 p、q 都是整數</span>
+  </div>
   <div class="tbl"><table>
-    <thead><tr><th>數系</th><th>符號</th><th>說明與例子</th></tr></thead>
+    <thead><tr><th>實數系</th><th>符號</th><th>包含什麼</th></tr></thead>
     <tbody>
-      <tr><td>自然數（正整數）</td><td class="f">N</td><td>1, 2, 3, …</td></tr>
-      <tr><td>整數</td><td class="f">Z</td><td>…, −2, −1, 0, 1, 2, …</td></tr>
-      <tr><td>有理數</td><td class="f">Q</td><td>可以寫成 <span class="f"><ruby>p<rt>整數</rt></ruby>/<ruby>q<rt>非零整數</rt></ruby></span>；包含整數、<b>有限小數、循環小數</b></td></tr>
-      <tr><td>無理數</td><td>—</td><td><b>無限不循環小數</b>：√2、√3、π</td></tr>
-      <tr><td>實數</td><td class="f">R</td><td>有理數 + 無理數；實數和數線上的點<b>一一對應</b></td></tr>
+      <tr><td>實數</td><td class="f">ℝ</td><td>有理數 + 無理數；實數和數線上的點<b>一一對應</b></td></tr>
+      <tr><td>有理數</td><td class="f">ℚ</td><td>整數 + <b>有限小數、循環小數</b>（例如 <span class="frac"><span class="num">1</span><span class="den">3</span></span>、1.5、0.1<span class="ol">6</span>）</td></tr>
+      <tr><td>整數</td><td class="f">ℤ</td><td>正整數 + <b>零</b> + 負整數（例如 −1, −2, −3 …）</td></tr>
+      <tr><td>正整數（自然數）</td><td class="f">ℕ</td><td>1, 2, 3, …</td></tr>
+      <tr><td>無理數</td><td>—</td><td><b>不循環的無限小數</b>：π、√3、∛2</td></tr>
     </tbody>
   </table></div>
+  <ul class="pts">
+    <li><b>實數的運算性質</b>：交換律、結合律、分配律，以及等量、不等量的加法和乘法（詳見課本 1-1.2）。</li>
+    <li>不等式兩邊同乘（除）<b>負數</b>，不等號要<b>反向</b>。</li>
+    <li>有理數 + 無理數 = 無理數；但無理數 + 無理數不一定是無理數（√2 + (−√2) = 0）。</li>
+  </ul>
+  <p style="margin:0"><b>算幾不等式</b>（a、b 是兩個非負實數）</p>
+  <div class="formulas">
+    <span class="f">算術平均數 <span class="frac"><span class="num"><ruby>a<rt>非負實數</rt></ruby> + <ruby>b<rt>非負實數</rt></ruby></span><span class="den">2</span></span> ≥ 幾何平均數 √(<ruby>a<rt>非負實數</rt></ruby><ruby>b<rt>非負實數</rt></ruby>)</span>
+  </div>
+  <ul class="pts">
+    <li>算術平均數<b>恆大於或等於</b>幾何平均數。<b>當 a = b 時，等號成立</b>；反之亦然。</li>
+    <li>常見用法：兩正數「積固定」時求「和的最小值」，或「和固定」時求「積的最大值」。</li>
+  </ul>
+  <div class="note ex"><b class="tag">例題</b><p>x &gt; 0，求 x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> 的最小值：<span class="frac"><span class="num">x + <span class="frac"><span class="num">4</span><span class="den">x</span></span></span><span class="den">2</span></span> ≥ √(x × <span class="frac"><span class="num">4</span><span class="den">x</span></span>) = 2，所以 x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> ≥ <b>4</b>，當 x = <span class="frac"><span class="num">4</span><span class="den">x</span></span>（x = 2）時成立。</p></div>
   <p style="margin:0"><b>循環小數化成分數</b></p>
   <div class="tbl"><table>
     <thead><tr><th>類型</th><th>做法</th><th>例子</th></tr></thead>
     <tbody>
-      <tr><td>純循環</td><td>循環節 ÷ 同位數的 9</td><td class="f">0.<span class="ol">3</span> = 3/9 = 1/3；0.<span class="ol">12</span> = 12/99 = 4/33</td></tr>
-      <tr><td>混循環</td><td>(全部數字 − 不循環部分) ÷（循環幾位就幾個 9，後面補不循環幾位的 0）</td><td class="f">0.1<span class="ol">2</span> = (12 − 1)/90 = 11/90</td></tr>
-      <tr><td>帶整數</td><td>整數部分另外加</td><td class="f">1.<span class="ol">3</span> = 1 + 1/3 = 4/3</td></tr>
+      <tr><td>純循環</td><td>循環節 ÷ 同位數的 9</td><td class="f">0.<span class="ol">3</span> = <span class="frac"><span class="num">3</span><span class="den">9</span></span> = <span class="frac"><span class="num">1</span><span class="den">3</span></span>；0.<span class="ol">12</span> = <span class="frac"><span class="num">12</span><span class="den">99</span></span> = <span class="frac"><span class="num">4</span><span class="den">33</span></span></td></tr>
+      <tr><td>混循環</td><td>(全部數字 − 不循環部分) ÷（循環幾位就幾個 9，後面補不循環幾位的 0）</td><td class="f">0.1<span class="ol">2</span> = <span class="frac"><span class="num">12 − 1</span><span class="den">90</span></span> = <span class="frac"><span class="num">11</span><span class="den">90</span></span></td></tr>
+      <tr><td>帶整數</td><td>整數部分另外加</td><td class="f">1.<span class="ol">3</span> = 1 + <span class="frac"><span class="num">1</span><span class="den">3</span></span> = <span class="frac"><span class="num">4</span><span class="den">3</span></span></td></tr>
     </tbody>
   </table></div>
   <p style="margin:0"><b>根式運算</b>（a、b &gt; 0）</p>
   <div class="formulas">
     <span class="f">√<ruby>a<rt>正數</rt></ruby> × √<ruby>b<rt>正數</rt></ruby> = √(<ruby>a<rt>正數</rt></ruby><ruby>b<rt>正數</rt></ruby>)</span>
-    <span class="f">√<ruby>a<rt>正數</rt></ruby> / √<ruby>b<rt>正數</rt></ruby> = √(<ruby>a<rt>正數</rt></ruby>/<ruby>b<rt>正數</rt></ruby>)</span>
-    <span class="f">分母有理化：1 / (√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby>) = (√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby>) / (<ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby>)</span>
+    <span class="f"><span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby></span><span class="den">√<ruby>b<rt>正數</rt></ruby></span></span> = √<span class="frac"><span class="num"><ruby>a<rt>正數</rt></ruby></span><span class="den"><ruby>b<rt>正數</rt></ruby></span></span></span>
+    <span class="f">分母有理化：<span class="frac"><span class="num">1</span><span class="den">√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby></span></span> = <span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby></span><span class="den"><ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby></span></span></span>
     <span class="f">雙重根號：√(<ruby>a<rt>大的數</rt></ruby> + <ruby>b<rt>小的數</rt></ruby> ± 2√(<ruby>a<rt>大的數</rt></ruby><ruby>b<rt>小的數</rt></ruby>)) = √<ruby>a<rt>大的數</rt></ruby> ± √<ruby>b<rt>小的數</rt></ruby></span>
   </div>
   <p style="margin:0"><b>乘法公式</b></p>
@@ -201,12 +218,8 @@ svg .dot { fill: var(--accent); }
       <tr><td class="f">(a, ∞)</td><td class="f">x &gt; a</td><td>無限大那一邊一定用小括號</td></tr>
     </tbody>
   </table></div>
-  <ul class="pts">
-    <li>不等式兩邊同乘（除）<b>負數</b>，不等號要<b>反向</b>。</li>
-    <li>有理數 + 無理數 = 無理數；但無理數 + 無理數不一定是無理數（√2 + (−√2) = 0）。</li>
-  </ul>
-  <div class="note ex"><b class="tag">例題</b><p>化簡 √(5 + 2√6)：找兩數相加 5、相乘 6 → 3 和 2，答案 = <b>√3 + √2</b>。<br>有理化 1/(√3 − √2) = (√3 + √2)/(3 − 2) = <b>√3 + √2</b>。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>0.<span class="ol">9</span> = 1。√(a + b) ≠ √a + √b。π 是無理數，3.14 和 22/7 只是近似值。</p></div>
+  <div class="note ex"><b class="tag">例題</b><p>化簡 √(5 + 2√6)：找兩數相加 5、相乘 6 → 3 和 2，答案 = <b>√3 + √2</b>。<br>有理化 <span class="frac"><span class="num">1</span><span class="den">√3 − √2</span></span> = <span class="frac"><span class="num">√3 + √2</span><span class="den">3 − 2</span></span> = <b>√3 + √2</b>。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>0.<span class="ol">9</span> = 1。√(a + b) ≠ √a + √b。π 是無理數，3.14 和 <span class="frac"><span class="num">22</span><span class="den">7</span></span> 只是近似值。算幾不等式只能用在<b>非負</b>的數。</p></div>
 </section>
 
 <!-- 1-2 -->
@@ -214,15 +227,17 @@ svg .dot { fill: var(--accent); }
   <h3><span class="id">1-2</span>絕對值與平面直角坐標系</h3>
   <div class="formulas">
     <span class="f">|<ruby>a<rt>實數</rt></ruby>| = <ruby>a<rt>實數</rt></ruby>（a ≥ 0）；= −<ruby>a<rt>實數</rt></ruby>（a &lt; 0）</span>
+    <span class="f">數線上兩點 A(a)、B(b) 的距離 = |<ruby>a<rt>點A坐標</rt></ruby> − <ruby>b<rt>點B坐標</rt></ruby>| = |<ruby>b<rt>點B坐標</rt></ruby> − <ruby>a<rt>點A坐標</rt></ruby>|</span>
+    <span class="f">|<ruby>k<rt>實數</rt></ruby>| = |<ruby>k<rt>實數</rt></ruby> − 0|（k 到原點的距離）</span>
     <span class="f">√(<ruby>a<rt>實數</rt></ruby>²) = |<ruby>a<rt>實數</rt></ruby>|</span>
-    <span class="f">數線兩點距離 = |<ruby>a<rt>點A坐標</rt></ruby> − <ruby>b<rt>點B坐標</rt></ruby>|</span>
   </div>
   <div class="tbl"><table>
     <thead><tr><th>絕對值方程式／不等式（a &gt; 0）</th><th>解</th><th>記法</th></tr></thead>
     <tbody>
       <tr><td class="f">|x| = a</td><td class="f">x = a 或 x = −a</td><td>離原點 a</td></tr>
-      <tr><td class="f">|x| &lt; a</td><td class="f">−a &lt; x &lt; a</td><td><b>小於夾中間</b></td></tr>
-      <tr><td class="f">|x| &gt; a</td><td class="f">x &gt; a 或 x &lt; −a</td><td><b>大於跑兩邊</b></td></tr>
+      <tr><td class="f">|x| ≥ a</td><td class="f">x ≥ a 或 x ≤ −a</td><td><b>大於跑兩邊</b></td></tr>
+      <tr><td class="f">|x| ≤ a</td><td class="f">−a ≤ x ≤ a</td><td><b>小於夾中間</b></td></tr>
+      <tr><td class="f">|x| &gt; a、|x| &lt; a</td><td>同上，但不含端點（用 &gt;、&lt;）</td><td>—</td></tr>
       <tr><td class="f">|x − c| ≤ r</td><td class="f">c − r ≤ x ≤ c + r</td><td>以 c 為中心、半徑 r</td></tr>
     </tbody>
   </table></div>
@@ -230,12 +245,12 @@ svg .dot { fill: var(--accent); }
     <li>性質：|ab| = |a||b|；<b>|a + b| ≤ |a| + |b|</b>（三角不等式）；|a| ≥ 0。</li>
     <li>|x| = −3 <b>無解</b>（絕對值不可能是負數）。</li>
   </ul>
-  <p style="margin:0"><b>坐標平面</b></p>
+  <p style="margin:0"><b>坐標平面</b>：A(x₁, y₁)、B(x₂, y₂)、C(x₃, y₃)</p>
   <div class="formulas">
-    <span class="f">兩點距離 = √((<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)² + (<ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>)²)</span>
-    <span class="f">中點 = ((<ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby>)/2, (<ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby>)/2)</span>
-    <span class="f">分點 AP:PB = <ruby>m<rt>前段比</rt></ruby>:<ruby>n<rt>後段比</rt></ruby> → P = ((<ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby>)/(<ruby>m<rt>前段比</rt></ruby>+<ruby>n<rt>後段比</rt></ruby>), (<ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby>)/(<ruby>m<rt>前段比</rt></ruby>+<ruby>n<rt>後段比</rt></ruby>))</span>
-    <span class="f">重心 = ((<ruby>x₁<rt>A的x</rt></ruby>+<ruby>x₂<rt>B的x</rt></ruby>+<ruby>x₃<rt>C的x</rt></ruby>)/3, (<ruby>y₁<rt>A的y</rt></ruby>+<ruby>y₂<rt>B的y</rt></ruby>+<ruby>y₃<rt>C的y</rt></ruby>)/3)</span>
+    <span class="f">兩點距離 AB = √((<ruby>x₁<rt>A的x</rt></ruby> − <ruby>x₂<rt>B的x</rt></ruby>)² + (<ruby>y₁<rt>A的y</rt></ruby> − <ruby>y₂<rt>B的y</rt></ruby>)²)</span>
+    <span class="f">內分點（AP : PB = <ruby>m<rt>前段比</rt></ruby> : <ruby>n<rt>後段比</rt></ruby>）P = ( <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> , <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> )</span>
+    <span class="f">中點（m : n = 1 : 1）= ( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby></span><span class="den">2</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby></span><span class="den">2</span></span> )</span>
+    <span class="f">△ABC 重心 = ( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby> + <ruby>x₃<rt>C的x</rt></ruby></span><span class="den">3</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby> + <ruby>y₃<rt>C的y</rt></ruby></span><span class="den">3</span></span> )</span>
   </div>
   <div class="tbl"><table>
     <thead><tr><th>象限</th><th>第一</th><th>第二</th><th>第三</th><th>第四</th></tr></thead>
@@ -252,21 +267,37 @@ svg .dot { fill: var(--accent); }
       <tr><td>對直線 y = x</td><td class="f">(b, a)</td><td>x、y 交換</td></tr>
     </tbody>
   </table></div>
-  <div class="note ex"><b class="tag">例題</b><p>A(1, 2)、B(4, 6)：距離 = √(3² + 4²) = <b>5</b>，中點 = <b>(2.5, 4)</b>。<br>解 |x − 2| &lt; 3：−3 &lt; x − 2 &lt; 3 → <b>−1 &lt; x &lt; 5</b>。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>在 x 軸或 y 軸上的點<b>不屬於任何象限</b>。分點公式是「比例交叉乘」：靠近 A 的比例 n 乘在 A 的坐標上。</p></div>
+  <div class="note ex"><b class="tag">例題</b><p>A(1, 2)、B(4, 6)：距離 = √(3² + 4²) = <b>5</b>，中點 = ( <span class="frac"><span class="num">1 + 4</span><span class="den">2</span></span> , <span class="frac"><span class="num">2 + 6</span><span class="den">2</span></span> ) = <b>(2.5, 4)</b>。<br>解 |x − 2| &lt; 3：−3 &lt; x − 2 &lt; 3 → <b>−1 &lt; x &lt; 5</b>。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>在 x 軸或 y 軸上的點<b>不屬於任何象限</b>。內分點公式是「比例交叉乘」：靠近 A 的比例 n 乘在 A 的坐標上。</p></div>
 </section>
 
 <!-- 1-3 -->
 <section class="sec" id="s1-3">
   <h3><span class="id">1-3</span>常見的函數圖形</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>名詞</th><th>意思</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td>集合</td><td>一些不盡相同的明確事物組成的群體，常用<b>大寫英文字母</b>表示，元素寫在<b>大括號</b>裡</td><td class="f">A = &#123;2, 4, 6&#125;；B = &#123;x ∣ 0 ≤ x ≤ 10，x 為實數&#125;</td></tr>
+      <tr><td>元素</td><td>集合中的每一個事物</td><td class="f">A = &#123;2, 4, 6&#125; 有 3 個元素</td></tr>
+      <tr><td>函數</td><td>集合 A 的<b>每一個</b>元素 x，都可以在集合 B 找到<b>唯一一個</b>元素 y 對應，稱「y 是 x 的函數」</td><td>每個 x 只對應一個 y</td></tr>
+      <tr><td>自變數 / 應變數</td><td>x 稱為<b>自變數</b>，y 稱為<b>應變數</b></td><td class="f">y = f(x)</td></tr>
+      <tr><td>定義域 / 對應域</td><td>集合 A 稱為<b>定義域</b>，集合 B 稱為<b>對應域</b></td><td>—</td></tr>
+    </tbody>
+  </table></div>
   <ul class="pts">
-    <li><b>函數</b>：每一個 x 都只對應<b>一個</b> y。圖形判斷：畫鉛直線，最多只碰到圖形一次。</li>
-    <li><b>定義域</b>：x 可以用的範圍；<b>值域</b>：y 得到的範圍。</li>
+    <li>圖形判斷是不是函數：畫鉛直線，最多只碰到圖形一次。</li>
   </ul>
+  <div class="tbl"><table>
+    <thead><tr><th>常見的函數（a、b、c 為實數）</th><th>寫法</th><th>圖形</th></tr></thead>
+    <tbody>
+      <tr><td>一次函數</td><td class="f">f(x) = <ruby>a<rt>斜率</rt></ruby>x + <ruby>b<rt>y截距</rt></ruby>（a ≠ 0）</td><td>一條<b>斜直線</b></td></tr>
+      <tr><td>常數函數</td><td class="f">f(x) = <ruby>b<rt>常數</rt></ruby></td><td>一條<b>水平直線</b></td></tr>
+      <tr><td>二次函數</td><td class="f">f(x) = <ruby>a<rt>二次項係數</rt></ruby>x² + <ruby>b<rt>一次項係數</rt></ruby>x + <ruby>c<rt>常數項</rt></ruby>（a ≠ 0）</td><td><b>拋物線</b></td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin:0;font-size:14px;color:var(--muted)">註：一次函數與常數函數合稱<b>線型函數</b>。</p>
   <div class="formulas">
-    <span class="f">一次函數：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>斜率</rt></ruby><ruby>x<rt>自變數</rt></ruby> + <ruby>b<rt>y截距</rt></ruby></span>
-    <span class="f">斜率 <ruby>m<rt>斜率</rt></ruby> = (<ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>) / (<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)</span>
-    <span class="f">常數函數：<ruby>y<rt>函數值</rt></ruby> = <ruby>c<rt>常數</rt></ruby></span>
+    <span class="f">斜率 <ruby>m<rt>斜率</rt></ruby> = <span class="frac"><span class="num"><ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby></span><span class="den"><ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby></span></span></span>
   </div>
   <div class="tbl"><table>
     <thead><tr><th>一次函數 y = ax + b</th><th>圖形</th></tr></thead>
@@ -277,37 +308,37 @@ svg .dot { fill: var(--accent); }
       <tr><td>b</td><td>和 y 軸交點 (0, b)</td></tr>
     </tbody>
   </table></div>
-  <p style="margin:0"><b>二次函數（拋物線）</b></p>
+  <p style="margin:0"><b>二次函數 f(x) = ax² + bx + c（a ≠ 0）</b></p>
   <div class="formulas">
-    <span class="f">一般式：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby><ruby>x<rt>自變數</rt></ruby>² + <ruby>b<rt>一次項係數</rt></ruby><ruby>x<rt>自變數</rt></ruby> + <ruby>c<rt>常數項</rt></ruby></span>
     <span class="f">配方式：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby>(<ruby>x<rt>自變數</rt></ruby> − <ruby>h<rt>頂點x</rt></ruby>)² + <ruby>k<rt>頂點y</rt></ruby></span>
-    <span class="f">頂點 <ruby>h<rt>頂點x</rt></ruby> = −<ruby>b<rt>一次項係數</rt></ruby> / 2<ruby>a<rt>二次項係數</rt></ruby></span>
-    <span class="f"><ruby>k<rt>頂點y</rt></ruby> = −(<ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>) / 4<ruby>a<rt>二次項係數</rt></ruby></span>
+    <span class="f">極值 = −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span></span>
+    <span class="f">頂點 ( −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span> , −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span> )</span>
     <span class="f">判別式 <ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span>
   </div>
   <div class="tbl"><table>
     <thead><tr><th>看什麼</th><th>結論</th></tr></thead>
     <tbody>
-      <tr><td>a &gt; 0</td><td>開口<b>向上</b>，頂點是<b>最低點</b>，最小值 = k</td></tr>
-      <tr><td>a &lt; 0</td><td>開口<b>向下</b>，頂點是<b>最高點</b>，最大值 = k</td></tr>
+      <tr><td>a &gt; 0</td><td>開口<b>向上</b>，有<b>最低點</b>，函數有<b>最小值</b></td></tr>
+      <tr><td>a &lt; 0</td><td>開口<b>向下</b>，有<b>最高點</b>，函數有<b>最大值</b></td></tr>
       <tr><td>|a| 越大</td><td>開口越<b>窄</b></td></tr>
-      <tr><td>對稱軸</td><td class="f">x = h = −b/2a</td></tr>
+      <tr><td>對稱軸</td><td class="f">x = −<span class="frac"><span class="num">b</span><span class="den">2a</span></span></td></tr>
       <tr><td>c</td><td>和 y 軸交點 (0, c)</td></tr>
       <tr><td>D &gt; 0</td><td>和 x 軸交<b>兩點</b></td></tr>
       <tr><td>D = 0</td><td>和 x 軸<b>相切</b>（交一點，就是頂點）</td></tr>
       <tr><td>D &lt; 0</td><td>和 x 軸<b>不相交</b></td></tr>
     </tbody>
   </table></div>
+  <p style="margin:0"><b>二次函數圖形的平移</b></p>
   <div class="tbl"><table>
-    <thead><tr><th>圖形平移</th><th>由 y = f(x) 變成</th></tr></thead>
+    <thead><tr><th>從</th><th>怎麼移</th><th>變成</th></tr></thead>
     <tbody>
-      <tr><td>向右 h 單位</td><td class="f">y = f(x − h)（括號裡是減號才是往右）</td></tr>
-      <tr><td>向上 k 單位</td><td class="f">y = f(x) + k</td></tr>
-      <tr><td>例</td><td class="f">y = 2x² 右移 3、下移 1 → y = 2(x − 3)² − 1，頂點 (3, −1)</td></tr>
+      <tr><td class="f">y = ax² 的圖形</td><td>向右平移 h 單位（h &lt; 0 就是向左）</td><td class="f">y = a(x − h)² 的圖形</td></tr>
+      <tr><td class="f">y = a(x − h)² 的圖形</td><td>向上平移 k 單位（k &lt; 0 就是向下）</td><td class="f">y = a(x − h)² + k 的圖形</td></tr>
+      <tr><td>例</td><td>y = 2x² 右移 3、下移 1</td><td class="f">y = 2(x − 3)² − 1，頂點 (3, −1)</td></tr>
     </tbody>
   </table></div>
   <ul class="pts">
-    <li>絕對值函數 y = |x|：V 字形，頂點在原點，以 y 軸對稱。y = |x − h| + k 的頂點是 (h, k)。</li>
+    <li>括號裡是<b>減號才是往右</b>。絕對值函數 y = |x − h| + k 是 V 字形，頂點也是 (h, k)。</li>
   </ul>
 
   <div class="calc" id="play">
@@ -328,28 +359,39 @@ svg .dot { fill: var(--accent); }
 <!-- 1-4 -->
 <section class="sec" id="s1-4">
   <h3><span class="id">1-4</span>一元二次不等式</h3>
-  <p style="margin:0"><b>先準備：一元二次方程式 ax² + bx + c = 0</b></p>
-  <div class="formulas">
-    <span class="f">公式解 <ruby>x<rt>根</rt></ruby> = (−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby>) / 2<ruby>a<rt>二次項係數</rt></ruby></span>
-    <span class="f">兩根和 <ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = −<ruby>b<rt>一次項係數</rt></ruby> / <ruby>a<rt>二次項係數</rt></ruby></span>
-    <span class="f">兩根積 <ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <ruby>c<rt>常數項</rt></ruby> / <ruby>a<rt>二次項係數</rt></ruby></span>
-  </div>
-  <p style="margin:0"><b>解題步驟</b>：① 移項，右邊變 0　② 讓 x² 係數變正（乘 −1 時不等號反向）　③ 因式分解或公式解找出兩根 α &lt; β　④ 套下表</p>
+  <p style="margin:0"><b>二次函數值的恆正與恆負</b>：y = ax² + bx + c（a ≠ 0），D = b² − 4ac</p>
   <div class="tbl"><table>
-    <thead><tr><th>（a &gt; 0，兩根 α &lt; β）</th><th>解</th><th>記法</th></tr></thead>
+    <thead><tr><th>情況</th><th>條件</th><th>圖形</th></tr></thead>
     <tbody>
-      <tr><td class="f">(<ruby>x<rt>未知數</rt></ruby> − <ruby>α<rt>小根</rt></ruby>)(<ruby>x<rt>未知數</rt></ruby> − <ruby>β<rt>大根</rt></ruby>) &gt; 0</td><td class="f">x &lt; α 或 x &gt; β</td><td><b>大於跑兩邊</b></td></tr>
-      <tr><td class="f">(<ruby>x<rt>未知數</rt></ruby> − <ruby>α<rt>小根</rt></ruby>)(<ruby>x<rt>未知數</rt></ruby> − <ruby>β<rt>大根</rt></ruby>) &lt; 0</td><td class="f">α &lt; x &lt; β</td><td><b>小於夾中間</b></td></tr>
-      <tr><td class="f">≥ 0 或 ≤ 0</td><td>同上，<b>端點也要包含</b></td><td>用 ≤ 或 ≥</td></tr>
+      <tr><td>函數值<b>恆正</b></td><td class="f">a &gt; 0 且 D &lt; 0（反之亦然）</td><td>開口向上，整個在 x 軸<b>上方</b></td></tr>
+      <tr><td>函數值<b>恆負</b></td><td class="f">a &lt; 0 且 D &lt; 0（反之亦然）</td><td>開口向下，整個在 x 軸<b>下方</b></td></tr>
     </tbody>
   </table></div>
+  <p style="margin:0"><b>先準備：一元二次方程式 ax² + bx + c = 0</b></p>
+  <div class="formulas">
+    <span class="f">公式解 <ruby>x<rt>根</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span></span>
+    <span class="f">兩根和 <ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></span>
+    <span class="f">兩根積 <ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num"><ruby>c<rt>常數項</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></span>
+  </div>
+  <p style="margin:0"><b>解題步驟</b>：① 移項，右邊變 0　② 讓 x² 係數變正（a &gt; 0；乘 −1 時不等號反向）　③ 因式分解或公式解找出兩根　④ 查下表。課本記法：兩根 <b>α &gt; β</b>（α 是大根、β 是小根）。</p>
+  <div class="tbl"><table class="ineq">
+    <thead><tr><th>a &gt; 0</th><th class="f">ax² + bx + c ≥ 0</th><th class="f">ax² + bx + c &gt; 0</th><th class="f">ax² + bx + c ≤ 0</th><th class="f">ax² + bx + c &lt; 0</th></tr></thead>
+    <tbody>
+      <tr><td>D &gt; 0<br><small>相異兩實根（α &gt; β）</small></td><td class="f">x ≥ α 或 x ≤ β</td><td class="f">x &gt; α 或 x &lt; β</td><td class="f">β ≤ x ≤ α</td><td class="f">β &lt; x &lt; α</td></tr>
+      <tr><td>D = 0<br><small>相等實根（α = β）</small></td><td>所有實數</td><td class="f">x ≠ α 的所有實數</td><td class="f">x = α</td><td>無實數解</td></tr>
+      <tr><td>D &lt; 0<br><small>沒有實根</small></td><td>所有實數</td><td>所有實數</td><td>無實數解</td><td>無實數解</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="pts">
+    <li>口訣：D &gt; 0 時，<b>大於跑兩邊，小於夾中間</b>；有等號就把端點包含進去。</li>
+  </ul>
   <div class="graphs" aria-label="判別式三種情況">
     <div class="graph">
       <svg viewBox="0 0 220 130" role="img" aria-label="D大於0，拋物線和x軸交兩點">
         <path class="xax" d="M10 80 H210"/>
         <path class="ln" d="M40 20 Q110 170 180 20"/>
         <circle class="dot" cx="67" cy="80" r="5"/><circle class="dot" cx="153" cy="80" r="5"/>
-        <text x="60" y="104">α</text><text x="148" y="104">β</text>
+        <text x="60" y="104">β</text><text x="148" y="104">α</text>
       </svg>
       <div class="cap"><b>D &gt; 0：交兩點</b>，&gt;0 解在兩邊，&lt;0 解在中間</div>
     </div>
@@ -360,52 +402,47 @@ svg .dot { fill: var(--accent); }
         <circle class="dot" cx="110" cy="100" r="5"/>
         <text x="104" y="122">α</text>
       </svg>
-      <div class="cap"><b>D = 0：相切</b>，&gt;0 解為 x ≠ α；≥0 全部實數；&lt;0 無解；≤0 只有 x = α</div>
+      <div class="cap"><b>D = 0：相切</b>，&gt;0 解為 x ≠ α；≥0 所有實數；&lt;0 無解；≤0 只有 x = α</div>
     </div>
     <div class="graph">
       <svg viewBox="0 0 220 130" role="img" aria-label="D小於0，拋物線在x軸上方">
         <path class="xax" d="M10 110 H210"/>
         <path class="ln" d="M50 10 Q110 150 170 10"/>
       </svg>
-      <div class="cap"><b>D &lt; 0：不相交</b>，&gt;0 解為全部實數；&lt;0 無解</div>
+      <div class="cap"><b>D &lt; 0：不相交</b>，&gt;0、≥0 為所有實數；&lt;0、≤0 無實數解</div>
     </div>
   </div>
-  <div class="tbl"><table>
-    <thead><tr><th>恆成立的條件</th><th>條件</th></tr></thead>
-    <tbody>
-      <tr><td>ax² + bx + c &gt; 0 對所有 x 成立（恆正）</td><td class="f">a &gt; 0 且 D &lt; 0</td></tr>
-      <tr><td>ax² + bx + c &lt; 0 對所有 x 成立（恆負）</td><td class="f">a &lt; 0 且 D &lt; 0</td></tr>
-    </tbody>
-  </table></div>
-  <div class="note ex"><b class="tag">例題</b><p>解 x² − x − 6 &gt; 0：(x − 3)(x + 2) &gt; 0，兩根 −2、3 → <b>x &lt; −2 或 x &gt; 3</b>。<br>解 −x² + 4x − 3 ≥ 0：先乘 −1 → x² − 4x + 3 ≤ 0，(x − 1)(x − 3) ≤ 0 → <b>1 ≤ x ≤ 3</b>。<br>已知解為 1 &lt; x &lt; 3，反推不等式：(x − 1)(x − 3) &lt; 0 → <b>x² − 4x + 3 &lt; 0</b>。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>x² 係數是負的時候，一定要先乘 −1 並<b>把不等號反過來</b>，再套「大於兩邊、小於中間」。x² + 1 &gt; 0 的解是<b>所有實數</b>，x² + 1 &lt; 0 <b>無解</b>。</p></div>
+  <div class="note ex"><b class="tag">例題</b><p>解 x² − x − 6 &gt; 0：(x − 3)(x + 2) &gt; 0，α = 3、β = −2 → <b>x &gt; 3 或 x &lt; −2</b>。<br>解 −x² + 4x − 3 ≥ 0：先乘 −1 → x² − 4x + 3 ≤ 0，(x − 3)(x − 1) ≤ 0 → <b>1 ≤ x ≤ 3</b>。<br>已知解為 1 &lt; x &lt; 3，反推不等式：(x − 3)(x − 1) &lt; 0 → <b>x² − 4x + 3 &lt; 0</b>。</p></div>
+  <div class="note warn"><b class="tag">陷阱</b><p>x² 係數是負的時候，一定要先乘 −1 並<b>把不等號反過來</b>，再查表。x² + 1 &gt; 0 的解是<b>所有實數</b>，x² + 1 &lt; 0 <b>無實數解</b>。</p></div>
 </section>
 
-<!-- 總表 -->
 <section class="sec" id="sum">
   <h3><span class="id">總表</span>考前 1 分鐘公式總複習</h3>
   <p style="margin:0;color:var(--muted);font-size:14px">最左邊是公式出自哪一個單元，忘記時可以翻回那一節看。</p>
   <div class="tbl"><table class="sumtbl">
     <thead><tr><th>單元</th><th>主題</th><th>公式</th></tr></thead>
     <tbody>
+      <tr><td><span class="utag">1-1</span></td><td>有理數</td><td class="f"><span class="frac"><span class="num"><ruby>q<rt>整數</rt></ruby></span><span class="den"><ruby>p<rt>整數</rt></ruby></span></span>，p ≠ 0</td></tr>
+      <tr><td><span class="utag">1-1</span></td><td>算幾不等式</td><td class="f"><span class="frac"><span class="num"><ruby>a<rt>非負實數</rt></ruby> + <ruby>b<rt>非負實數</rt></ruby></span><span class="den">2</span></span> ≥ √(<ruby>a<rt>非負實數</rt></ruby><ruby>b<rt>非負實數</rt></ruby>)，a = b 時等號成立</td></tr>
       <tr><td><span class="utag">1-1</span></td><td>循環小數</td><td class="f">0.<span class="ol">ab</span> = <span class="frac"><span class="num">ab</span><span class="den">99</span></span>；0.a<span class="ol">b</span> = <span class="frac"><span class="num">ab − a</span><span class="den">90</span></span></td></tr>
       <tr><td><span class="utag">1-1</span></td><td>分母有理化</td><td class="f"><span class="frac"><span class="num">1</span><span class="den">√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby></span></span> = <span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby></span><span class="den"><ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby></span></span></td></tr>
-      <tr><td><span class="utag">1-2</span></td><td>絕對值不等式</td><td class="f">|x| &lt; a ⇔ −a &lt; x &lt; a；|x| &gt; a ⇔ x &gt; a 或 x &lt; −a</td></tr>
-      <tr><td><span class="utag">1-2</span></td><td>兩點距離</td><td class="f">√((<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)² + (<ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>)²)</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>絕對值不等式</td><td class="f">|x| ≥ a ⇔ x ≥ a 或 x ≤ −a；|x| ≤ a ⇔ −a ≤ x ≤ a</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>兩點距離</td><td class="f">√((<ruby>x₁<rt>A的x</rt></ruby> − <ruby>x₂<rt>B的x</rt></ruby>)² + (<ruby>y₁<rt>A的y</rt></ruby> − <ruby>y₂<rt>B的y</rt></ruby>)²)</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>內分點</td><td class="f">( <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> , <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> )</td></tr>
       <tr><td><span class="utag">1-2</span></td><td>中點</td><td class="f">( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby></span><span class="den">2</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby></span><span class="den">2</span></span> )</td></tr>
       <tr><td><span class="utag">1-2</span></td><td>重心</td><td class="f">( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby> + <ruby>x₃<rt>C的x</rt></ruby></span><span class="den">3</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby> + <ruby>y₃<rt>C的y</rt></ruby></span><span class="den">3</span></span> )</td></tr>
       <tr><td><span class="utag">1-3</span></td><td>斜率</td><td class="f"><ruby>m<rt>斜率</rt></ruby> = <span class="frac"><span class="num"><ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby></span><span class="den"><ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby></span></span></td></tr>
-      <tr><td><span class="utag">1-3</span></td><td>拋物線頂點</td><td class="f"><ruby>h<rt>頂點x</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span>，<ruby>k<rt>頂點y</rt></ruby> = <span class="frac"><span class="num">−<ruby>D<rt>判別式</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-3</span></td><td>頂點</td><td class="f">( −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span> , −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span> )</td></tr>
       <tr><td><span class="utag">1-3</span></td><td>判別式</td><td class="f"><ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>：&gt;0 兩交點、=0 相切、&lt;0 不相交</td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>恆正／恆負</td><td class="f">恆正：a &gt; 0 且 D &lt; 0；恆負：a &lt; 0 且 D &lt; 0</td></tr>
       <tr><td><span class="utag">1-4</span></td><td>公式解</td><td class="f"><ruby>x<rt>根</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
       <tr><td><span class="utag">1-4</span></td><td>根與係數</td><td class="f"><ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span>，<ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num"><ruby>c<rt>常數項</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
-      <tr><td><span class="utag">1-4</span></td><td>二次不等式</td><td class="f">a &gt; 0 時：<b>大於跑兩邊，小於夾中間</b></td></tr>
-      <tr><td><span class="utag">1-4</span></td><td>恆正</td><td class="f">a &gt; 0 且 D &lt; 0</td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>二次不等式</td><td class="f">a &gt; 0、α &gt; β：&gt; 0 → x &gt; α 或 x &lt; β；&lt; 0 → β &lt; x &lt; α</td></tr>
     </tbody>
   </table></div>
 </section>
 
-<footer>依課本目錄 1-1～1-4 整理。寫法以一般高職數學課本為準，若與你的課本有出入，以課本和老師上課為主。</footer>
+<footer>依課本目錄 1-1～1-4 與 CH.1 重點整理整理。若與老師上課有出入，以老師為主。</footer>
 </div>
 
 <script>
@@ -449,8 +486,6 @@ svg .dot { fill: var(--accent); }
   update();
 })();
 </script>
-
-
 <script>
 (function () {
   var KEY = "study-theme", root = document.documentElement, btn = document.getElementById("themeBtn");
