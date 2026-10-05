@@ -133,6 +133,13 @@ svg .dot { fill: var(--accent); }
 .theme-btn:hover { border-color: var(--muted); }
 .theme-btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 @media print { .theme-btn { display: none !important; } }
+
+.frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin-inline: 3px; }
+.frac > .num { padding: 0 4px 3px; }
+.frac > .den { padding: 6px 4px 0; border-top: 1.5px solid currentColor; align-self: stretch; text-align: center; }
+.utag { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 1px 7px; white-space: nowrap; }
+.sumtbl td { vertical-align: middle; }
+.sumtbl td:nth-child(2) { white-space: nowrap; font-weight: 700; }
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -377,22 +384,23 @@ svg .dot { fill: var(--accent); }
 <!-- 總表 -->
 <section class="sec" id="sum">
   <h3><span class="id">總表</span>考前 1 分鐘公式總複習</h3>
-  <div class="tbl"><table>
-    <thead><tr><th>主題</th><th>公式／口訣</th></tr></thead>
+  <p style="margin:0;color:var(--muted);font-size:14px">最左邊是公式出自哪一個單元，忘記時可以翻回那一節看。</p>
+  <div class="tbl"><table class="sumtbl">
+    <thead><tr><th>單元</th><th>主題</th><th>公式</th></tr></thead>
     <tbody>
-      <tr><td>循環小數</td><td class="f">0.<span class="ol">ab</span> = ab/99；0.a<span class="ol">b</span> = (ab − a)/90</td></tr>
-      <tr><td>分母有理化</td><td class="f">1/(√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby>) = (√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby>)/(<ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby>)</td></tr>
-      <tr><td>絕對值不等式</td><td class="f">|x| &lt; a ⇔ −a &lt; x &lt; a；|x| &gt; a ⇔ x &gt; a 或 x &lt; −a</td></tr>
-      <tr><td>兩點距離</td><td class="f">√((<ruby>x₂<rt>B的x</rt></ruby>−<ruby>x₁<rt>A的x</rt></ruby>)² + (<ruby>y₂<rt>B的y</rt></ruby>−<ruby>y₁<rt>A的y</rt></ruby>)²)</td></tr>
-      <tr><td>中點</td><td class="f">((<ruby>x₁<rt>A的x</rt></ruby>+<ruby>x₂<rt>B的x</rt></ruby>)/2, (<ruby>y₁<rt>A的y</rt></ruby>+<ruby>y₂<rt>B的y</rt></ruby>)/2)</td></tr>
-      <tr><td>重心</td><td class="f">(三個 x 相加 ÷ 3, 三個 y 相加 ÷ 3)</td></tr>
-      <tr><td>斜率</td><td class="f"><ruby>m<rt>斜率</rt></ruby> = (<ruby>y₂<rt>B的y</rt></ruby>−<ruby>y₁<rt>A的y</rt></ruby>)/(<ruby>x₂<rt>B的x</rt></ruby>−<ruby>x₁<rt>A的x</rt></ruby>)</td></tr>
-      <tr><td>拋物線頂點</td><td class="f"><ruby>h<rt>頂點x</rt></ruby> = −<ruby>b<rt>一次項係數</rt></ruby>/2<ruby>a<rt>二次項係數</rt></ruby>，<ruby>k<rt>頂點y</rt></ruby> = −<ruby>D<rt>判別式</rt></ruby>/4<ruby>a<rt>二次項係數</rt></ruby></td></tr>
-      <tr><td>判別式</td><td class="f"><ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>：&gt;0 兩交點、=0 相切、&lt;0 不相交</td></tr>
-      <tr><td>公式解</td><td class="f"><ruby>x<rt>根</rt></ruby> = (−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby>)/2<ruby>a<rt>二次項係數</rt></ruby></td></tr>
-      <tr><td>根與係數</td><td class="f"><ruby>α<rt>根1</rt></ruby>+<ruby>β<rt>根2</rt></ruby> = −b/a，<ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = c/a</td></tr>
-      <tr><td>二次不等式</td><td>a &gt; 0 時：<b>大於跑兩邊，小於夾中間</b></td></tr>
-      <tr><td>恆正</td><td class="f">a &gt; 0 且 D &lt; 0</td></tr>
+      <tr><td><span class="utag">1-1</span></td><td>循環小數</td><td class="f">0.<span class="ol">ab</span> = <span class="frac"><span class="num">ab</span><span class="den">99</span></span>；0.a<span class="ol">b</span> = <span class="frac"><span class="num">ab − a</span><span class="den">90</span></span></td></tr>
+      <tr><td><span class="utag">1-1</span></td><td>分母有理化</td><td class="f"><span class="frac"><span class="num">1</span><span class="den">√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby></span></span> = <span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby></span><span class="den"><ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>絕對值不等式</td><td class="f">|x| &lt; a ⇔ −a &lt; x &lt; a；|x| &gt; a ⇔ x &gt; a 或 x &lt; −a</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>兩點距離</td><td class="f">√((<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)² + (<ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>)²)</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>中點</td><td class="f">( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby></span><span class="den">2</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby></span><span class="den">2</span></span> )</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>重心</td><td class="f">( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby> + <ruby>x₃<rt>C的x</rt></ruby></span><span class="den">3</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby> + <ruby>y₃<rt>C的y</rt></ruby></span><span class="den">3</span></span> )</td></tr>
+      <tr><td><span class="utag">1-3</span></td><td>斜率</td><td class="f"><ruby>m<rt>斜率</rt></ruby> = <span class="frac"><span class="num"><ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby></span><span class="den"><ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-3</span></td><td>拋物線頂點</td><td class="f"><ruby>h<rt>頂點x</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span>，<ruby>k<rt>頂點y</rt></ruby> = <span class="frac"><span class="num">−<ruby>D<rt>判別式</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-3</span></td><td>判別式</td><td class="f"><ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>：&gt;0 兩交點、=0 相切、&lt;0 不相交</td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>公式解</td><td class="f"><ruby>x<rt>根</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>根與係數</td><td class="f"><ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span>，<ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num"><ruby>c<rt>常數項</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>二次不等式</td><td class="f">a &gt; 0 時：<b>大於跑兩邊，小於夾中間</b></td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>恆正</td><td class="f">a &gt; 0 且 D &lt; 0</td></tr>
     </tbody>
   </table></div>
 </section>
