@@ -27,11 +27,6 @@
   --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #000000; --paper: #0f0e12; --grid: #0b0b0d; --fg: #e4e1ea; --muted: #a09bac; --line: #26242d;
-  --accent: #bba8e0; --accent-soft: #1d1a24; --ch1: #bba8e0; --ch2: #f0a53a; --ch3: #5fd09c;
-  --warn: #eba08f; --warn-soft: #231a1c; --hl: #3b3524;
-  color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #000000; --paper: #0f0e12; --grid: #0b0b0d; --fg: #e4e1ea; --muted: #a09bac; --line: #26242d;
   --accent: #bba8e0; --accent-soft: #1d1a24; --ch1: #bba8e0; --ch2: #f0a53a; --ch3: #5fd09c;
@@ -491,7 +486,7 @@ svg .dot { fill: var(--accent); }
   var KEY = "study-theme", root = document.documentElement, btn = document.getElementById("themeBtn");
   var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   try { var saved = localStorage.getItem(KEY); if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved); } catch (e) {}
-  function current() { var t = root.getAttribute("data-theme"); return t || (mq && mq.matches ? "dark" : "light"); }
+  function current() { var t = root.getAttribute("data-theme"); return t || "light"; }
   function label() {
     var dark = current() === "dark";
     btn.innerHTML = dark ? "<span aria-hidden=\"true\">☀</span> 切換淺色模式" : "<span aria-hidden=\"true\">☾</span> 切換深色模式";
