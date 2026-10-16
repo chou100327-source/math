@@ -1,4 +1,4 @@
-# 數學 重點整理（高職一年級　第一章～第三章）
+# 數學上學期 重點整理（高職一年級　第一章～第三章）
 
 Mathematics study notes for Taiwanese vocational high school students (高職 / 技高).
 
