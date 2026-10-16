@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>數學 Ch1 重點</title>
+<title>數學 重點整理</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -136,208 +136,151 @@ svg .dot { fill: var(--accent); }
 .sumtbl td { vertical-align: middle; }
 .sumtbl td:nth-child(2) { white-space: nowrap; font-weight: 700; }
 body { touch-action: manipulation; }
+/*detail:start*/
+section.sec > p { margin: 0; }
+h4.sub { margin: 6px 0 0; font-size: 16px; font-weight: 700; color: var(--accent); }
+.note.know { background: var(--accent-soft); }
+.note.know b.tag { color: var(--accent); }
+.note.one { border-left: 4px solid var(--accent); background: var(--bg); border-radius: 0 10px 10px 0; }
+.note.one b.tag { color: var(--accent); }
+ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: st; display: grid; gap: 8px; }
+ol.steps li { counter-increment: st; padding-left: 36px; position: relative; }
+ol.steps li::before { content: counter(st); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent); color: var(--paper); font: 700 13px var(--mono); display: grid; place-items: center; }
+table.wf td:first-child { white-space: normal; }
+.fig.tris { gap: 14px; flex-wrap: wrap; }
+.cap { text-align: center; font-size: 13px; color: var(--muted); }
+svg.ckt { width: min(380px, 100%); height: auto; }
+svg.ckt .w { stroke: var(--fg); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+svg.ckt .dash { stroke: var(--muted); stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+svg.ckt .ln2 { stroke: var(--accent); stroke-width: 3; fill: none; stroke-linejoin: round; }
+svg.ckt .arr { stroke: var(--accent); stroke-width: 2.5; fill: none; }
+svg.ckt .mk { fill: var(--accent); }
+svg.ckt .dot { fill: var(--accent); }
+svg.ckt .t { fill: var(--fg); font-family: var(--mono); font-size: 14px; font-weight: 700; }
+svg.ckt .tz { fill: var(--accent); font-family: var(--sans); font-size: 12px; font-weight: 700; }
+svg.tri { width: 120px; height: auto; }
+.tri-shape { fill: var(--paper); stroke: var(--accent); stroke-width: 3; }
+.tri-line { stroke: var(--accent); stroke-width: 2; fill: none; }
+svg.tri .tl { fill: var(--fg); font-family: var(--mono); font-size: 28px; font-weight: 700; text-anchor: middle; }
+svg.tri .tz2 { fill: var(--accent); font-family: var(--sans); font-size: 12px; font-weight: 700; text-anchor: middle; }
+svg.ckt .ln3 { stroke: var(--warn); stroke-width: 3; fill: none; stroke-linejoin: round; }
+svg.ckt .tz2 { fill: var(--warn); font-family: var(--sans); font-size: 12px; font-weight: 700; }
+svg.ckt .arr2 { stroke: var(--warn); stroke-width: 2.5; fill: none; }
+.fig { display: flex; justify-content: center; }
+.vec { position: relative; display: inline-block; font-style: normal; }
+.vec::before { content: "→"; position: absolute; left: 50%; top: -0.72em; transform: translateX(-50%) scale(.72); line-height: 1; pointer-events: none; }
+ruby .vec { font-weight: 700; }
+ruby .vec::before { display: none; }
+/*detail:end*/
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}[hidden]{display:none!important}</style>
 </head>
 <body><div class="wrap">
-
 <header class="top">
-  <div class="toprow"><div class="eyebrow">高職一年級 · 數學 · 第一次段考</div><button type="button" class="theme-btn" id="themeBtn">切換深色模式</button></div>
-  <h1>第一章 坐標系與函數圖形 重點整理</h1>
-  <p>先看每節的公式卡，再看表格；公式裡每個代號上方都標了中文名稱。紅色框是常考陷阱，虛線框是例題。</p>
+  <div class="toprow"><div class="eyebrow">高職一年級 · 數學</div><button type="button" class="theme-btn" id="themeBtn">切換深色模式</button></div>
+  <h1>數學 第一章～第三章 重點整理</h1>
   <nav class="toc" aria-label="目錄">
-    <a class="c1" href="#s1-1">1-1 實數</a><a class="c1" href="#s1-2">1-2 絕對值與坐標系</a><a class="c1" href="#s1-3">1-3 函數圖形</a><a class="c1" href="#s1-4">1-4 二次不等式</a>
-    <a href="#sum">公式總表</a>
+    <a class="c1" href="#s1-1">1-1 實數</a><a class="c1" href="#s1-2">1-2 絕對值與坐標</a><a class="c1" href="#s1-3">1-3 函數圖形</a><a class="c1" href="#s1-4">1-4 二次不等式</a><a class="c2" href="#s2-1">2-1 有向角</a><a class="c2" href="#s2-2">2-2 三角函數定義</a><a class="c2" href="#s2-3">2-3 任意角</a><a class="c2" href="#s2-4">2-4 圖形週期</a><a class="c2" href="#s2-5">2-5 正弦餘弦定理</a><a class="c3" href="#s3-1">3-1 向量運算</a><a class="c3" href="#s3-2">3-2 內積夾角</a><a class="c3" href="#s3-3">3-3 內積應用</a><a href="#appx">附錄</a><a href="#sum">公式總表</a>
   </nav>
 </header>
 
 <div class="chapter c1"><span class="num">01</span><h2>坐標系與函數圖形</h2></div>
 
-<!-- 1-1 -->
 <section class="sec" id="s1-1">
-  <h3><span class="id">1-1</span>實數</h3>
-  <div class="formulas">
-    <span class="f">有理數的定義：可以用 <span class="frac"><span class="num"><ruby>q<rt>整數</rt></ruby></span><span class="den"><ruby>p<rt>整數</rt></ruby></span></span> 表示的數，其中 <ruby>p<rt>分母</rt></ruby> ≠ 0，且 p、q 都是整數</span>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>實數系</th><th>符號</th><th>包含什麼</th></tr></thead>
-    <tbody>
-      <tr><td>實數</td><td class="f">ℝ</td><td>有理數 + 無理數；實數和數線上的點<b>一一對應</b></td></tr>
-      <tr><td>有理數</td><td class="f">ℚ</td><td>整數 + <b>有限小數、循環小數</b>（例如 <span class="frac"><span class="num">1</span><span class="den">3</span></span>、1.5、0.1<span class="ol">6</span>）</td></tr>
-      <tr><td>整數</td><td class="f">ℤ</td><td>正整數 + <b>零</b> + 負整數（例如 −1, −2, −3 …）</td></tr>
-      <tr><td>正整數（自然數）</td><td class="f">ℕ</td><td>1, 2, 3, …</td></tr>
-      <tr><td>無理數</td><td>—</td><td><b>不循環的無限小數</b>：π、√3、∛2</td></tr>
-    </tbody>
-  </table></div>
-  <ul class="pts">
-    <li><b>實數的運算性質</b>：交換律、結合律、分配律，以及等量、不等量的加法和乘法（詳見課本 1-1.2）。</li>
-    <li>不等式兩邊同乘（除）<b>負數</b>，不等號要<b>反向</b>。</li>
-    <li>有理數 + 無理數 = 無理數；但無理數 + 無理數不一定是無理數（√2 + (−√2) = 0）。</li>
-  </ul>
-  <p style="margin:0"><b>算幾不等式</b>（a、b 是兩個非負實數）</p>
-  <div class="formulas">
-    <span class="f">算術平均數 <span class="frac"><span class="num"><ruby>a<rt>非負實數</rt></ruby> + <ruby>b<rt>非負實數</rt></ruby></span><span class="den">2</span></span> ≥ 幾何平均數 √(<ruby>a<rt>非負實數</rt></ruby><ruby>b<rt>非負實數</rt></ruby>)</span>
-  </div>
-  <ul class="pts">
-    <li>算術平均數<b>恆大於或等於</b>幾何平均數。<b>當 a = b 時，等號成立</b>；反之亦然。</li>
-    <li>常見用法：兩正數「積固定」時求「和的最小值」，或「和固定」時求「積的最大值」。</li>
-  </ul>
-  <div class="note ex"><b class="tag">例題</b><p>x &gt; 0，求 x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> 的最小值：<span class="frac"><span class="num">x + <span class="frac"><span class="num">4</span><span class="den">x</span></span></span><span class="den">2</span></span> ≥ √(x × <span class="frac"><span class="num">4</span><span class="den">x</span></span>) = 2，所以 x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> ≥ <b>4</b>，當 x = <span class="frac"><span class="num">4</span><span class="den">x</span></span>（x = 2）時成立。</p></div>
-  <p style="margin:0"><b>循環小數化成分數</b></p>
-  <div class="tbl"><table>
-    <thead><tr><th>類型</th><th>做法</th><th>例子</th></tr></thead>
-    <tbody>
-      <tr><td>純循環</td><td>循環節 ÷ 同位數的 9</td><td class="f">0.<span class="ol">3</span> = <span class="frac"><span class="num">3</span><span class="den">9</span></span> = <span class="frac"><span class="num">1</span><span class="den">3</span></span>；0.<span class="ol">12</span> = <span class="frac"><span class="num">12</span><span class="den">99</span></span> = <span class="frac"><span class="num">4</span><span class="den">33</span></span></td></tr>
-      <tr><td>混循環</td><td>(全部數字 − 不循環部分) ÷（循環幾位就幾個 9，後面補不循環幾位的 0）</td><td class="f">0.1<span class="ol">2</span> = <span class="frac"><span class="num">12 − 1</span><span class="den">90</span></span> = <span class="frac"><span class="num">11</span><span class="den">90</span></span></td></tr>
-      <tr><td>帶整數</td><td>整數部分另外加</td><td class="f">1.<span class="ol">3</span> = 1 + <span class="frac"><span class="num">1</span><span class="den">3</span></span> = <span class="frac"><span class="num">4</span><span class="den">3</span></span></td></tr>
-    </tbody>
-  </table></div>
-  <p style="margin:0"><b>根式運算</b>（a、b &gt; 0）</p>
-  <div class="formulas">
-    <span class="f">√<ruby>a<rt>正數</rt></ruby> × √<ruby>b<rt>正數</rt></ruby> = √(<ruby>a<rt>正數</rt></ruby><ruby>b<rt>正數</rt></ruby>)</span>
-    <span class="f"><span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby></span><span class="den">√<ruby>b<rt>正數</rt></ruby></span></span> = √<span class="frac"><span class="num"><ruby>a<rt>正數</rt></ruby></span><span class="den"><ruby>b<rt>正數</rt></ruby></span></span></span>
-    <span class="f">分母有理化：<span class="frac"><span class="num">1</span><span class="den">√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby></span></span> = <span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby></span><span class="den"><ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby></span></span></span>
-    <span class="f">雙重根號：√(<ruby>a<rt>大的數</rt></ruby> + <ruby>b<rt>小的數</rt></ruby> ± 2√(<ruby>a<rt>大的數</rt></ruby><ruby>b<rt>小的數</rt></ruby>)) = √<ruby>a<rt>大的數</rt></ruby> ± √<ruby>b<rt>小的數</rt></ruby></span>
-  </div>
-  <p style="margin:0"><b>乘法公式</b></p>
-  <div class="formulas">
-    <span class="f">(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² + 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²</span>
-    <span class="f">(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² − 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²</span>
-    <span class="f">(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>) = <ruby>a<rt>第一項</rt></ruby>² − <ruby>b<rt>第二項</rt></ruby>²</span>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>區間寫法</th><th>意思</th><th>數線畫法</th></tr></thead>
-    <tbody>
-      <tr><td class="f">[a, b]</td><td class="f">a ≤ x ≤ b（閉區間）</td><td>兩端實心點</td></tr>
-      <tr><td class="f">(a, b)</td><td class="f">a &lt; x &lt; b（開區間）</td><td>兩端空心點</td></tr>
-      <tr><td class="f">[a, b)</td><td class="f">a ≤ x &lt; b</td><td>左實心、右空心</td></tr>
-      <tr><td class="f">(a, ∞)</td><td class="f">x &gt; a</td><td>無限大那一邊一定用小括號</td></tr>
-    </tbody>
-  </table></div>
-  <div class="note ex"><b class="tag">例題</b><p>化簡 √(5 + 2√6)：找兩數相加 5、相乘 6 → 3 和 2，答案 = <b>√3 + √2</b>。<br>有理化 <span class="frac"><span class="num">1</span><span class="den">√3 − √2</span></span> = <span class="frac"><span class="num">√3 + √2</span><span class="den">3 − 2</span></span> = <b>√3 + √2</b>。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>0.<span class="ol">9</span> = 1。√(a + b) ≠ √a + √b。π 是無理數，3.14 和 <span class="frac"><span class="num">22</span><span class="den">7</span></span> 只是近似值。算幾不等式只能用在<b>非負</b>的數。</p></div>
+<h3><span class="id">1-1</span>實數</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>數是一步一步「擴大」出來的：數東西用<b>自然數</b>，有欠債就需要<b>負數</b>，分東西需要<b>分數</b>，量正方形的對角線又發現了<b>無理數</b>。全部合在一起，就是我們在高中數學裡用的「<b>實數</b>」，數線上的每一個點，都剛好對應一個實數。</p></div>
+<h4 class="sub">一、實數系的分類</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 360 190" role="img" aria-label="實數系：自然數包含於整數、整數包含於有理數，有理數和無理數合起來是實數"><defs><marker id="mk-numsys" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><rect class="w" x="10" y="10" width="340" height="170" rx="10"/><text class="t" x="20" y="30">實數 ℝ</text><rect class="w" x="24" y="40" width="210" height="130" rx="8"/><text class="t" x="34" y="60">有理數 ℚ</text><text class="tz" x="34" y="160">有限小數、循環小數</text><rect class="w" x="40" y="70" width="130" height="80" rx="6"/><text class="t" x="50" y="90">整數 ℤ</text><rect class="w" x="56" y="98" width="98" height="40" rx="5"/><text class="t" x="64" y="122">自然數 ℕ</text><text class="t" x="292" y="92" text-anchor="middle">無理數</text><text class="t" x="292" y="114" text-anchor="middle">π、√2、√3</text><text class="tz" x="292" y="134" text-anchor="middle">不循環的無限小數</text></svg></div><p class="cap">每一個圈都包在比它大的圈裡面</p>
+<div class="tbl"><table class="wf"><thead><tr><th>數系</th><th>符號</th><th>包含什麼</th><th>例子</th></tr></thead><tbody><tr><td>自然數（正整數）</td><td>ℕ</td><td>1, 2, 3, …</td><td>1, 2, 3</td></tr><tr><td>整數</td><td>ℤ</td><td>正整數、<b>零</b>、負整數</td><td>−3, 0, 5</td></tr><tr><td>有理數</td><td>ℚ</td><td>能寫成「整數 ÷ 整數（分母 ≠ 0）」的數，包含整數、<b>有限小數</b>、<b>循環小數</b></td><td>1／3、−2、0.25、0.333…</td></tr><tr><td>無理數</td><td>—</td><td><b>不循環的無限小數</b>，不能寫成分數</td><td>π、√2、√3、∛2</td></tr><tr><td>實數</td><td>ℝ</td><td>有理數 + 無理數</td><td>全部</td></tr></tbody></table></div>
+<div class="formulas"><span class="f">有理數：<span class="frac"><span class="num"><ruby>q<rt>整數</rt></ruby></span><span class="den"><ruby>p<rt>整數</rt></ruby></span></span>（p ≠ 0，p、q 都是整數）</span></div>
+<ul class="pts"><li><b>整數、有限小數、循環小數都是有理數</b>。例如 0.25 = 1／4、0.333… = 1／3。</li><li>開方「開不盡」的數是無理數：√2、√3 是無理數；但 √4 = 2 是整數，所以是有理數。</li><li>有理數 + 有理數 = 有理數；有理數（≠ 0）× 無理數 = 無理數；但<b>兩個無理數相加不一定是無理數</b>，例如 √2 + (−√2) = 0。</li></ul>
+<h4 class="sub">二、循環小數化成分數</h4>
+<p>循環小數的小數點後面，有一段數字一直重複，重複的那一段叫「<b>循環節</b>」，寫的時候在上面畫一條橫線。化成分數的想法是：<b>乘上 10 的幾次方，讓兩個數的小數部分一模一樣，再相減把循環部分消掉</b>。</p>
+<div class="note ex"><b class="tag">例題：推導</b><p>設 x = 0.<span class="ol">3</span> = 0.333…，則 10x = 3.333…，兩式相減：9x = 3，x = <b>1／3</b>。</p><p>設 x = 0.1<span class="ol">2</span> = 0.1222…，10x = 1.222…，100x = 12.222…，兩式相減：90x = 11，x = <b>11／90</b>。</p></div>
+<div class="tbl"><table class="wf"><thead><tr><th>類型</th><th>快速做法</th><th>例子</th></tr></thead><tbody><tr><td>純循環（一開始就循環）</td><td>循環節 ÷ 同位數的 9</td><td>0.<span class="ol">3</span> = 3／9 = 1／3；0.<span class="ol">12</span> = 12／99 = 4／33</td></tr><tr><td>混循環（先有不循環的數字）</td><td>(全部數字 − 不循環部分) ÷ (循環幾位就幾個 9，後面補不循環位數個 0)</td><td>0.1<span class="ol">2</span> = (12 − 1)／90 = 11／90</td></tr><tr><td>帶整數</td><td>整數部分另外加</td><td>1.<span class="ol">3</span> = 1 + 1／3 = 4／3</td></tr></tbody></table></div>
+<h4 class="sub">三、實數的運算性質</h4>
+<div class="tbl"><table class="wf"><thead><tr><th>性質</th><th>內容</th></tr></thead><tbody><tr><td>交換律</td><td>a + b = b + a；a × b = b × a</td></tr><tr><td>結合律</td><td>(a + b) + c = a + (b + c)；(a × b) × c = a × (b × c)</td></tr><tr><td>分配律</td><td>a × (b + c) = a × b + a × c</td></tr><tr><td>等量加法、乘法</td><td>a = b ⇒ a + c = b + c；a × c = b × c</td></tr><tr><td>不等量加法</td><td>a &lt; b ⇒ a + c &lt; b + c（兩邊加減同一個數，不等號<b>不變</b>）</td></tr><tr><td>不等量乘法</td><td>c &gt; 0：a &lt; b ⇒ ac &lt; bc（不變）；c &lt; 0：a &lt; b ⇒ ac &gt; bc（<b>反向</b>）</td></tr></tbody></table></div>
+<h4 class="sub">四、根式運算</h4>
+<div class="formulas"><span class="f">√<ruby>a<rt>正數</rt></ruby> × √<ruby>b<rt>正數</rt></ruby> = √(<ruby>a<rt>正數</rt></ruby><ruby>b<rt>正數</rt></ruby>)</span><span class="f"><span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby></span><span class="den">√<ruby>b<rt>正數</rt></ruby></span></span> = √<span class="frac"><span class="num"><ruby>a<rt>正數</rt></ruby></span><span class="den"><ruby>b<rt>正數</rt></ruby></span></span></span><span class="f">√(<ruby>a<rt>實數</rt></ruby>²) = |<ruby>a<rt>實數</rt></ruby>|</span></div>
+<ul class="pts"><li><b>化簡</b>：把根號裡的完全平方數提出來。√12 = √(4 × 3) = 2√3；√72 = 6√2。</li><li><b>加減</b>：只有「根號部分相同」（同類根式）才能合併。2√3 + 5√3 = 7√3；√2 + √3 不能再合併。</li><li><b>分母有理化</b>：不要讓分母有根號。單項：<span class="frac"><span class="num">6</span><span class="den">√3</span></span> = <span class="frac"><span class="num">6√3</span><span class="den">3</span></span> = 2√3。</li></ul>
+<p>分母是兩項（帶根號）時，要乘上它的「<b>共軛</b>」，利用平方差公式 (a + b)(a − b) = a² − b² 把根號消掉：</p>
+<div class="formulas"><span class="f"><span class="frac"><span class="num">1</span><span class="den">√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby></span></span> = <span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby></span><span class="den"><ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby></span></span></span></div>
+<p><b>雙重根號</b>（根號裡還有根號）：因為 (√a + √b)² = a + b + 2√(ab)，所以只要找兩個數，<b>相加是前面那個數、相乘是根號裡的數</b>，就能化簡。</p>
+<div class="formulas"><span class="f">√(<ruby>a<rt>大的數</rt></ruby> + <ruby>b<rt>小的數</rt></ruby> ± 2√(<ruby>a<rt>大的數</rt></ruby><ruby>b<rt>小的數</rt></ruby>)) = √<ruby>a<rt>大的數</rt></ruby> ± √<ruby>b<rt>小的數</rt></ruby></span></div>
+<div class="note ex"><b class="tag">例題：根式練習</b><p>√(5 + 2√6)：相加 5、相乘 6 的兩數是 3 和 2，所以 = <b>√3 + √2</b>。</p><p>√(7 − 4√3) = √(7 − 2√12)：相加 7、相乘 12 的兩數是 4 和 3，所以 = √4 − √3 = <b>2 − √3</b>（大的減小的，結果才是正數）。</p><p><span class="frac"><span class="num">1</span><span class="den">√3 − √2</span></span> = <span class="frac"><span class="num">√3 + √2</span><span class="den">(√3)² − (√2)²</span></span> = <span class="frac"><span class="num">√3 + √2</span><span class="den">3 − 2</span></span> = <b>√3 + √2</b>。</p></div>
+<h4 class="sub">五、乘法公式</h4>
+<div class="formulas"><span class="f">(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² + 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²</span><span class="f">(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² − 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²</span><span class="f">(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>) = <ruby>a<rt>第一項</rt></ruby>² − <ruby>b<rt>第二項</rt></ruby>²</span></div>
+<p>這三個公式在化簡、配方、因式分解裡都會用到，要熟到不用想。例如 99² = (100 − 1)² = 10000 − 200 + 1 = <b>9801</b>。</p>
+<h4 class="sub">六、算幾不等式</h4>
+<div class="formulas"><span class="f"><span class="frac"><span class="num"><ruby>a<rt>非負實數</rt></ruby> + <ruby>b<rt>非負實數</rt></ruby></span><span class="den">2</span></span> ≥ √(<ruby>a<rt>非負實數</rt></ruby><ruby>b<rt>非負實數</rt></ruby>)（算術平均數 ≥ 幾何平均數）</span></div>
+<p><b>為什麼？</b>任何實數的平方都 ≥ 0，所以 (√a − √b)² ≥ 0，展開得 a + b − 2√(ab) ≥ 0，移項就是 a + b ≥ 2√(ab)。等號只有在 √a = √b，也就是 <b>a = b</b> 時才成立。</p>
+<ul class="pts"><li><b>和固定時，積有最大值</b>：a + b = S，則 ab ≤ (S／2)²，a = b 時最大。</li><li><b>積固定時，和有最小值</b>：ab = P，則 a + b ≥ 2√P，a = b 時最小。</li><li>使用前提：a、b 都要是<b>非負數</b>（求最小值時通常是正數）。</li></ul>
+<div class="note ex"><b class="tag">例題：求最小值</b><p>x &gt; 0，求 x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> 的最小值：<span class="frac"><span class="num">x + 4／x</span><span class="den">2</span></span> ≥ √(x × <span class="frac"><span class="num">4</span><span class="den">x</span></span>) = 2，所以 x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> ≥ <b>4</b>，等號在 x = <span class="frac"><span class="num">4</span><span class="den">x</span></span>，即 x = 2 時成立。</p></div>
+<div class="note ex"><b class="tag">例題：求最大值</b><p>兩正數 a + b = 10，求 ab 的最大值：<span class="frac"><span class="num">a + b</span><span class="den">2</span></span> = 5 ≥ √(ab)，所以 ab ≤ <b>25</b>，在 a = b = 5 時成立。也就是周長 20 的長方形，正方形（5 × 5）面積最大。</p></div>
+<h4 class="sub">七、區間與數線</h4>
+<div class="tbl"><table class="wf"><thead><tr><th>寫法</th><th>不等式</th><th>數線</th><th>名稱</th></tr></thead><tbody><tr><td>[a, b]</td><td>a ≤ x ≤ b</td><td>兩端<b>實心</b>點</td><td>閉區間</td></tr><tr><td>(a, b)</td><td>a &lt; x &lt; b</td><td>兩端<b>空心</b>點</td><td>開區間</td></tr><tr><td>[a, b)</td><td>a ≤ x &lt; b</td><td>左實心、右空心</td><td>半開區間</td></tr><tr><td>(a, ∞)</td><td>x &gt; a</td><td>從 a（空心）往右無限延伸</td><td>∞ 那一邊<b>一定用小括號</b></td></tr></tbody></table></div>
+<div class="note one"><b class="tag">一句話記住</b><p>實數 = 有理數 + 無理數；循環小數化分數用「乘 10 的幾次方再相減」；(a + b)／2 ≥ √(ab)，a = b 時等號成立；不等式乘負數要反向。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>0.<span class="ol">9</span> = 1（因為 9／9 = 1）。√(a + b) ≠ √a + √b。π 是無理數，3.14 和 22／7 只是近似值。算幾不等式只能用在<b>非負數</b>，而且等號成立的條件（a = b）要檢查能不能達到。</p></div>
 </section>
 
-<!-- 1-2 -->
 <section class="sec" id="s1-2">
-  <h3><span class="id">1-2</span>絕對值與平面直角坐標系</h3>
-  <div class="formulas">
-    <span class="f">|<ruby>a<rt>實數</rt></ruby>| = <ruby>a<rt>實數</rt></ruby>（a ≥ 0）；= −<ruby>a<rt>實數</rt></ruby>（a &lt; 0）</span>
-    <span class="f">數線上兩點 A(a)、B(b) 的距離 = |<ruby>a<rt>點A坐標</rt></ruby> − <ruby>b<rt>點B坐標</rt></ruby>| = |<ruby>b<rt>點B坐標</rt></ruby> − <ruby>a<rt>點A坐標</rt></ruby>|</span>
-    <span class="f">|<ruby>k<rt>實數</rt></ruby>| = |<ruby>k<rt>實數</rt></ruby> − 0|（k 到原點的距離）</span>
-    <span class="f">√(<ruby>a<rt>實數</rt></ruby>²) = |<ruby>a<rt>實數</rt></ruby>|</span>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>絕對值方程式／不等式（a &gt; 0）</th><th>解</th><th>記法</th></tr></thead>
-    <tbody>
-      <tr><td class="f">|x| = a</td><td class="f">x = a 或 x = −a</td><td>離原點 a</td></tr>
-      <tr><td class="f">|x| ≥ a</td><td class="f">x ≥ a 或 x ≤ −a</td><td><b>大於跑兩邊</b></td></tr>
-      <tr><td class="f">|x| ≤ a</td><td class="f">−a ≤ x ≤ a</td><td><b>小於夾中間</b></td></tr>
-      <tr><td class="f">|x| &gt; a、|x| &lt; a</td><td>同上，但不含端點（用 &gt;、&lt;）</td><td>—</td></tr>
-      <tr><td class="f">|x − c| ≤ r</td><td class="f">c − r ≤ x ≤ c + r</td><td>以 c 為中心、半徑 r</td></tr>
-    </tbody>
-  </table></div>
-  <ul class="pts">
-    <li>性質：|ab| = |a||b|；<b>|a + b| ≤ |a| + |b|</b>（三角不等式）；|a| ≥ 0。</li>
-    <li>|x| = −3 <b>無解</b>（絕對值不可能是負數）。</li>
-  </ul>
-  <p style="margin:0"><b>坐標平面</b>：A(x₁, y₁)、B(x₂, y₂)、C(x₃, y₃)</p>
-  <div class="formulas">
-    <span class="f">兩點距離 AB = √((<ruby>x₁<rt>A的x</rt></ruby> − <ruby>x₂<rt>B的x</rt></ruby>)² + (<ruby>y₁<rt>A的y</rt></ruby> − <ruby>y₂<rt>B的y</rt></ruby>)²)</span>
-    <span class="f">內分點（AP : PB = <ruby>m<rt>前段比</rt></ruby> : <ruby>n<rt>後段比</rt></ruby>）P = ( <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> , <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> )</span>
-    <span class="f">中點（m : n = 1 : 1）= ( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby></span><span class="den">2</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby></span><span class="den">2</span></span> )</span>
-    <span class="f">△ABC 重心 = ( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby> + <ruby>x₃<rt>C的x</rt></ruby></span><span class="den">3</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby> + <ruby>y₃<rt>C的y</rt></ruby></span><span class="den">3</span></span> )</span>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>象限</th><th>第一</th><th>第二</th><th>第三</th><th>第四</th></tr></thead>
-    <tbody>
-      <tr><td>(x, y) 正負</td><td class="f">(+, +)</td><td class="f">(−, +)</td><td class="f">(−, −)</td><td class="f">(+, −)</td></tr>
-    </tbody>
-  </table></div>
-  <div class="tbl"><table>
-    <thead><tr><th>點 (a, b) 的對稱點</th><th>結果</th><th>記法</th></tr></thead>
-    <tbody>
-      <tr><td>對 x 軸</td><td class="f">(a, −b)</td><td>y 變號</td></tr>
-      <tr><td>對 y 軸</td><td class="f">(−a, b)</td><td>x 變號</td></tr>
-      <tr><td>對原點</td><td class="f">(−a, −b)</td><td>兩個都變號</td></tr>
-      <tr><td>對直線 y = x</td><td class="f">(b, a)</td><td>x、y 交換</td></tr>
-    </tbody>
-  </table></div>
-  <div class="note ex"><b class="tag">例題</b><p>A(1, 2)、B(4, 6)：距離 = √(3² + 4²) = <b>5</b>，中點 = ( <span class="frac"><span class="num">1 + 4</span><span class="den">2</span></span> , <span class="frac"><span class="num">2 + 6</span><span class="den">2</span></span> ) = <b>(2.5, 4)</b>。<br>解 |x − 2| &lt; 3：−3 &lt; x − 2 &lt; 3 → <b>−1 &lt; x &lt; 5</b>。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>在 x 軸或 y 軸上的點<b>不屬於任何象限</b>。內分點公式是「比例交叉乘」：靠近 A 的比例 n 乘在 A 的坐標上。</p></div>
+<h3><span class="id">1-2</span>絕對值與平面直角坐標系</h3>
+<div class="note know"><b class="tag">先搞懂</b><p><b>絕對值</b>就是「<b>到原點的距離</b>」：不管這個數是正是負，距離一定是正的（或 0）。把數線再加上一條垂直的線，就成了<b>平面坐標系</b>，可以用兩個數來表示平面上的任何一點，並計算距離、中點、重心。</p></div>
+<h4 class="sub">一、絕對值的定義與性質</h4>
+<div class="formulas"><span class="f">|<ruby>a<rt>實數</rt></ruby>| = <ruby>a<rt>實數</rt></ruby>（a ≥ 0）；|<ruby>a<rt>實數</rt></ruby>| = −<ruby>a<rt>實數</rt></ruby>（a &lt; 0）</span><span class="f">數線上兩點 A(a)、B(b) 的距離 = |<ruby>a<rt>點A坐標</rt></ruby> − <ruby>b<rt>點B坐標</rt></ruby>|</span><span class="f">√(<ruby>a<rt>實數</rt></ruby>²) = |<ruby>a<rt>實數</rt></ruby>|</span></div>
+<ul class="pts"><li>|k| = |k − 0|，表示坐標為 k 的點到原點的距離。</li><li><b>性質</b>：|a| ≥ 0；|−a| = |a|；|ab| = |a| × |b|；|a／b| = |a|／|b|（b ≠ 0）；<b>|a + b| ≤ |a| + |b|</b>（三角不等式）。</li></ul>
+<h4 class="sub">二、絕對值方程式與不等式</h4>
+<p>把絕對值想成距離：<b>|x − c|</b> 就是「x 到 c 的距離」，所以：</p>
+<div class="tbl"><table class="wf"><thead><tr><th>式子（r &gt; 0）</th><th>意思</th><th>解</th></tr></thead><tbody><tr><td>|x − c| = r</td><td>x 到 c 的距離剛好是 r</td><td>x = c + r 或 x = c − r</td></tr><tr><td>|x − c| &lt; r（≤ r）</td><td>距離<b>小於</b> r：夾在中間</td><td>c − r &lt; x &lt; c + r（可含等號）</td></tr><tr><td>|x − c| &gt; r（≥ r）</td><td>距離<b>大於</b> r：跑兩邊</td><td>x &gt; c + r <b>或</b> x &lt; c − r</td></tr></tbody></table></div>
+<p>口訣：<b>小於夾中間（「且」），大於跑兩邊（「或」）</b>。</p>
+<div class="note ex"><b class="tag">例題：解絕對值</b><p>|x − 2| = 3 → x − 2 = 3 或 x − 2 = −3 → x = <b>5 或 −1</b>。</p><p>|x − 2| &lt; 3 → −3 &lt; x − 2 &lt; 3 → <b>−1 &lt; x &lt; 5</b>（距離 2 不超過 3 的點）。</p><p>|2x − 1| ≥ 5 → 2x − 1 ≥ 5 或 2x − 1 ≤ −5 → x ≥ 3 或 x ≤ −2，即 <b>x ≥ 3 或 x ≤ −2</b>。</p><p>|x + 1| ≤ 4 → −4 ≤ x + 1 ≤ 4 → <b>−5 ≤ x ≤ 3</b>。</p></div>
+<div class="note ex"><b class="tag">例題：特殊情況</b><p>|x| = −3：絕對值不可能是負數，<b>無解</b>。|x| &gt; −2：永遠成立，解是<b>所有實數</b>。|x| &lt; −2：<b>無解</b>。</p><p>|x − 1| = |x + 3|：x 到 1 和到 −3 的距離一樣，x 是 1 和 −3 的中點，x = <b>−1</b>。</p></div>
+<h4 class="sub">三、平面直角坐標系</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 300 220" role="img" aria-label="四個象限與座標的正負號"><defs><marker id="mk-quad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M20 110 H280 M150 10 V210"/><text class="t" x="270" y="128">x</text><text class="t" x="158" y="22">y</text><text class="t" x="170" y="60">Ⅰ　(＋, ＋)</text><text class="t" x="30" y="60">Ⅱ　(－, ＋)</text><text class="t" x="30" y="170">Ⅲ　(－, －)</text><text class="t" x="170" y="170">Ⅳ　(＋, －)</text></svg></div><p class="cap">x 軸和 y 軸把平面分成四個象限</p>
+<ul class="pts"><li>兩條互相垂直的數線，交在原點 O，水平的叫 <b>x 軸</b>、鉛直的叫 <b>y 軸</b>。平面上的每一個點，都用 (x, y) 表示。</li><li>在 x 軸或 y 軸上的點，<b>不屬於任何象限</b>。</li></ul>
+<div class="tbl"><table class="wf"><thead><tr><th>點 (a, b) 的對稱點</th><th>結果</th><th>記法</th></tr></thead><tbody><tr><td>對 x 軸</td><td class="f">(a, −b)</td><td>y 變號</td></tr><tr><td>對 y 軸</td><td class="f">(−a, b)</td><td>x 變號</td></tr><tr><td>對原點</td><td class="f">(−a, −b)</td><td>兩個都變號</td></tr><tr><td>對直線 y = x</td><td class="f">(b, a)</td><td>x、y 交換</td></tr></tbody></table></div>
+<h4 class="sub">四、兩點距離公式</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 300 240" role="img" aria-label="兩點距離：用橫向差與直向差做直角三角形，再用畢氏定理"><defs><marker id="mk-dist" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M20 200 H290 M60 230 V10"/><text class="t" x="282" y="216">x</text><text class="t" x="66" y="20">y</text><path class="dash" d="M90 140 H180 M180 140 V20"/><path class="ln2" d="M90 140 L180 20"/><circle class="dot" cx="90" cy="140" r="4"/><circle class="dot" cx="180" cy="20" r="4"/><text class="t" x="78" y="162">A(1, 2)</text><text class="t" x="188" y="24">B(4, 6)</text><text class="tz" x="135" y="158" text-anchor="middle">橫向 3</text><text class="tz" x="186" y="80">直向 4</text><text class="t" x="129" y="76" text-anchor="end">AB = 5</text></svg></div><p class="cap">A(1, 2) 與 B(4, 6)：橫向差 3、直向差 4，做出直角三角形，AB = √(3² + 4²) = 5</p>
+<div class="formulas"><span class="f">AB = √((<ruby>x₁<rt>A的x</rt></ruby> − <ruby>x₂<rt>B的x</rt></ruby>)² + (<ruby>y₁<rt>A的y</rt></ruby> − <ruby>y₂<rt>B的y</rt></ruby>)²)</span></div>
+<p>這就是畢氏定理：<b>斜邊² = 橫向差² + 直向差²</b>。x、y 的差先平方再相加，所以誰減誰（先後順序）都沒有關係。</p>
+<h4 class="sub">五、內分點、中點、重心</h4>
+<p>點 P 在線段 AB 上，且 AP : PB = m : n，稱 P 為 AB 的<b>內分點</b>。P 在從 A 走向 B 的路上，走了全長的 m／(m + n)：P = A + <span class="frac"><span class="num">m</span><span class="den">m + n</span></span> × (B − A)，整理後得到：</p>
+<div class="formulas"><span class="f">P = ( <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> , <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> )</span><span class="f">中點（m : n = 1 : 1）：( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby></span><span class="den">2</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby></span><span class="den">2</span></span> )</span><span class="f">△ABC 的重心：( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby> + <ruby>x₃<rt>C的x</rt></ruby></span><span class="den">3</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby> + <ruby>y₃<rt>C的y</rt></ruby></span><span class="den">3</span></span> )</span></div>
+<ul class="pts"><li>口訣：<b>「靠近誰，就乘另一邊的比」</b>：靠近 A（m 小）的點，A 的坐標要乘上<b>較大的</b>那個比（n）。</li><li><b>重心</b>是三條中線的交點，把每條中線分成 2 : 1；它的坐標就是三個頂點坐標的<b>平均</b>。</li></ul>
+<div class="note ex"><b class="tag">例題：距離、分點、中點、重心</b><p>A(1, 2)、B(7, 8)：AB = √(6² + 6²) = √72 = <b>6√2</b>。</p><p>AP : PB = 1 : 2（m = 1、n = 2）：P = ( <span class="frac"><span class="num">2 × 1 + 1 × 7</span><span class="den">3</span></span> , <span class="frac"><span class="num">2 × 2 + 1 × 8</span><span class="den">3</span></span> ) = <b>(3, 4)</b>；中點 = ( <span class="frac"><span class="num">1 + 7</span><span class="den">2</span></span> , <span class="frac"><span class="num">2 + 8</span><span class="den">2</span></span> ) = <b>(4, 5)</b>。</p><p>△ABC：A(1, 2)、B(5, 4)、C(3, 9)，重心 = ( <span class="frac"><span class="num">1 + 5 + 3</span><span class="den">3</span></span> , <span class="frac"><span class="num">2 + 4 + 9</span><span class="den">3</span></span> ) = <b>(3, 5)</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>絕對值是距離：|x − c| &lt; r 夾中間、&gt; r 跑兩邊；兩點距離 = √(Δx² + Δy²)；內分點「靠近誰、乘另一邊的比」；重心 = 三點坐標的平均。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>在 x 軸或 y 軸上的點不屬於任何象限。內分點公式容易把比例乘反：先確認 P 比較靠近哪一點，再檢查答案是不是真的落在那一邊。絕對值不等式如果右邊是負數，要先判斷有沒有解。</p></div>
 </section>
 
-<!-- 1-3 -->
 <section class="sec" id="s1-3">
-  <h3><span class="id">1-3</span>常見的函數圖形</h3>
-  <div class="tbl"><table>
-    <thead><tr><th>名詞</th><th>意思</th><th>例子</th></tr></thead>
-    <tbody>
-      <tr><td>集合</td><td>一些不盡相同的明確事物組成的群體，常用<b>大寫英文字母</b>表示，元素寫在<b>大括號</b>裡</td><td class="f">A = &#123;2, 4, 6&#125;；B = &#123;x ∣ 0 ≤ x ≤ 10，x 為實數&#125;</td></tr>
-      <tr><td>元素</td><td>集合中的每一個事物</td><td class="f">A = &#123;2, 4, 6&#125; 有 3 個元素</td></tr>
-      <tr><td>函數</td><td>集合 A 的<b>每一個</b>元素 x，都可以在集合 B 找到<b>唯一一個</b>元素 y 對應，稱「y 是 x 的函數」</td><td>每個 x 只對應一個 y</td></tr>
-      <tr><td>自變數 / 應變數</td><td>x 稱為<b>自變數</b>，y 稱為<b>應變數</b></td><td class="f">y = f(x)</td></tr>
-      <tr><td>定義域 / 對應域</td><td>集合 A 稱為<b>定義域</b>，集合 B 稱為<b>對應域</b></td><td>—</td></tr>
-    </tbody>
-  </table></div>
-  <ul class="pts">
-    <li>圖形判斷是不是函數：畫鉛直線，最多只碰到圖形一次。</li>
-  </ul>
-  <div class="tbl"><table>
-    <thead><tr><th>常見的函數（a、b、c 為實數）</th><th>寫法</th><th>圖形</th></tr></thead>
-    <tbody>
-      <tr><td>一次函數</td><td class="f">f(x) = <ruby>a<rt>斜率</rt></ruby>x + <ruby>b<rt>y截距</rt></ruby>（a ≠ 0）</td><td>一條<b>斜直線</b></td></tr>
-      <tr><td>常數函數</td><td class="f">f(x) = <ruby>b<rt>常數</rt></ruby></td><td>一條<b>水平直線</b></td></tr>
-      <tr><td>二次函數</td><td class="f">f(x) = <ruby>a<rt>二次項係數</rt></ruby>x² + <ruby>b<rt>一次項係數</rt></ruby>x + <ruby>c<rt>常數項</rt></ruby>（a ≠ 0）</td><td><b>拋物線</b></td></tr>
-    </tbody>
-  </table></div>
-  <p style="margin:0;font-size:14px;color:var(--muted)">註：一次函數與常數函數合稱<b>線型函數</b>。</p>
-  <div class="formulas">
-    <span class="f">斜率 <ruby>m<rt>斜率</rt></ruby> = <span class="frac"><span class="num"><ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby></span><span class="den"><ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby></span></span></span>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>一次函數 y = ax + b</th><th>圖形</th></tr></thead>
-    <tbody>
-      <tr><td>a &gt; 0</td><td>直線往右<b>上升</b></td></tr>
-      <tr><td>a &lt; 0</td><td>直線往右<b>下降</b></td></tr>
-      <tr><td>a = 0</td><td>水平線（常數函數）</td></tr>
-      <tr><td>b</td><td>和 y 軸交點 (0, b)</td></tr>
-    </tbody>
-  </table></div>
-  <p style="margin:0"><b>二次函數 f(x) = ax² + bx + c（a ≠ 0）</b></p>
-  <div class="formulas">
-    <span class="f">配方式：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby>(<ruby>x<rt>自變數</rt></ruby> − <ruby>h<rt>頂點x</rt></ruby>)² + <ruby>k<rt>頂點y</rt></ruby></span>
-    <span class="f">極值 = −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span></span>
-    <span class="f">頂點 ( −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span> , −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span> )</span>
-    <span class="f">判別式 <ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>看什麼</th><th>結論</th></tr></thead>
-    <tbody>
-      <tr><td>a &gt; 0</td><td>開口<b>向上</b>，有<b>最低點</b>，函數有<b>最小值</b></td></tr>
-      <tr><td>a &lt; 0</td><td>開口<b>向下</b>，有<b>最高點</b>，函數有<b>最大值</b></td></tr>
-      <tr><td>|a| 越大</td><td>開口越<b>窄</b></td></tr>
-      <tr><td>對稱軸</td><td class="f">x = −<span class="frac"><span class="num">b</span><span class="den">2a</span></span></td></tr>
-      <tr><td>c</td><td>和 y 軸交點 (0, c)</td></tr>
-      <tr><td>D &gt; 0</td><td>和 x 軸交<b>兩點</b></td></tr>
-      <tr><td>D = 0</td><td>和 x 軸<b>相切</b>（交一點，就是頂點）</td></tr>
-      <tr><td>D &lt; 0</td><td>和 x 軸<b>不相交</b></td></tr>
-    </tbody>
-  </table></div>
-  <p style="margin:0"><b>二次函數圖形的平移</b></p>
-  <div class="tbl"><table>
-    <thead><tr><th>從</th><th>怎麼移</th><th>變成</th></tr></thead>
-    <tbody>
-      <tr><td class="f">y = ax² 的圖形</td><td>向右平移 h 單位（h &lt; 0 就是向左）</td><td class="f">y = a(x − h)² 的圖形</td></tr>
-      <tr><td class="f">y = a(x − h)² 的圖形</td><td>向上平移 k 單位（k &lt; 0 就是向下）</td><td class="f">y = a(x − h)² + k 的圖形</td></tr>
-      <tr><td>例</td><td>y = 2x² 右移 3、下移 1</td><td class="f">y = 2(x − 3)² − 1，頂點 (3, −1)</td></tr>
-    </tbody>
-  </table></div>
-  <ul class="pts">
-    <li>括號裡是<b>減號才是往右</b>。絕對值函數 y = |x − h| + k 是 V 字形，頂點也是 (h, k)。</li>
-  </ul>
-
-  <div class="calc" id="play">
+<h3><span class="id">1-3</span>常見的函數圖形</h3>
+<div class="note know"><b class="tag">先搞懂</b><p><b>函數</b>就像一台「輸入輸出機器」：你丟一個數 x 進去，它就吐出<b>唯一一個</b>數 y。這一節要認識三種最常見的函數：一次函數（直線）、常數函數（水平線）、二次函數（拋物線），並學會從式子判斷圖形的樣子。</p></div>
+<h4 class="sub">一、集合與元素</h4>
+<ul class="pts"><li><b>集合</b>：一些「明確」的事物放在一起，通常用大寫英文字母表示，元素寫在<b>大括號</b>裡。</li><li><b>列舉法</b>：A = {2, 4, 6}，A 裡面有 3 個<b>元素</b>。</li><li><b>描述法</b>：B = {x ｜ 0 ≤ x ≤ 10，x 為實數}，意思是「所有滿足 0 ≤ x ≤ 10 的實數 x」。</li><li>「2 屬於 A」寫成 2 ∈ A；「5 不屬於 A」寫成 5 ∉ A。</li></ul>
+<h4 class="sub">二、函數的定義</h4>
+<p>設 A、B 是兩個集合。如果對 A 裡的<b>每一個</b>元素 x，在 B 裡都找得到<b>唯一一個</b>元素 y 和它對應，就稱「y 是 x 的函數」，寫成 y = f(x)。</p>
+<div class="tbl"><table class="wf"><thead><tr><th>名詞</th><th>意思</th></tr></thead><tbody><tr><td>自變數 x</td><td>輸入的數（自己可以變動）</td></tr><tr><td>應變數 y</td><td>輸出的數（跟著 x 變動）</td></tr><tr><td>定義域 A</td><td>x 可以代入的範圍（集合 A）</td></tr><tr><td>對應域 B</td><td>y 所在的集合；實際輸出的所有 y 叫<b>值域</b></td></tr></tbody></table></div>
+<ul class="pts"><li><b>圖形判斷</b>：畫一條鉛直線，如果這條線掃過圖形時，<b>每一個位置最多只碰到圖形一次</b>，這個圖形就是函數。</li><li><b>函數值</b>：f(a) 就是把 x = a 代進去算出的 y。例如 f(x) = 2x² − 3x + 1：f(2) = 8 − 6 + 1 = <b>3</b>，f(−1) = 2 + 3 + 1 = <b>6</b>。</li><li><b>定義域的限制</b>：分母不能是 0（f(x) = 1／(x − 2) 要 x ≠ 2）；根號裡不能是負數（f(x) = √(x − 1) 要 x ≥ 1）。</li></ul>
+<h4 class="sub">三、一次函數與常數函數（直線）</h4>
+<div class="formulas"><span class="f">一次函數：<ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>斜率</rt></ruby><ruby>x<rt>自變數</rt></ruby> + <ruby>b<rt>y截距</rt></ruby>（a ≠ 0）</span><span class="f">常數函數：<ruby>y<rt>函數值</rt></ruby> = <ruby>b<rt>常數</rt></ruby></span><span class="f">斜率 <ruby>m<rt>斜率</rt></ruby> = <span class="frac"><span class="num"><ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby></span><span class="den"><ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby></span></span></span></div>
+<div class="tbl"><table class="wf"><thead><tr><th>一次函數 y = ax + b</th><th>圖形</th></tr></thead><tbody><tr><td>a &gt; 0</td><td>直線往右<b>上升</b></td></tr><tr><td>a &lt; 0</td><td>直線往右<b>下降</b></td></tr><tr><td>b</td><td>直線和 y 軸的交點 (0, b)（y 截距）</td></tr><tr><td>常數函數 y = b</td><td>一條<b>水平線</b>（a = 0，斜率為 0）</td></tr></tbody></table></div>
+<p>一次函數和常數函數合稱「<b>線型函數</b>」，圖形都是直線。斜率 a 就是「x 增加 1，y 增加多少」。</p>
+<p><b>已知兩點求直線</b>：先求斜率 m，再用「<b>點斜式</b>」：y − y₁ = m(x − x₁)。</p>
+<div class="note ex"><b class="tag">例題：求直線</b><p>過 (1, 2) 與 (3, 8)：斜率 m = <span class="frac"><span class="num">8 − 2</span><span class="den">3 − 1</span></span> = 3，點斜式 y − 2 = 3(x − 1)，整理得 <b>y = 3x − 1</b>。</p></div>
+<h4 class="sub">四、二次函數（拋物線）</h4>
+<p>二次函數 f(x) = ax² + bx + c（a ≠ 0）的圖形叫<b>拋物線</b>。想知道它長什麼樣子，最好的方法是<b>配方</b>，把它變成頂點式。</p>
+<ol class="steps"><li>提出 x² 的係數 a：ax² + bx + c = a(x² + <span class="frac"><span class="num">b</span><span class="den">a</span></span>x) + c。</li><li>括號裡配成完全平方：加上再減掉 (<span class="frac"><span class="num">b</span><span class="den">2a</span></span>)²。</li><li>整理成 <b>a(x − h)² + k</b> 的形式，h 和 k 就是頂點坐標。</li></ol>
+<div class="formulas"><span class="f"><ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby>(<ruby>x<rt>自變數</rt></ruby> − <ruby>h<rt>頂點x</rt></ruby>)² + <ruby>k<rt>頂點y</rt></ruby>（頂點式）</span><span class="f">頂點 ( −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span> , −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span> )</span><span class="f">判別式 <ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span></div>
+<div class="fig"><svg class="ckt" viewBox="0 0 250 225" role="img" aria-label="y = (x − 2)² − 3：頂點 (2, −3)，對稱軸 x = 2，和 x 軸交於兩點"><defs><marker id="mk-para" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M20 90 H230 M70 215 V10"/><text class="t" x="222" y="106">x</text><text class="t" x="76" y="20">y</text><path class="ln2" d="M58.0 12.0 L60.4 23.8 L62.8 35.0 L65.2 45.8 L67.6 56.2 L70.0 66.0 L72.4 75.4 L74.8 84.2 L77.2 92.6 L79.6 100.6 L82.0 108.0 L84.4 115.0 L86.8 121.4 L89.2 127.4 L91.6 133.0 L94.0 138.0 L96.4 142.6 L98.8 146.6 L101.2 150.2 L103.6 153.4 L106.0 156.0 L108.4 158.2 L110.8 159.8 L113.2 161.0 L115.6 161.8 L118.0 162.0 L120.4 161.8 L122.8 161.0 L125.2 159.8 L127.6 158.2 L130.0 156.0 L132.4 153.4 L134.8 150.2 L137.2 146.6 L139.6 142.6 L142.0 138.0 L144.4 133.0 L146.8 127.4 L149.2 121.4 L151.6 115.0 L154.0 108.0 L156.4 100.6 L158.8 92.6 L161.2 84.2 L163.6 75.4 L166.0 66.0 L168.4 56.2 L170.8 45.8 L173.2 35.0 L175.6 23.8 L178.0 12.0"/><path class="dash" d="M118 14 V205"/><circle class="dot" cx="118" cy="162" r="5"/><circle class="dot" cx="76.4" cy="90" r="4"/><circle class="dot" cx="159.6" cy="90" r="4"/><text class="t" x="126" y="180">頂點 (2, −3)</text><text class="tz" x="124" y="26">對稱軸 x = 2</text><text class="tz" x="72" y="82" text-anchor="end">交點</text></svg></div><p class="cap">頂點是整條拋物線最低（或最高）的點；通過頂點的鉛直線就是對稱軸</p>
+<div class="tbl"><table class="wf"><thead><tr><th>看什麼</th><th>結論</th></tr></thead><tbody><tr><td>a &gt; 0</td><td>開口<b>向上</b>，頂點是<b>最低點</b>，函數有<b>最小值</b> k</td></tr><tr><td>a &lt; 0</td><td>開口<b>向下</b>，頂點是<b>最高點</b>，函數有<b>最大值</b> k</td></tr><tr><td>|a| 越大</td><td>開口越<b>窄</b></td></tr><tr><td>對稱軸</td><td>x = h = −b／2a（左右對稱的那條線）</td></tr><tr><td>c</td><td>和 y 軸交於 (0, c)</td></tr><tr><td>D &gt; 0</td><td>和 x 軸交於<b>兩點</b></td></tr><tr><td>D = 0</td><td>和 x 軸<b>相切</b>（交一點，就是頂點）</td></tr><tr><td>D &lt; 0</td><td>和 x 軸<b>不相交</b></td></tr></tbody></table></div>
+<div class="note ex"><b class="tag">例題：配方與頂點</b><p>y = x² − 4x + 1 = (x − 2)² − 3，頂點 <b>(2, −3)</b>，對稱軸 x = 2，開口向上，最小值 <b>−3</b>。D = 16 − 4 = 12 &gt; 0，和 x 軸交兩點。</p><p>y = −2x² + 8x − 3：a = −2、b = 8、c = −3，h = −<span class="frac"><span class="num">8</span><span class="den">2 × (−2)</span></span> = 2，k = f(2) = −8 + 16 − 3 = 5，頂點 <b>(2, 5)</b>，開口向下，最大值 <b>5</b>。</p></div>
+<div class="note ex"><b class="tag">例題：應用題：最大面積</b><p>用 20 公尺的圍籬圍一個長方形，長 x、寬 10 − x，面積 A = x(10 − x) = −x² + 10x = −(x − 5)² + 25。</p><p>頂點在 x = 5，a &lt; 0 有最大值：長 = 寬 = 5 時，面積最大 = <b>25 平方公尺</b>（和算幾不等式的結論一樣）。</p></div>
+<h4 class="sub">五、圖形的平移</h4>
+<div class="tbl"><table class="wf"><thead><tr><th>從 y = f(x)</th><th>怎麼移</th><th>變成</th></tr></thead><tbody><tr><td>向右平移 h</td><td>x 換成 (x − h)</td><td>y = f(x − h)</td></tr><tr><td>向上平移 k</td><td>後面加 k</td><td>y = f(x) + k</td></tr><tr><td>例：y = 2x²</td><td>右移 3、下移 1</td><td>y = 2(x − 3)² − 1，頂點 (3, −1)</td></tr></tbody></table></div>
+<ul class="pts"><li><b>括號裡是減號才是往右</b>：y = (x + 2)² = (x − (−2))²，頂點在 (−2, 0)，是往<b>左</b>移 2。</li><li>二次函數的基本圖形 y = ax²，平移後得到 y = a(x − h)² + k，形狀（開口大小與方向）不變。</li><li>絕對值函數 y = |x| 是 V 字形，頂點在原點；y = |x − h| + k 的頂點是 (h, k)。</li></ul>
+<p style="margin:0"><b>動手玩玩看</b>：拉動滑桿，觀察 a、b、c 怎麼影響拋物線。</p>
+<div class="calc" id="play">
     <b>拋物線練習器：拉拉看 a、b、c</b>
     <div class="row">
       <label for="pa"><span>a = <b id="pav"></b></span><input type="range" id="pa" min="-3" max="3" step="0.5" value="1"></label>
@@ -347,41 +290,22 @@ body { touch-action: manipulation; }
     <svg id="plot" viewBox="0 0 240 240" style="max-width:320px" role="img" aria-label="拋物線圖形"></svg>
     <div class="out" id="pout" aria-live="polite"></div>
   </div>
-
-  <div class="note ex"><b class="tag">例題</b><p>y = x² − 4x + 1 配方：y = (x − 2)² − 3。頂點 <b>(2, −3)</b>，對稱軸 x = 2，開口向上，最小值 <b>−3</b>；D = 16 − 4 = 12 &gt; 0，和 x 軸交兩點。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>y = (x + 2)² 的頂點在 <b>(−2, 0)</b>，不是 (2, 0)。求最大、最小值前先看 a 的正負。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>函數：每個 x 只有一個 y；一次函數是直線（斜率 a）；二次函數配方成 a(x − h)² + k，頂點 (h, k)，a &gt; 0 開口向上有最小值、a &lt; 0 向下有最大值；D 決定和 x 軸有幾個交點。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>y = (x + 2)² 的頂點在 <b>(−2, 0)</b>，不是 (2, 0)。求最大、最小值前先看 a 的正負。配方時，提出 a 之後括號裡的一次項係數要「除以 a」，再除以 2、再平方。</p></div>
 </section>
 
-<!-- 1-4 -->
 <section class="sec" id="s1-4">
-  <h3><span class="id">1-4</span>一元二次不等式</h3>
-  <p style="margin:0"><b>二次函數值的恆正與恆負</b>：y = ax² + bx + c（a ≠ 0），D = b² − 4ac</p>
-  <div class="tbl"><table>
-    <thead><tr><th>情況</th><th>條件</th><th>圖形</th></tr></thead>
-    <tbody>
-      <tr><td>函數值<b>恆正</b></td><td class="f">a &gt; 0 且 D &lt; 0（反之亦然）</td><td>開口向上，整個在 x 軸<b>上方</b></td></tr>
-      <tr><td>函數值<b>恆負</b></td><td class="f">a &lt; 0 且 D &lt; 0（反之亦然）</td><td>開口向下，整個在 x 軸<b>下方</b></td></tr>
-    </tbody>
-  </table></div>
-  <p style="margin:0"><b>先準備：一元二次方程式 ax² + bx + c = 0</b></p>
-  <div class="formulas">
-    <span class="f">公式解 <ruby>x<rt>根</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span></span>
-    <span class="f">兩根和 <ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></span>
-    <span class="f">兩根積 <ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num"><ruby>c<rt>常數項</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></span>
-  </div>
-  <p style="margin:0"><b>解題步驟</b>：① 移項，右邊變 0　② 讓 x² 係數變正（a &gt; 0；乘 −1 時不等號反向）　③ 因式分解或公式解找出兩根　④ 查下表。課本記法：兩根 <b>α &gt; β</b>（α 是大根、β 是小根）。</p>
-  <div class="tbl"><table class="ineq">
-    <thead><tr><th>a &gt; 0</th><th class="f">ax² + bx + c ≥ 0</th><th class="f">ax² + bx + c &gt; 0</th><th class="f">ax² + bx + c ≤ 0</th><th class="f">ax² + bx + c &lt; 0</th></tr></thead>
-    <tbody>
-      <tr><td>D &gt; 0<br><small>相異兩實根（α &gt; β）</small></td><td class="f">x ≥ α 或 x ≤ β</td><td class="f">x &gt; α 或 x &lt; β</td><td class="f">β ≤ x ≤ α</td><td class="f">β &lt; x &lt; α</td></tr>
-      <tr><td>D = 0<br><small>相等實根（α = β）</small></td><td>所有實數</td><td class="f">x ≠ α 的所有實數</td><td class="f">x = α</td><td>無實數解</td></tr>
-      <tr><td>D &lt; 0<br><small>沒有實根</small></td><td>所有實數</td><td>所有實數</td><td>無實數解</td><td>無實數解</td></tr>
-    </tbody>
-  </table></div>
-  <ul class="pts">
-    <li>口訣：D &gt; 0 時，<b>大於跑兩邊，小於夾中間</b>；有等號就把端點包含進去。</li>
-  </ul>
-  <div class="graphs" aria-label="判別式三種情況">
+<h3><span class="id">1-4</span>一元二次不等式</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>解一元二次不等式（例如 x² − x − 6 &gt; 0），最好的方法是<b>看圖</b>：把 ax² + bx + c 想成一條拋物線，「&gt; 0」就是問「拋物線在 x 軸<b>上方</b>」的那些 x，「&lt; 0」就是問「在 x 軸<b>下方</b>」的 x。</p></div>
+<h4 class="sub">一、先備知識：解一元二次方程式</h4>
+<p>ax² + bx + c = 0（a ≠ 0）有三種解法：</p>
+<div class="tbl"><table class="wf"><thead><tr><th>方法</th><th>做法</th><th>例子</th></tr></thead><tbody><tr><td>因式分解（十字交乘）</td><td>把左邊拆成兩個一次式相乘，每個一次式等於 0</td><td>x² − 5x + 6 = (x − 2)(x − 3) = 0 → x = 2 或 3</td></tr><tr><td>配方法</td><td>配成 (x − h)² = 常數，再開根號</td><td>x² − 4x + 1 = 0 → (x − 2)² = 3 → x = 2 ± √3</td></tr><tr><td>公式解</td><td>直接代公式（任何情況都能用）</td><td>x = (−b ± √D) ／ 2a</td></tr></tbody></table></div>
+<div class="formulas"><span class="f"><ruby>x<rt>根</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span>（D = b² − 4ac）</span><span class="f">兩根和 <ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></span><span class="f">兩根積 <ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num"><ruby>c<rt>常數項</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></span></div>
+<div class="tbl"><table class="wf"><thead><tr><th>判別式 D</th><th>根的情形</th><th>和 x 軸</th></tr></thead><tbody><tr><td>D &gt; 0</td><td>兩個<b>相異實根</b>（α ≠ β）</td><td>交兩點</td></tr><tr><td>D = 0</td><td>兩個<b>相等實根</b>（重根 α = β）</td><td>相切</td></tr><tr><td>D &lt; 0</td><td><b>沒有實根</b></td><td>不相交</td></tr></tbody></table></div>
+<div class="note ex"><b class="tag">例題：解方程式</b><p>2x² + 3x − 2 = (2x − 1)(x + 2) = 0 → x = <b>1／2 或 −2</b>。</p><p>x² − 2x − 1 = 0：D = 4 + 4 = 8，x = <span class="frac"><span class="num">2 ± √8</span><span class="den">2</span></span> = <span class="frac"><span class="num">2 ± 2√2</span><span class="den">2</span></span> = <b>1 ± √2</b>。</p></div>
+<h4 class="sub">二、看圖解不等式（a &gt; 0）</h4>
+<p>先設 ax² + bx + c = 0 的兩根是 α、β，而且 <b>α &gt; β</b>（α 是大根、β 是小根）。把拋物線和 x 軸的位置關係畫出來，就能一眼看出答案：</p>
+<div class="graphs" aria-label="判別式三種情況">
     <div class="graph">
       <svg viewBox="0 0 220 130" role="img" aria-label="D大於0，拋物線和x軸交兩點">
         <path class="xax" d="M10 80 H210"/>
@@ -408,37 +332,276 @@ body { touch-action: manipulation; }
       <div class="cap"><b>D &lt; 0：不相交</b>，&gt;0、≥0 為所有實數；&lt;0、≤0 無實數解</div>
     </div>
   </div>
-  <div class="note ex"><b class="tag">例題</b><p>解 x² − x − 6 &gt; 0：(x − 3)(x + 2) &gt; 0，α = 3、β = −2 → <b>x &gt; 3 或 x &lt; −2</b>。<br>解 −x² + 4x − 3 ≥ 0：先乘 −1 → x² − 4x + 3 ≤ 0，(x − 3)(x − 1) ≤ 0 → <b>1 ≤ x ≤ 3</b>。<br>已知解為 1 &lt; x &lt; 3，反推不等式：(x − 3)(x − 1) &lt; 0 → <b>x² − 4x + 3 &lt; 0</b>。</p></div>
-  <div class="note warn"><b class="tag">陷阱</b><p>x² 係數是負的時候，一定要先乘 −1 並<b>把不等號反過來</b>，再查表。x² + 1 &gt; 0 的解是<b>所有實數</b>，x² + 1 &lt; 0 <b>無實數解</b>。</p></div>
+<div class="tbl"><table class="wf ineq"><thead><tr><th>a &gt; 0</th><th>ax² + bx + c ≥ 0</th><th>ax² + bx + c &gt; 0</th><th>ax² + bx + c ≤ 0</th><th>ax² + bx + c &lt; 0</th></tr></thead><tbody><tr><td>D &gt; 0<br><small>相異兩實根（α &gt; β）</small></td><td class="f">x ≥ α 或 x ≤ β</td><td class="f">x &gt; α 或 x &lt; β</td><td class="f">β ≤ x ≤ α</td><td class="f">β &lt; x &lt; α</td></tr><tr><td>D = 0<br><small>相等實根（α = β）</small></td><td>所有實數</td><td class="f">x ≠ α 的所有實數</td><td class="f">x = α</td><td>無實數解</td></tr><tr><td>D &lt; 0<br><small>沒有實根</small></td><td>所有實數</td><td>所有實數</td><td>無實數解</td><td>無實數解</td></tr></tbody></table></div>
+<ul class="pts"><li>口訣（D &gt; 0）：<b>大於跑兩邊，小於夾中間</b>；有等號就把端點包含進去。</li><li>D = 0 時拋物線只碰到 x 軸一點：&gt; 0 要排除那一點，≥ 0 是全部，≤ 0 只剩那一點，&lt; 0 無解。</li><li>D &lt; 0 時拋物線整個在 x 軸<b>上方</b>：&gt; 0、≥ 0 恆成立（所有實數），&lt; 0、≤ 0 無解。</li></ul>
+<h4 class="sub">三、解題步驟</h4>
+<ol class="steps"><li><b>移項</b>：把所有項移到左邊，右邊變成 0。</li><li><b>讓 x² 的係數變正</b>：如果是負的，兩邊同乘 −1，<b>不等號要反向</b>。</li><li><b>找根</b>：用因式分解或公式解，求出兩根（或判斷有沒有實根）。</li><li><b>看圖或查表</b>，寫出解的範圍；最後可以用區間表示。</li></ol>
+<div class="note ex"><b class="tag">例題：基本題</b><p>x² − x − 6 &gt; 0：(x − 3)(x + 2) &gt; 0，兩根 α = 3、β = −2，「大於跑兩邊」→ <b>x &gt; 3 或 x &lt; −2</b>。</p><p>−x² + 4x − 3 ≥ 0：兩邊乘 −1 得 x² − 4x + 3 ≤ 0（反向），(x − 1)(x − 3) ≤ 0，「小於夾中間」→ <b>1 ≤ x ≤ 3</b>。</p><p>x² − 2x + 1 ≤ 0：(x − 1)² ≤ 0，只有 <b>x = 1</b>；x² − 2x + 1 &gt; 0 則是 <b>x ≠ 1</b>。</p><p>x² + 1 &gt; 0：D = −4 &lt; 0，<b>所有實數</b>；x² + 1 &lt; 0 <b>無解</b>。</p></div>
+<div class="note ex"><b class="tag">例題：反推不等式</b><p>已知解為 1 &lt; x &lt; 3：兩根 1 和 3，「夾中間」是小於 0：(x − 1)(x − 3) &lt; 0，即 <b>x² − 4x + 3 &lt; 0</b>。</p></div>
+<h4 class="sub">四、恆正、恆負</h4>
+<div class="tbl"><table class="wf"><thead><tr><th>情況</th><th>條件</th><th>圖形</th></tr></thead><tbody><tr><td>ax² + bx + c <b>恆正</b>（對所有 x 都大於 0）</td><td>a &gt; 0 且 D &lt; 0</td><td>開口向上，整條拋物線在 x 軸上方</td></tr><tr><td>ax² + bx + c <b>恆負</b>（對所有 x 都小於 0）</td><td>a &lt; 0 且 D &lt; 0</td><td>開口向下，整條拋物線在 x 軸下方</td></tr></tbody></table></div>
+<div class="note ex"><b class="tag">例題：求參數範圍</b><p>x² + kx + 9 &gt; 0 對所有實數 x 都成立，求 k：a = 1 &gt; 0，要求 D &lt; 0，D = k² − 36 &lt; 0 → k² &lt; 36 → <b>−6 &lt; k &lt; 6</b>。</p></div>
+<h4 class="sub">五、分式不等式與應用</h4>
+<p><b>分式不等式</b>可以轉成二次不等式，但要注意<b>分母不能是 0</b>：</p>
+<div class="note ex"><b class="tag">例題：分式不等式</b><p><span class="frac"><span class="num">x − 3</span><span class="den">x + 2</span></span> &gt; 0 → 分子分母同號 → (x − 3)(x + 2) &gt; 0 → <b>x &gt; 3 或 x &lt; −2</b>。</p><p><span class="frac"><span class="num">x − 3</span><span class="den">x + 2</span></span> ≤ 0 → (x − 3)(x + 2) ≤ 0 且 x ≠ −2 → <b>−2 &lt; x ≤ 3</b>（−2 要排除，因為分母不能是 0）。</p></div>
+<div class="note ex"><b class="tag">例題：應用題：利潤</b><p>某店賣 x 杯飲料的利潤函數是 f(x) = x² − 8x − 240（元），至少要賣幾杯才不虧本？</p><p>要 f(x) ≥ 0：(x − 20)(x + 12) ≥ 0 → x ≥ 20 或 x ≤ −12。杯數不能是負的，所以<b>至少要賣 20 杯</b>（f(20) = 400 − 160 − 240 = 0）。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>看圖：拋物線在 x 軸上方是「&gt; 0」、下方是「&lt; 0」；D &gt; 0 時「大於跑兩邊、小於夾中間」；恆正是 a &gt; 0 且 D &lt; 0；x² 係數是負的先乘 −1 並反向。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>x² 的係數是負的時候，一定要先乘 −1 並<b>把不等號反過來</b>，才能套「大於兩邊、小於中間」。分式不等式不能直接去分母（分母的正負不確定），要轉成「乘積」並排除讓分母為 0 的值。</p></div>
+</section>
+
+<div class="chapter c2"><span class="num">02</span><h2>三角函數</h2></div>
+
+<section class="sec" id="s2-1">
+<h3><span class="id">2-1</span>有向角及其度量</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>國中學的角只有 0° 到 180°，而且沒有「方向」。這一章要把角<b>擴大</b>：可以轉很多圈、可以順時針轉，所以需要「<b>有向角</b>」；而且除了「度」，還要認識另一種更適合計算的單位「<b>弧度</b>」。</p></div>
+<h4 class="sub">一、有向角</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 300 240" role="img" aria-label="標準位置的角：頂點在原點，始邊在正 x 軸，逆時針轉到終邊"><defs><marker id="mk-angle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M20 130 H280 M110 230 V10"/><path class="arr" d="M110.0 130.0 L262.0 130.0" marker-end="url(#mk-angle)"/><path class="ln2" d="M110 130 L165.0 34.7"/><path class="arr" d="M150 130 A40 40 0 0 0 130.0 95.4" marker-end="url(#mk-angle)"/><text class="t" x="154" y="116">θ</text><text class="tz" x="236" y="148">始邊</text><text class="tz" x="171.0" y="38.7">終邊</text><text class="tz" x="58" y="148">頂點 O</text><text class="tz" x="150" y="226">逆時針為正角</text></svg></div><p class="cap">標準位置的角：始邊固定在正 x 軸，終邊轉動的方向和大小決定角的正負與大小</p>
+<ul class="pts"><li>角是由<b>始邊</b>轉到<b>終邊</b>形成的。<b>逆時針</b>轉是<b>正角</b>，<b>順時針</b>轉是<b>負角</b>。</li><li><b>標準位置</b>：把頂點放在原點、始邊放在<b>正 x 軸</b>。這樣一個角就由終邊決定，終邊落在第幾象限，這個角就叫第幾象限角。</li><li>角度可以超過 360°（轉了一圈以上），例如 400°；也可以是負的，例如 −30°。</li></ul>
+<div class="tbl"><table class="wf"><thead><tr><th>終邊位置</th><th>角的範圍（0° ≤ θ &lt; 360°）</th></tr></thead><tbody><tr><td>第一象限</td><td>0° &lt; θ &lt; 90°</td></tr><tr><td>第二象限</td><td>90° &lt; θ &lt; 180°</td></tr><tr><td>第三象限</td><td>180° &lt; θ &lt; 270°</td></tr><tr><td>第四象限</td><td>270° &lt; θ &lt; 360°</td></tr><tr><td>在坐標軸上</td><td>θ = 0°、90°、180°、270°（不屬於任何象限，叫「界限角」）</td></tr></tbody></table></div>
+<h4 class="sub">二、同界角</h4>
+<p>終邊相同的角叫<b>同界角</b>：把一個角加上或減去 <b>360° 的整數倍</b>，終邊的位置不會變。</p>
+<div class="formulas"><span class="f">與 <ruby>θ<rt>角</rt></ruby> 同界的角：<ruby>θ<rt>角</rt></ruby> + 360° × <ruby>k<rt>整數</rt></ruby>（k 是整數）</span></div>
+<div class="note ex"><b class="tag">例題：同界角</b><p>400° − 360° = <b>40°</b>（最小正同界角）；−30° + 360° = <b>330°</b>；750° − 2 × 360° = <b>30°</b>。</p><p>求 −400° 的最小正同界角：−400° + 2 × 360° = <b>320°</b>，所以它是第四象限角。</p></div>
+<h4 class="sub">三、角度的單位：度、分、秒</h4>
+<ul class="pts"><li>1° = 60′（分），1′ = 60″（秒）。</li><li>25°30′ = 25 + 30／60 = <b>25.5°</b>；38.25° = 38° + 0.25 × 60′ = <b>38°15′</b>。</li></ul>
+<h4 class="sub">四、弧度制</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 260 220" role="img" aria-label="1 弧度：弧長剛好等於半徑時，圓心角就是 1 rad（約 57.3°）"><defs><marker id="mk-rad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><circle class="w" cx="110" cy="110" r="80"/><path class="w" d="M110 110 H190 M110 110 L153.2 42.7"/><path class="ln2" d="M190 110 A80 80 0 0 0 153.2 42.7"/><text class="tz" x="150" y="126" text-anchor="middle">半徑 r</text><text class="t" x="132" y="100">1 rad</text><text class="tz" x="161.2" y="66.7">弧長 = r</text></svg></div><p class="cap">弧長等於半徑時，圓心角叫 1 弧度（rad）</p>
+<p><b>弧度</b>是用「弧長 ÷ 半徑」來表示角的大小。圓周長是 2πr，所以一圈的弧度是 2πr ÷ r = 2π，對應 360°：</p>
+<div class="formulas"><span class="f">π <ruby>rad<rt>弧度</rt></ruby> = 180°</span><span class="f"><ruby>θ<rt>弧度</rt></ruby> = <ruby>θ<rt>角度</rt></ruby> × <span class="frac"><span class="num">π</span><span class="den">180</span></span>（度 → 弧度）</span><span class="f"><ruby>θ<rt>角度</rt></ruby> = <ruby>θ<rt>弧度</rt></ruby> × <span class="frac"><span class="num">180</span><span class="den">π</span></span>（弧度 → 度）</span></div>
+<div class="tbl"><table class="wf"><thead><tr><th>度</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>120°</th><th>135°</th><th>150°</th><th>180°</th><th>270°</th><th>360°</th></tr></thead><tbody><tr><td>弧度</td><td>π／6</td><td>π／4</td><td>π／3</td><td>π／2</td><td>2π／3</td><td>3π／4</td><td>5π／6</td><td>π</td><td>3π／2</td><td>2π</td></tr></tbody></table></div>
+<p>1 rad = 180° ÷ π ≈ <b>57.3°</b>。弧度制寫的時候通常不寫單位 rad，例如「π／3」就是 π／3 弧度（= 60°）。</p>
+<h4 class="sub">五、弧長與扇形面積</h4>
+<p>用弧度時，弧長和面積的公式變得非常簡單（θ 一定要是<b>弧度</b>）：</p>
+<div class="formulas"><span class="f">弧長 <ruby>s<rt>弧長</rt></ruby> = <ruby>r<rt>半徑</rt></ruby> × <ruby>θ<rt>弧度</rt></ruby></span><span class="f">扇形面積 <ruby>A<rt>面積</rt></ruby> = <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <ruby>r<rt>半徑</rt></ruby>² × <ruby>θ<rt>弧度</rt></ruby> = <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <ruby>r<rt>半徑</rt></ruby> × <ruby>s<rt>弧長</rt></ruby></span></div>
+<div class="note ex"><b class="tag">例題：弧度的計算</b><p>30° = 30 × <span class="frac"><span class="num">π</span><span class="den">180</span></span> = <b>π／6</b>；<span class="frac"><span class="num">2π</span><span class="den">3</span></span> = <span class="frac"><span class="num">2π</span><span class="den">3</span></span> × <span class="frac"><span class="num">180</span><span class="den">π</span></span> = <b>120°</b>。</p><p>半徑 6、圓心角 π／3：弧長 s = 6 × <span class="frac"><span class="num">π</span><span class="den">3</span></span> = <b>2π</b>，面積 = <span class="frac"><span class="num">1</span><span class="den">2</span></span> × 6² × <span class="frac"><span class="num">π</span><span class="den">3</span></span> = <b>6π</b>。</p><p>半徑 10、圓心角 72° = <span class="frac"><span class="num">2π</span><span class="den">5</span></span>：弧長 = 10 × <span class="frac"><span class="num">2π</span><span class="den">5</span></span> = <b>4π</b>，面積 = <span class="frac"><span class="num">1</span><span class="den">2</span></span> × 100 × <span class="frac"><span class="num">2π</span><span class="den">5</span></span> = <b>20π</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>有向角：逆時針正、順時針負；同界角相差 360° 的整數倍；π 弧度 = 180°；弧長 s = rθ、面積 = ½r²θ（θ 用弧度）。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>用弧長、面積公式時，θ 一定要先換成<b>弧度</b>，不能直接代度數。同界角是加減 <b>360°</b>（不是 180°）。負角「順時針」轉，不要把方向搞反。</p></div>
+</section>
+
+<section class="sec" id="s2-2">
+<h3><span class="id">2-2</span>三角函數的定義與性質</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>三角函數就是用<b>直角三角形的邊長比</b>來描述角的大小。直角三角形不管大小，只要有一個銳角一樣，三邊的「比值」就一樣，所以可以用這些比值當作這個角的「代號」。</p></div>
+<h4 class="sub">一、六個三角函數（銳角）</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 280 175" role="img" aria-label="直角三角形：θ 的對邊、鄰邊、斜邊"><defs><marker id="mk-rttri" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M30 150 L230 150 L230 50 Z"/><path class="w" d="M218 150 V138 H230"/><path class="arr" d="M58 150 A28 28 0 0 0 55.0 137.5"/><text class="t" x="66" y="144">θ</text><text class="tz" x="108" y="164">鄰邊</text><text class="tz" x="238" y="104">對邊</text><text class="tz" x="104" y="92" text-anchor="end">斜邊</text></svg></div><p class="cap">θ 的「對邊」是不靠著 θ 的那邊，「鄰邊」是靠著 θ 的那一邊（不是斜邊）</p>
+<div class="formulas"><span class="f">sin<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">對邊</span><span class="den">斜邊</span></span></span><span class="f">cos<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">鄰邊</span><span class="den">斜邊</span></span></span><span class="f">tan<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">對邊</span><span class="den">鄰邊</span></span></span><span class="f">csc<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">斜邊</span><span class="den">對邊</span></span></span><span class="f">sec<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">斜邊</span><span class="den">鄰邊</span></span></span><span class="f">cot<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">鄰邊</span><span class="den">對邊</span></span></span></div>
+<p>口訣：<b>「正弦對斜、餘弦鄰斜、正切對鄰」</b>。後三個 csc、sec、cot 是前三個的倒數（csc = 1／sin，sec = 1／cos，cot = 1／tan）。</p>
+<h4 class="sub">二、特殊角的三角函數值</h4>
+<p>30°–60°–90° 的直角三角形三邊比是 <b>1 : √3 : 2</b>；45°–45°–90° 的三邊比是 <b>1 : 1 : √2</b>。由這兩個三角形就能算出下面的值：</p>
+<div class="tbl"><table class="wf"><thead><tr><th>θ</th><th>sin θ</th><th>cos θ</th><th>tan θ</th></tr></thead><tbody><tr><td>30°</td><td class="f">1／2</td><td class="f">√3／2</td><td class="f">√3／3（= 1／√3）</td></tr><tr><td>45°</td><td class="f">√2／2</td><td class="f">√2／2</td><td class="f">1</td></tr><tr><td>60°</td><td class="f">√3／2</td><td class="f">1／2</td><td class="f">√3</td></tr><tr><td>0°</td><td class="f">0</td><td class="f">1</td><td class="f">0</td></tr><tr><td>90°</td><td class="f">1</td><td class="f">0</td><td class="f">無定義</td></tr></tbody></table></div>
+<p>記法：sin 的值依序是 √1／2、√2／2、√3／2（對應 30°、45°、60°），cos 就是倒著寫。</p>
+<h4 class="sub">三、基本關係式</h4>
+<div class="formulas"><span class="f">倒數：sin<ruby>θ<rt>角</rt></ruby> × csc<ruby>θ<rt>角</rt></ruby> = 1，cos<ruby>θ<rt>角</rt></ruby> × sec<ruby>θ<rt>角</rt></ruby> = 1，tan<ruby>θ<rt>角</rt></ruby> × cot<ruby>θ<rt>角</rt></ruby> = 1</span><span class="f">商數：tan<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">sin<ruby>θ<rt>角</rt></ruby></span><span class="den">cos<ruby>θ<rt>角</rt></ruby></span></span>，cot<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">cos<ruby>θ<rt>角</rt></ruby></span><span class="den">sin<ruby>θ<rt>角</rt></ruby></span></span></span><span class="f">平方：sin²<ruby>θ<rt>角</rt></ruby> + cos²<ruby>θ<rt>角</rt></ruby> = 1</span><span class="f">1 + tan²<ruby>θ<rt>角</rt></ruby> = sec²<ruby>θ<rt>角</rt></ruby></span><span class="f">1 + cot²<ruby>θ<rt>角</rt></ruby> = csc²<ruby>θ<rt>角</rt></ruby></span></div>
+<p><b>平方關係怎麼來的？</b>直角三角形對邊 a、鄰邊 b、斜邊 c，畢氏定理 a² + b² = c²。兩邊同除以 c²：(a／c)² + (b／c)² = 1，也就是 sin²θ + cos²θ = 1。同除以 b²，就得到 1 + tan²θ = sec²θ。</p>
+<div class="formulas"><span class="f">餘角關係：sin(90° − <ruby>θ<rt>角</rt></ruby>) = cos<ruby>θ<rt>角</rt></ruby>，cos(90° − <ruby>θ<rt>角</rt></ruby>) = sin<ruby>θ<rt>角</rt></ruby>，tan(90° − <ruby>θ<rt>角</rt></ruby>) = cot<ruby>θ<rt>角</rt></ruby></span></div>
+<div class="note ex"><b class="tag">例題：由邊長求函數值</b><p>直角三角形 θ 的對邊 3、鄰邊 4，斜邊 = √(9 + 16) = 5：sin θ = <b>3／5</b>、cos θ = <b>4／5</b>、tan θ = <b>3／4</b>。</p><p>已知銳角 θ 的 sin θ = 5／13：對邊 5、斜邊 13，鄰邊 = √(169 − 25) = 12，所以 cos θ = <b>12／13</b>、tan θ = <b>5／12</b>。</p></div>
+<div class="note ex"><b class="tag">例題：特殊角的計算</b><p>sin²30° + cos²60° = (1／2)² + (1／2)² = <span class="frac"><span class="num">1</span><span class="den">4</span></span> + <span class="frac"><span class="num">1</span><span class="den">4</span></span> = <b>1／2</b>。</p><p>sin 30° × cos 60° + tan 45° = <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> + 1 = <b>5／4</b>。</p></div>
+<div class="note ex"><b class="tag">例題：仰角與高度</b><p>站在離大樓 20 公尺處，看大樓頂端的仰角是 30°：高度 = 20 × tan 30° = 20 × <span class="frac"><span class="num">√3</span><span class="den">3</span></span> = <b><span class="frac"><span class="num">20√3</span><span class="den">3</span></span> ≈ 11.5 公尺</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>正弦＝對／斜、餘弦＝鄰／斜、正切＝對／鄰；sin² + cos² = 1；tan = sin／cos；特殊角值要背熟。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>「對邊」和「鄰邊」是相對於<b>所選的角 θ</b> 而言的，換一個角，對邊與鄰邊就互換。tan 90° 沒有定義（鄰邊 = 0，不能除以 0）。</p></div>
+</section>
+
+<section class="sec" id="s2-3">
+<h3><span class="id">2-3</span>任意角的三角函數</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>直角三角形裡的角只能是銳角。要處理<b>任意大小的角</b>（鈍角、超過 360°、負角），就把角放到<b>坐標平面</b>上，用終邊上一個點的坐標來定義三角函數。</p></div>
+<h4 class="sub">一、用坐標定義</h4>
+<p>把角 θ 放在標準位置，在終邊上任取一點 P(x, y)，設 r = OP = √(x² + y²)（r &gt; 0），則：</p>
+<div class="formulas"><span class="f">sin<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>y<rt>縱坐標</rt></ruby></span><span class="den"><ruby>r<rt>距離</rt></ruby></span></span></span><span class="f">cos<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>x<rt>橫坐標</rt></ruby></span><span class="den"><ruby>r<rt>距離</rt></ruby></span></span></span><span class="f">tan<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>y<rt>縱坐標</rt></ruby></span><span class="den"><ruby>x<rt>橫坐標</rt></ruby></span></span>（x ≠ 0）</span><span class="f">csc<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>r<rt>距離</rt></ruby></span><span class="den"><ruby>y<rt>縱坐標</rt></ruby></span></span></span><span class="f">sec<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>r<rt>距離</rt></ruby></span><span class="den"><ruby>x<rt>橫坐標</rt></ruby></span></span></span><span class="f">cot<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>x<rt>橫坐標</rt></ruby></span><span class="den"><ruby>y<rt>縱坐標</rt></ruby></span></span>（y ≠ 0）</span></div>
+<div class="fig"><svg class="ckt" viewBox="0 0 340 275" role="img" aria-label="單位圓上的點 P 的座標就是 (cos θ, sin θ)"><defs><marker id="mk-unit" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M30 140 H270 M150 260 V20"/><circle class="w" cx="150" cy="140" r="100"/><path class="ln2" d="M150 140 L214.3 63.4"/><path class="dash" d="M214.3 63.4 V140"/><circle class="dot" cx="214.3" cy="63.4" r="4"/><path class="arr" d="M178 140 A28 28 0 0 0 168.0 118.6"/><text class="t" x="194.3" y="55.4">P(cos θ, sin θ)</text><text class="tz" x="182.1" y="156" text-anchor="middle">cos θ</text><text class="tz" x="218.3" y="101.7">sin θ</text><text class="t" x="184" y="130">θ</text><text class="tz" x="108" y="136">半徑 1</text></svg></div><p class="cap">取 r = 1（單位圓）時，終邊與圓的交點坐標就是 (cos θ, sin θ)</p>
+<ul class="pts"><li>對於銳角，這個定義和 2-2 的「對邊／斜邊」完全一樣（對邊 = y、鄰邊 = x、斜邊 = r）。</li><li>r 是正的；x、y 可能是正、負或 0，所以三角函數值可能是負的。</li><li><b>無定義的情況</b>：x = 0（θ = 90°、270°）時 tan、sec 無定義；y = 0（θ = 0°、180°）時 csc、cot 無定義。</li></ul>
+<div class="note ex"><b class="tag">例題：由點求函數值</b><p>終邊通過 P(−3, 4)：r = √(9 + 16) = 5，sin θ = <b>4／5</b>、cos θ = <b>−3／5</b>、tan θ = <b>−4／3</b>（第二象限）。</p><p>終邊通過 P(−5, −12)：r = 13，sin θ = <b>−12／13</b>、cos θ = <b>−5／13</b>、tan θ = <b>12／5</b>（第三象限）。</p></div>
+<h4 class="sub">二、各象限的正負號</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 300 280" role="img" aria-label="三角函數在各象限的正負號"><defs><marker id="mk-astc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M20 130 H280 M150 10 V250"/><text class="t" x="162" y="60">Ⅰ　全部為正</text><text class="t" x="138" y="60" text-anchor="end">Ⅱ　sin、csc 正</text><text class="t" x="138" y="210" text-anchor="end">Ⅲ　tan、cot 正</text><text class="t" x="162" y="210">Ⅳ　cos、sec 正</text><text class="tz" x="150" y="270" text-anchor="middle">口訣：全 → 正弦 → 正切 → 餘弦（逆時針唸）</text></svg></div><p class="cap">記法：第一象限全部為正，往逆時針：正弦、正切、餘弦</p>
+<div class="tbl"><table class="wf"><thead><tr><th>象限</th><th>x、y 的正負</th><th>sin（csc）</th><th>cos（sec）</th><th>tan（cot）</th></tr></thead><tbody><tr><td>第一象限</td><td>(＋, ＋)</td><td>＋</td><td>＋</td><td>＋</td></tr><tr><td>第二象限</td><td>(－, ＋)</td><td>＋</td><td>－</td><td>－</td></tr><tr><td>第三象限</td><td>(－, －)</td><td>－</td><td>－</td><td>＋</td></tr><tr><td>第四象限</td><td>(＋, －)</td><td>－</td><td>＋</td><td>－</td></tr></tbody></table></div>
+<p>因為 sin = y／r、cos = x／r、tan = y／x，符號就看 x、y 的正負；csc、sec、cot 和 sin、cos、tan 同號。</p>
+<h4 class="sub">三、用「參考角」求任意角的值</h4>
+<p><b>參考角 θ′</b>：終邊和 <b>x 軸</b>之間的銳角。算任意角的三角函數值時，先找參考角，值的<b>大小</b>和參考角的值一樣，<b>正負號</b>由象限決定。</p>
+<div class="tbl"><table class="wf"><thead><tr><th>θ 在</th><th>參考角 θ′</th><th>例子</th></tr></thead><tbody><tr><td>第一象限</td><td>θ′ = θ</td><td>30° → 30°</td></tr><tr><td>第二象限</td><td>θ′ = 180° − θ</td><td>150° → 30°</td></tr><tr><td>第三象限</td><td>θ′ = θ − 180°</td><td>225° → 45°</td></tr><tr><td>第四象限</td><td>θ′ = 360° − θ</td><td>300° → 60°</td></tr></tbody></table></div>
+<div class="note ex"><b class="tag">例題：求值</b><p>sin 150°：第二象限、sin 為正，參考角 30°，= sin 30° = <b>1／2</b>。</p><p>cos 120°：第二象限、cos 為負，參考角 60°，= −cos 60° = <b>−1／2</b>。</p><p>tan 225°：第三象限、tan 為正，參考角 45°，= tan 45° = <b>1</b>。</p><p>sin 240° = −sin 60° = <b>−√3／2</b>；cos 300° = cos 60° = <b>1／2</b>；tan 330° = −tan 30° = <b>−√3／3</b>。</p></div>
+<h4 class="sub">四、負角、同界角與誘導公式</h4>
+<div class="formulas"><span class="f">sin(−<ruby>θ<rt>角</rt></ruby>) = −sin<ruby>θ<rt>角</rt></ruby></span><span class="f">cos(−<ruby>θ<rt>角</rt></ruby>) = cos<ruby>θ<rt>角</rt></ruby></span><span class="f">tan(−<ruby>θ<rt>角</rt></ruby>) = −tan<ruby>θ<rt>角</rt></ruby></span><span class="f">sin(<ruby>θ<rt>角</rt></ruby> + 360°<ruby>k<rt>整數</rt></ruby>) = sin<ruby>θ<rt>角</rt></ruby></span></div>
+<div class="tbl"><table class="wf"><thead><tr><th>角</th><th>sin</th><th>cos</th><th>tan</th></tr></thead><tbody><tr><td>180° − θ</td><td class="f">sin θ</td><td class="f">−cos θ</td><td class="f">−tan θ</td></tr><tr><td>180° + θ</td><td class="f">−sin θ</td><td class="f">−cos θ</td><td class="f">tan θ</td></tr><tr><td>360° − θ（−θ）</td><td class="f">−sin θ</td><td class="f">cos θ</td><td class="f">−tan θ</td></tr><tr><td>90° + θ</td><td class="f">cos θ</td><td class="f">−sin θ</td><td class="f">−cot θ</td></tr><tr><td>90° − θ</td><td class="f">cos θ</td><td class="f">sin θ</td><td class="f">cot θ</td></tr></tbody></table></div>
+<p><b>不用硬背</b>：只要把 θ 當成銳角，判斷「180° − θ」「180° + θ」落在第幾象限，再用象限決定正負號，結果的大小就是參考角的值。</p>
+<div class="note ex"><b class="tag">例題：化簡與求值</b><p>sin 750° = sin(720° + 30°) = sin 30° = <b>1／2</b>；cos(−60°) = cos 60° = <b>1／2</b>；sin 1020° = sin(1020° − 720°) = sin 300° = <b>−√3／2</b>。</p></div>
+<div class="note ex"><b class="tag">例題：已知一個函數值，求其他</b><p>sin θ = 3／5，θ 在第二象限：取 y = 3、r = 5，x = −4（第二象限 x 為負），cos θ = <b>−4／5</b>，tan θ = <b>−3／4</b>。</p><p>tan θ = −2，θ 在第四象限：取 x = 1、y = −2，r = √5，sin θ = <span class="frac"><span class="num">−2</span><span class="den">√5</span></span> = <b><span class="frac"><span class="num">−2√5</span><span class="den">5</span></span></b>，cos θ = <span class="frac"><span class="num">1</span><span class="den">√5</span></span> = <b><span class="frac"><span class="num">√5</span><span class="den">5</span></span></b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>角放在坐標上：sin = y／r、cos = x／r、tan = y／x；正負看象限（全、正弦、正切、餘弦）；任意角先找參考角，大小用參考角的值。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>參考角是和 <b>x 軸</b>的夾角，不是和 y 軸。算出參考角的值之後別忘了<b>補上正負號</b>。tan 在 90°、270° 無定義，不要硬代。</p></div>
+</section>
+
+<section class="sec" id="s2-4">
+<h3><span class="id">2-4</span>三角函數的圖形與週期</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>把 θ 從 0 慢慢增加，畫出 sin θ 的值，會得到一條<b>像波浪一樣一直重複</b>的曲線。聲音、光、交流電、潮汐，都是這種波，所以三角函數的圖形非常重要。</p></div>
+<h4 class="sub">一、週期函數</h4>
+<p>如果有一個最小的正數 T，使得 f(x + T) = f(x) 對所有 x 都成立，f 就是<b>週期函數</b>，T 叫<b>週期</b>。圖形每隔 T 就重複一次。</p>
+<h4 class="sub">二、y = sin x 與 y = cos x 的圖形</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 400 190" role="img" aria-label="正弦與餘弦函數的圖形，週期都是 2π，值域 [−1, 1]"><defs><marker id="mk-sincos" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M30 100 H370 M40 20 V180"/><text class="t" x="20" y="26">1</text><text class="t" x="14" y="176">−1</text><path class="w" d="M120.0 97 V103"/><text class="tz" x="120.0" y="116" text-anchor="middle">π/2</text><path class="w" d="M200.0 97 V103"/><text class="tz" x="200.0" y="116" text-anchor="middle">π</text><path class="w" d="M280.0 97 V103"/><text class="tz" x="280.0" y="116" text-anchor="middle">3π/2</text><path class="w" d="M360.0 97 V103"/><text class="tz" x="360.0" y="116" text-anchor="middle">2π</text><path class="ln2" d="M40.0 100.0 L45.1 93.0 L50.2 86.1 L55.3 79.3 L60.4 72.7 L65.5 66.4 L70.6 60.5 L75.7 54.9 L80.7 49.8 L85.8 45.2 L90.9 41.1 L96.0 37.6 L101.1 34.8 L106.2 32.6 L111.3 31.0 L116.4 30.2 L121.5 30.0 L126.6 30.6 L131.7 31.8 L136.8 33.8 L141.9 36.3 L147.0 39.6 L152.0 43.4 L157.1 47.8 L162.2 52.7 L167.3 58.1 L172.4 63.9 L177.5 70.1 L182.6 76.6 L187.7 83.3 L192.8 90.1 L197.9 97.1 L203.0 104.1 L208.1 111.0 L213.2 117.9 L218.3 124.6 L223.3 131.0 L228.4 137.1 L233.5 142.8 L238.6 148.1 L243.7 153.0 L248.8 157.3 L253.9 161.0 L259.0 164.1 L264.1 166.6 L269.2 168.4 L274.3 169.6 L279.4 170.0 L284.5 169.7 L289.6 168.8 L294.6 167.1 L299.7 164.8 L304.8 161.8 L309.9 158.3 L315.0 154.1 L320.1 149.4 L325.2 144.2 L330.3 138.5 L335.4 132.5 L340.5 126.2 L345.6 119.6 L350.7 112.8 L355.8 105.8"/><path class="ln3" d="M40.0 30.0 L45.1 30.3 L50.2 31.4 L55.3 33.1 L60.4 35.5 L65.5 38.6 L70.6 42.2 L75.7 46.5 L80.7 51.2 L85.8 56.5 L90.9 62.2 L96.0 68.2 L101.1 74.6 L106.2 81.3 L111.3 88.1 L116.4 95.0 L121.5 102.0 L126.6 109.0 L131.7 115.9 L136.8 122.6 L141.9 129.1 L147.0 135.3 L152.0 141.2 L157.1 146.6 L162.2 151.6 L167.3 156.1 L172.4 160.0 L177.5 163.3 L182.6 166.0 L187.7 168.0 L192.8 169.3 L197.9 169.9 L203.0 169.9 L208.1 169.1 L213.2 167.7 L218.3 165.6 L223.3 162.8 L228.4 159.4 L233.5 155.4 L238.6 150.8 L243.7 145.8 L248.8 140.2 L253.9 134.3 L259.0 128.1 L264.1 121.5 L269.2 114.8 L274.3 107.9 L279.4 100.9 L284.5 93.9 L289.6 86.9 L294.6 80.1 L299.7 73.5 L304.8 67.2 L309.9 61.2 L315.0 55.6 L320.1 50.4 L325.2 45.7 L330.3 41.6 L335.4 38.0 L340.5 35.1 L345.6 32.8 L350.7 31.2 L355.8 30.2"/><text class="tz" x="60" y="14">紫線：y = sin x</text><text class="tz2" x="190" y="14">紅線：y = cos x</text></svg></div><p class="cap">兩條曲線形狀一模一樣，只是 cos x 比 sin x「早」四分之一個週期開始</p>
+<div class="tbl"><table class="wf"><thead><tr><th>性質</th><th>y = sin x</th><th>y = cos x</th></tr></thead><tbody><tr><td>定義域</td><td>所有實數</td><td>所有實數</td></tr><tr><td>值域</td><td>−1 ≤ y ≤ 1</td><td>−1 ≤ y ≤ 1</td></tr><tr><td>週期</td><td>2π</td><td>2π</td></tr><tr><td>x = 0 時</td><td>0</td><td>1</td></tr><tr><td>對稱</td><td>對<b>原點</b>對稱（奇函數）：sin(−x) = −sin x</td><td>對 <b>y 軸</b>對稱（偶函數）：cos(−x) = cos x</td></tr><tr><td>最大值 1 出現在</td><td>x = π／2 + 2kπ</td><td>x = 2kπ</td></tr></tbody></table></div>
+<p>兩者的關係：cos x = sin(x + π／2)，也就是 cos 的圖形是把 sin 的圖形向左平移 π／2。</p>
+<h4 class="sub">三、y = tan x 的圖形</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 400 200" role="img" aria-label="正切函數的圖形：週期 π，在 x = π/2 加上 π 的整數倍處沒有定義（虛線）"><defs><marker id="mk-tan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M30 100 H370"/><path class="dash" d="M40.0 10 V190"/><path class="dash" d="M200.0 10 V190"/><path class="dash" d="M360.0 10 V190"/><path class="ln2" d="M55.0 182.6 L57.5 169.8 L60.1 160.2 L62.6 152.6 L65.1 146.4 L67.7 141.3 L70.2 137.0 L72.8 133.3 L75.3 130.1 L77.9 127.2 L80.4 124.6 L83.0 122.2 L85.5 120.1 L88.1 118.1 L90.6 116.3 L93.2 114.5 L95.7 112.9 L98.3 111.4 L100.8 109.9 L103.3 108.5 L105.9 107.1 L108.4 105.8 L111.0 104.5 L113.5 103.2 L116.1 101.9 L118.6 100.7 L121.2 99.4 L123.7 98.2 L126.3 96.9 L128.8 95.6 L131.4 94.3 L133.9 93.0 L136.5 91.6 L139.0 90.2 L141.5 88.7 L144.1 87.2 L146.6 85.6 L149.2 83.9 L151.7 82.0 L154.3 80.1 L156.8 77.9 L159.4 75.6 L161.9 73.0 L164.5 70.2 L167.0 67.0 L169.6 63.3 L172.1 59.0 L174.6 54.0 L177.2 48.0 L179.7 40.5 L182.3 31.0 L184.8 18.5"/><path class="ln2" d="M215.0 182.6 L217.5 169.8 L220.1 160.2 L222.6 152.6 L225.1 146.4 L227.7 141.3 L230.2 137.0 L232.8 133.3 L235.3 130.1 L237.9 127.2 L240.4 124.6 L243.0 122.2 L245.5 120.1 L248.1 118.1 L250.6 116.3 L253.2 114.5 L255.7 112.9 L258.3 111.4 L260.8 109.9 L263.3 108.5 L265.9 107.1 L268.4 105.8 L271.0 104.5 L273.5 103.2 L276.1 101.9 L278.6 100.7 L281.2 99.4 L283.7 98.2 L286.3 96.9 L288.8 95.6 L291.4 94.3 L293.9 93.0 L296.5 91.6 L299.0 90.2 L301.5 88.7 L304.1 87.2 L306.6 85.6 L309.2 83.9 L311.7 82.0 L314.3 80.1 L316.8 77.9 L319.4 75.6 L321.9 73.0 L324.5 70.2 L327.0 67.0 L329.6 63.3 L332.1 59.0 L334.6 54.0 L337.2 48.0 L339.7 40.5 L342.3 31.0 L344.8 18.5"/><text class="tz" x="120.0" y="116" text-anchor="middle">0</text><text class="tz" x="200.0" y="116" text-anchor="middle">π/2</text><text class="tz" x="280.0" y="116" text-anchor="middle">π</text><text class="tz" x="360.0" y="116" text-anchor="middle">3π/2</text><text class="tz" x="204.0" y="22">x = π/2</text><text class="tz" x="364.0" y="22">x = 3π/2</text></svg></div><p class="cap">tan x 的圖形是一段一段的，在 x = π／2 + kπ 處沒有定義（虛線叫漸近線）</p>
+<ul class="pts"><li>定義域：x ≠ π／2 + kπ；值域：<b>所有實數</b>；週期：<b>π</b>（不是 2π）；是奇函數，經過原點。</li></ul>
+<h4 class="sub">四、一般形式 y = a sin(bx + c) + d</h4>
+<div class="formulas"><span class="f"><ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>振幅係數</rt></ruby> sin(<ruby>b<rt>頻率係數</rt></ruby><ruby>x<rt>自變數</rt></ruby> + <ruby>c<rt>相位係數</rt></ruby>) + <ruby>d<rt>垂直位移</rt></ruby></span></div>
+<div class="tbl"><table class="wf"><thead><tr><th>量</th><th>公式</th><th>意思</th></tr></thead><tbody><tr><td>振幅</td><td>|a|</td><td>波的「高度」，最大值和中線的距離</td></tr><tr><td>週期</td><td>2π ÷ |b|（tan 是 π ÷ |b|）</td><td>重複一次需要的長度；|b| 越大波越密</td></tr><tr><td>左右平移</td><td>從 x = −c／b 開始一個週期</td><td>bx + c = 0 的位置；c／b &gt; 0 向左平移</td></tr><tr><td>上下平移</td><td>d</td><td>整個圖形上移 d</td></tr><tr><td>最大值、最小值</td><td>d + |a|、d − |a|</td><td>a 為負時圖形上下顛倒，但最大最小值不變</td></tr></tbody></table></div>
+<h4 class="sub">五、怎麼畫（五點法）</h4>
+<ol class="steps"><li>先算<b>週期</b> T 和<b>振幅</b> |a|，決定從哪裡開始（bx + c = 0 的位置）。</li><li>把一個週期分成<b>四等分</b>，得到五個關鍵點（起點、1/4、2/4、3/4、終點）。</li><li>依序填上 0、最大、0、最小、0（sin 的情況；a 為負時最大最小對調），再加上中線 d。</li><li>用平滑曲線連起來，再往左右重複。</li></ol>
+<div class="note ex"><b class="tag">例題：振幅與週期</b><p>y = 3 sin 2x：振幅 <b>3</b>、週期 2π ÷ 2 = <b>π</b>，值域 −3 ≤ y ≤ 3。</p><p>y = 2 cos(x／2) + 1：振幅 2、週期 2π ÷ (1／2) = <b>4π</b>，最大值 1 + 2 = <b>3</b>、最小值 1 − 2 = <b>−1</b>。</p><p>y = sin(x − π／3)：振幅 1、週期 2π，圖形向<b>右</b>平移 π／3。</p><p>y = −2 sin x：振幅 2，圖形上下顛倒；y = tan 2x：週期 π ÷ 2 = <b>π／2</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>sin、cos 週期 2π、值域 [−1, 1]；tan 週期 π、值域全體實數；y = a sin(bx + c) + d：振幅 |a|、週期 2π／|b|、中線 d。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>週期是 2π ÷ |b|，不是 2π × b。tan 的週期是 π（不是 2π）。振幅一定是<b>正的</b>（取絕對值），a 為負只是上下顛倒。</p></div>
+</section>
+
+<section class="sec" id="s2-5">
+<h3><span class="id">2-5</span>正弦定理與餘弦定理</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>直角三角形用邊長比就能算。可是一般的三角形（沒有直角）呢？只要知道其中三個量（至少一個是邊），就可以用<b>正弦定理</b>或<b>餘弦定理</b>把其他的邊和角都算出來。</p></div>
+<h4 class="sub">一、符號</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 280 180" role="img" aria-label="三角形 ABC：邊 a 在角 A 的對面，b 在 B 的對面，c 在 C 的對面"><defs><marker id="mk-abc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="w" d="M40 150 L240 150 L150 40 Z"/><text class="t" x="22" y="162">A</text><text class="t" x="244" y="166">B</text><text class="t" x="146" y="30">C</text><text class="tz" x="140" y="168" text-anchor="middle">c（A 與 B 之間）</text><text class="tz" x="210" y="86">a（A 的對邊）</text><text class="tz" x="86" y="86" text-anchor="end">b（B 的對邊）</text></svg></div><p class="cap">習慣用大寫 A、B、C 表示角，小寫 a、b、c 表示它們對面的邊</p>
+<h4 class="sub">二、正弦定理</h4>
+<div class="formulas"><span class="f"><span class="frac"><span class="num"><ruby>a<rt>邊a</rt></ruby></span><span class="den">sin<ruby>A<rt>角A</rt></ruby></span></span> = <span class="frac"><span class="num"><ruby>b<rt>邊b</rt></ruby></span><span class="den">sin<ruby>B<rt>角B</rt></ruby></span></span> = <span class="frac"><span class="num"><ruby>c<rt>邊c</rt></ruby></span><span class="den">sin<ruby>C<rt>角C</rt></ruby></span></span> = 2<ruby>R<rt>外接圓半徑</rt></ruby></span></div>
+<ul class="pts"><li><b>邊和它對角的正弦成正比</b>；比值等於<b>外接圓直徑 2R</b>。</li><li><b>為什麼？</b>從 C 作高 h，h = b sin A = a sin B，所以 a／sin A = b／sin B；對另一個高同樣處理就得到全部相等。</li><li><b>適用時機</b>：已知「兩角一邊」（AAS、ASA），或「兩邊和其中一邊的對角」（SSA）。</li></ul>
+<h4 class="sub">三、餘弦定理</h4>
+<div class="formulas"><span class="f"><ruby>a<rt>邊a</rt></ruby>² = <ruby>b<rt>邊b</rt></ruby>² + <ruby>c<rt>邊c</rt></ruby>² − 2<ruby>b<rt>邊b</rt></ruby><ruby>c<rt>邊c</rt></ruby> cos<ruby>A<rt>角A</rt></ruby></span><span class="f">cos<ruby>A<rt>角A</rt></ruby> = <span class="frac"><span class="num"><ruby>b<rt>邊b</rt></ruby>² + <ruby>c<rt>邊c</rt></ruby>² − <ruby>a<rt>邊a</rt></ruby>²</span><span class="den">2<ruby>b<rt>邊b</rt></ruby><ruby>c<rt>邊c</rt></ruby></span></span></span></div>
+<ul class="pts"><li>它是<b>畢氏定理的推廣</b>：當 A = 90° 時 cos A = 0，就是 a² = b² + c²。</li><li><b>為什麼？</b>從 B 作高，把 a 當成直角三角形的斜邊，用畢氏定理就能推出來。</li><li><b>適用時機</b>：已知「兩邊和夾角」（SAS）求第三邊；或已知「三邊」（SSS）求角。</li><li>同樣的形式還有 b² = a² + c² − 2ac cos B、c² = a² + b² − 2ab cos C。</li></ul>
+<div class="tbl"><table class="wf"><thead><tr><th>已知</th><th>用哪個定理</th><th>做法</th></tr></thead><tbody><tr><td>兩角一邊（AAS、ASA）</td><td>正弦定理</td><td>先用內角和 180° 求第三個角，再用正弦定理求其他邊</td></tr><tr><td>兩邊和夾角（SAS）</td><td>餘弦定理</td><td>先求第三邊，再求其他角</td></tr><tr><td>三邊（SSS）</td><td>餘弦定理</td><td>用 cos A = (b² + c² − a²)／2bc 求角</td></tr><tr><td>兩邊和其中一邊的對角（SSA）</td><td>正弦定理</td><td>可能有兩解、一解或無解，要檢查</td></tr></tbody></table></div>
+<h4 class="sub">四、三角形面積</h4>
+<div class="formulas"><span class="f">面積 = <span class="frac"><span class="num">1</span><span class="den">2</span></span> <ruby>a<rt>邊a</rt></ruby><ruby>b<rt>邊b</rt></ruby> sin<ruby>C<rt>角C</rt></ruby> = <span class="frac"><span class="num">1</span><span class="den">2</span></span> <ruby>b<rt>邊b</rt></ruby><ruby>c<rt>邊c</rt></ruby> sin<ruby>A<rt>角A</rt></ruby> = <span class="frac"><span class="num">1</span><span class="den">2</span></span> <ruby>a<rt>邊a</rt></ruby><ruby>c<rt>邊c</rt></ruby> sin<ruby>B<rt>角B</rt></ruby></span></div>
+<p>面積 = ½ × 兩邊 × 夾角的正弦（「底 × 高 ÷ 2」中的高就是另一邊 × sin 夾角）。</p>
+<div class="note ex"><b class="tag">例題：正弦定理</b><p>△ABC 中，A = 30°、B = 45°、a = 4：C = 180° − 75° = <b>105°</b>；a／sin A = 4 ÷ (1／2) = 8，所以 b = 8 × sin 45° = 8 × <span class="frac"><span class="num">√2</span><span class="den">2</span></span> = <b>4√2</b>。</p><p>a = 6、A = 30°：2R = <span class="frac"><span class="num">6</span><span class="den">1／2</span></span> = 12，外接圓半徑 R = <b>6</b>。</p></div>
+<div class="note ex"><b class="tag">例題：餘弦定理</b><p>b = 3、c = 5、A = 60°：a² = 9 + 25 − 2 × 3 × 5 × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = 34 − 15 = 19，a = <b>√19</b>。</p><p>三邊 5、7、8，求 7 的對角 θ：cos θ = <span class="frac"><span class="num">5² + 8² − 7²</span><span class="den">2 × 5 × 8</span></span> = <span class="frac"><span class="num">40</span><span class="den">80</span></span> = <span class="frac"><span class="num">1</span><span class="den">2</span></span>，θ = <b>60°</b>。</p></div>
+<div class="note ex"><b class="tag">例題：面積與鈍角判斷</b><p>5、8 兩邊夾角 60°：面積 = <span class="frac"><span class="num">1</span><span class="den">2</span></span> × 5 × 8 × sin 60° = <b>10√3</b>。</p><p>三邊 2、3、4：最大角的對邊是 4，cos = <span class="frac"><span class="num">4 + 9 − 16</span><span class="den">2 × 2 × 3</span></span> = <b>−1／4</b> &lt; 0，所以是<b>鈍角三角形</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>正弦定理：a／sin A = b／sin B = c／sin C = 2R；餘弦定理：a² = b² + c² − 2bc cos A；面積 = ½ ab sin C。兩角一邊用正弦、兩邊夾角或三邊用餘弦。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>正弦定理中，邊要配它的<b>對角</b>（a 配 A）。SSA 可能有兩解，求出角之後要檢查三個內角和是否 180°。餘弦定理中「−2bc cos A」的 A，是 <b>b、c 兩邊的夾角</b>（也就是 a 的對角），不要用錯角。</p></div>
+</section>
+
+<div class="chapter c3"><span class="num">03</span><h2>平面向量</h2></div>
+
+<section class="sec" id="s3-1">
+<h3><span class="id">3-1</span>向量及其基本運算</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>有些量只有「大小」（例如溫度、長度），有些量除了大小還有「<b>方向</b>」（例如位移、速度、力）。同時有大小和方向的量叫<b>向量</b>，用<b>有方向的箭頭</b>來表示：箭頭的長度是大小，箭頭指的方向是方向。</p></div>
+<h4 class="sub">一、向量的基本概念</h4>
+<ul class="pts"><li><b>有向線段</b> AB：起點是 A、終點是 B，記作 <span class="vec">AB</span>；也常用小寫字母 <span class="vec">a</span> 表示。</li><li><b>長度（大小）</b>：|<span class="vec">a</span>|，就是箭頭的長度。</li><li><b>相等向量</b>：大小和方向都相同，不管位置在哪裡（可以隨意平移）。</li><li><b>負向量</b> −<span class="vec">a</span>：大小相同、方向相反。<b>零向量</b> <span class="vec">0</span>：長度為 0，沒有方向。</li><li><b>單位向量</b>：長度等於 1 的向量。和 <span class="vec">a</span> 同方向的單位向量 = <span class="vec">a</span> ÷ |<span class="vec">a</span>|。</li></ul>
+<h4 class="sub">二、用坐標表示向量</h4>
+<div class="formulas"><span class="f">A(<ruby>x₁<rt>A的x</rt></ruby>, <ruby>y₁<rt>A的y</rt></ruby>)、B(<ruby>x₂<rt>B的x</rt></ruby>, <ruby>y₂<rt>B的y</rt></ruby>)：<span class="vec">AB</span> = (<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>, <ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>)</span></div>
+<ul class="pts"><li>向量的坐標 = <b>終點坐標 − 起點坐標</b>（先終點、再起點，不能反）。</li><li>兩個向量相等 ⇔ 它們的坐標相等。</li><li>從原點出發的向量 <span class="vec">OP</span> 的坐標就是 P 點的坐標，叫 P 的<b>位置向量</b>。</li></ul>
+<h4 class="sub">三、向量的運算</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 300 185" role="img" aria-label="向量加法的三角形法"><defs><marker id="mk-vadd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="arr" d="M40.0 140.0 L160.0 140.0" marker-end="url(#mk-vadd)"/><path class="arr" d="M160.0 140.0 L230.0 60.0" marker-end="url(#mk-vadd)"/><path class="arr2" d="M40.0 140.0 L230.0 60.0" marker-end="url(#mk-vadd)"/><text class="t" x="96" y="160">a</text><text class="t" x="206" y="112">b</text><text class="t" x="96" y="88">a + b</text><text class="tz" x="40" y="176">三角形法：a 的終點接 b 的起點</text></svg></div><p class="cap">加法：把 <span class="vec">b</span> 的起點接在 <span class="vec">a</span> 的終點，從 <span class="vec">a</span> 的起點連到 <span class="vec">b</span> 的終點，就是 <span class="vec">a</span> + <span class="vec">b</span></p>
+<div class="tbl"><table class="wf"><thead><tr><th>運算</th><th>幾何意義</th><th>坐標（<span class="vec">a</span> = (a₁, a₂)、<span class="vec">b</span> = (b₁, b₂)）</th></tr></thead><tbody><tr><td>加法 <span class="vec">a</span> + <span class="vec">b</span></td><td>三角形法（頭接尾），或平行四邊形法（共起點，取對角線）</td><td>(a₁ + b₁, a₂ + b₂)</td></tr><tr><td>減法 <span class="vec">a</span> − <span class="vec">b</span></td><td><span class="vec">a</span> + (−<span class="vec">b</span>)；也是「從 <span class="vec">b</span> 的終點指向 <span class="vec">a</span> 的終點」</td><td>(a₁ − b₁, a₂ − b₂)</td></tr><tr><td>係數積 k <span class="vec">a</span></td><td>k &gt; 0：同方向、長度變 k 倍；k &lt; 0：反方向、長度變 |k| 倍</td><td>(k a₁, k a₂)</td></tr><tr><td>長度 |<span class="vec">a</span>|</td><td>箭頭的長度</td><td>√(a₁² + a₂²)</td></tr></tbody></table></div>
+<div class="formulas"><span class="f">|<ruby><span class="vec">a</span><rt>向量</rt></ruby>| = √(<ruby>a₁<rt>橫分量</rt></ruby>² + <ruby>a₂<rt>縱分量</rt></ruby>²)</span><span class="f">單位向量 = <span class="frac"><span class="num"><ruby><span class="vec">a</span><rt>向量</rt></ruby></span><span class="den">&#124;<span class="vec">a</span>&#124;</span></span>（同方向、長度 1）</span></div>
+<h4 class="sub">四、平行與線性組合</h4>
+<ul class="pts"><li><b>平行</b>：<span class="vec">a</span> ∥ <span class="vec">b</span>（<span class="vec">b</span> ≠ <span class="vec">0</span>）⇔ 存在實數 k，使 <span class="vec">a</span> = k <span class="vec">b</span>。</li><li>坐標判斷：<b>a₁b₂ − a₂b₁ = 0</b>（也就是對應坐標成比例）。</li><li><b>線性組合</b>：用 m <span class="vec">a</span> + n <span class="vec">b</span> 表示的向量。平面上任何向量，都能用兩個不平行的向量 <span class="vec">a</span>、<span class="vec">b</span> 的線性組合表示。</li><li><b>分點的向量表示</b>：AP : PB = m : n，則 P = <span class="frac"><span class="num">n A + m B</span><span class="den">m + n</span></span>（A、B 是位置向量），和 1-2 的內分點公式一樣。</li></ul>
+<div class="note ex"><b class="tag">例題：向量的運算</b><p>A(1, 2)、B(4, 6)：<span class="vec">AB</span> = (4 − 1, 6 − 2) = <b>(3, 4)</b>，|<span class="vec">AB</span>| = √(9 + 16) = <b>5</b>，<span class="vec">AB</span> 的單位向量 = (3／5, 4／5)。</p><p><span class="vec">a</span> = (2, 3)、<span class="vec">b</span> = (1, −4)：<span class="vec">a</span> + <span class="vec">b</span> = <b>(3, −1)</b>；<span class="vec">a</span> − <span class="vec">b</span> = <b>(1, 7)</b>；2<span class="vec">a</span> − 3<span class="vec">b</span> = (4, 6) − (3, −12) = <b>(1, 18)</b>；|<span class="vec">a</span>| = <b>√13</b>。</p></div>
+<div class="note ex"><b class="tag">例題：平行</b><p>(2, 3) 與 (4, 6)：2 × 6 − 3 × 4 = 0，所以<b>平行</b>（(4, 6) = 2 × (2, 3)）。</p><p>(k, 3) ∥ (2, 6)：k × 6 − 3 × 2 = 0 → k = <b>1</b>。</p></div>
+<div class="note ex"><b class="tag">例題：幾何應用</b><p>平行四邊形 ABCD 中，<span class="vec">AC</span> = <span class="vec">AB</span> + <span class="vec">AD</span>（對角線向量 = 兩鄰邊向量的和）；<span class="vec">BD</span> = <span class="vec">AD</span> − <span class="vec">AB</span>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>向量坐標 = 終點 − 起點；加減和係數積都是各坐標分別運算；|<span class="vec">a</span>| = √(a₁² + a₂²)；平行 ⇔ a₁b₂ − a₂b₁ = 0。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>向量坐標是「<b>終點 − 起點</b>」，順序不能反。向量只看大小和方向，不看位置；平行的向量長度可以不同，方向可以相反。</p></div>
+</section>
+
+<section class="sec" id="s3-2">
+<h3><span class="id">3-2</span>向量的內積與夾角</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>兩個向量相加相減，結果還是向量。<b>內積</b>是另一種「乘法」：兩個向量一乘，結果是一個<b>數</b>（不是向量），這個數可以告訴我們兩個向量的<b>夾角</b>，以及它們有沒有互相垂直。</p></div>
+<h4 class="sub">一、內積的定義</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 280 180" role="img" aria-label="兩向量的夾角"><defs><marker id="mk-dotf" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="arr" d="M40.0 140.0 L220.0 140.0" marker-end="url(#mk-dotf)"/><path class="arr" d="M40.0 140.0 L136.6 53.0" marker-end="url(#mk-dotf)"/><path class="arr" d="M76 140 A36 36 0 0 0 66.8 115.9"/><text class="t" x="228" y="144">a</text><text class="t" x="142.6" y="53.0">b</text><text class="t" x="82" y="128">θ</text><text class="tz" x="40" y="172">起點放在一起，夾角 θ（0°～180°）</text></svg></div><p class="cap">兩個向量的夾角 θ：把兩個向量的起點放在一起後，兩條箭頭之間的角（0° ≤ θ ≤ 180°）</p>
+<div class="formulas"><span class="f"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby> = |<ruby><span class="vec">a</span><rt>向量</rt></ruby>| |<ruby><span class="vec">b</span><rt>向量</rt></ruby>| cos<ruby>θ<rt>夾角</rt></ruby></span><span class="f">坐標：(<ruby>a₁<rt>橫分量</rt></ruby>, <ruby>a₂<rt>縱分量</rt></ruby>)·(<ruby>b₁<rt>橫分量</rt></ruby>, <ruby>b₂<rt>縱分量</rt></ruby>) = <ruby>a₁<rt>橫分量</rt></ruby><ruby>b₁<rt>橫分量</rt></ruby> + <ruby>a₂<rt>縱分量</rt></ruby><ruby>b₂<rt>縱分量</rt></ruby></span></div>
+<p><b>兩個公式為什麼一樣？</b>對三角形用餘弦定理：|<span class="vec">a</span> − <span class="vec">b</span>|² = |<span class="vec">a</span>|² + |<span class="vec">b</span>|² − 2|<span class="vec">a</span>||<span class="vec">b</span>|cos θ。另一方面用坐標展開：|<span class="vec">a</span> − <span class="vec">b</span>|² = (a₁ − b₁)² + (a₂ − b₂)² = |<span class="vec">a</span>|² + |<span class="vec">b</span>|² − 2(a₁b₁ + a₂b₂)。比較兩式，就得到 |<span class="vec">a</span>||<span class="vec">b</span>|cos θ = a₁b₁ + a₂b₂。</p>
+<h4 class="sub">二、內積的性質</h4>
+<ul class="pts"><li><b>交換律</b>：<span class="vec">a</span>·<span class="vec">b</span> = <span class="vec">b</span>·<span class="vec">a</span>。<b>分配律</b>：<span class="vec">a</span>·(<span class="vec">b</span> + <span class="vec">c</span>) = <span class="vec">a</span>·<span class="vec">b</span> + <span class="vec">a</span>·<span class="vec">c</span>。<b>係數</b>：(k <span class="vec">a</span>)·<span class="vec">b</span> = k (<span class="vec">a</span>·<span class="vec">b</span>)。</li><li><b><span class="vec">a</span>·<span class="vec">a</span> = |<span class="vec">a</span>|²</b>（因為夾角 0°，cos 0° = 1）。所以 |<span class="vec">a</span>| = √(<span class="vec">a</span>·<span class="vec">a</span>)。</li><li><b>展開</b>：|<span class="vec">a</span> + <span class="vec">b</span>|² = |<span class="vec">a</span>|² + 2 <span class="vec">a</span>·<span class="vec">b</span> + |<span class="vec">b</span>|²；|<span class="vec">a</span> − <span class="vec">b</span>|² = |<span class="vec">a</span>|² − 2 <span class="vec">a</span>·<span class="vec">b</span> + |<span class="vec">b</span>|²（像乘法公式）。</li></ul>
+<h4 class="sub">三、求夾角與判斷垂直、平行</h4>
+<div class="formulas"><span class="f">cos<ruby>θ<rt>夾角</rt></ruby> = <span class="frac"><span class="num"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby></span><span class="den">&#124;<span class="vec">a</span>&#124; × &#124;<span class="vec">b</span>&#124;</span></span></span></div>
+<div class="tbl"><table class="wf"><thead><tr><th><span class="vec">a</span>·<span class="vec">b</span> 的值</th><th>夾角 θ</th><th>兩向量的關係</th></tr></thead><tbody><tr><td>&gt; 0</td><td><b>銳角</b>（0° ≤ θ &lt; 90°）</td><td>大致同方向</td></tr><tr><td>= 0</td><td><b>90°</b></td><td><b>互相垂直</b>（<span class="vec">a</span> ⊥ <span class="vec">b</span>）</td></tr><tr><td>&lt; 0</td><td><b>鈍角</b>（90° &lt; θ ≤ 180°）</td><td>大致反方向</td></tr><tr><td>= |<span class="vec">a</span>||<span class="vec">b</span>|</td><td>0°</td><td>平行且同向</td></tr><tr><td>= −|<span class="vec">a</span>||<span class="vec">b</span>|</td><td>180°</td><td>平行且反向</td></tr></tbody></table></div>
+<p><b>最常考的是「垂直」</b>：<span class="vec">a</span> ⊥ <span class="vec">b</span> ⇔ <span class="vec">a</span>·<span class="vec">b</span> = 0 ⇔ a₁b₁ + a₂b₂ = 0。</p>
+<div class="note ex"><b class="tag">例題：內積與夾角</b><p><span class="vec">a</span> = (1, 2)、<span class="vec">b</span> = (3, −1)：<span class="vec">a</span>·<span class="vec">b</span> = 3 − 2 = <b>1</b>；|<span class="vec">a</span>| = √5、|<span class="vec">b</span>| = √10；cos θ = <span class="frac"><span class="num">1</span><span class="den">√5 × √10</span></span> = <span class="frac"><span class="num">1</span><span class="den">5√2</span></span> = <b><span class="frac"><span class="num">√2</span><span class="den">10</span></span></b>（銳角）。</p><p><span class="vec">a</span> = (1, √3)、<span class="vec">b</span> = (2, 0)：<span class="vec">a</span>·<span class="vec">b</span> = 2；|<span class="vec">a</span>| = 2、|<span class="vec">b</span>| = 2；cos θ = <span class="frac"><span class="num">2</span><span class="den">4</span></span> = <span class="frac"><span class="num">1</span><span class="den">2</span></span>，θ = <b>60°</b>。</p></div>
+<div class="note ex"><b class="tag">例題：垂直</b><p><span class="vec">a</span> = (k, 2)、<span class="vec">b</span> = (3, −6)，<span class="vec">a</span> ⊥ <span class="vec">b</span>：3k − 12 = 0 → k = <b>4</b>。</p><p>(2, 3) 與 (3, −2)：6 − 6 = 0，所以<b>互相垂直</b>。</p></div>
+<div class="note ex"><b class="tag">例題：長度的計算</b><p>|<span class="vec">a</span>| = 3、|<span class="vec">b</span>| = 4、夾角 60°：<span class="vec">a</span>·<span class="vec">b</span> = 3 × 4 × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = 6；|<span class="vec">a</span> + <span class="vec">b</span>|² = 9 + 2 × 6 + 16 = 37，|<span class="vec">a</span> + <span class="vec">b</span>| = <b>√37</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p><span class="vec">a</span>·<span class="vec">b</span> = |a||b| cos θ = a₁b₁ + a₂b₂；cos θ = a·b ÷ (|a||b|)；垂直 ⇔ a·b = 0；a·a = |a|²。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>內積的結果是<b>數</b>，不是向量。夾角範圍是 0° 到 180°。<span class="vec">a</span>·<span class="vec">b</span> = 0 可能是其中一個是零向量，通常題目默認兩個向量都不是零向量。</p></div>
+</section>
+
+<section class="sec" id="s3-3">
+<h3><span class="id">3-3</span>內積的應用</h3>
+<div class="note know"><b class="tag">先搞懂</b><p>內積不只是算夾角，還能解決很多幾何問題：<b>一個向量在另一個向量上的「影子」（正射影）</b>、<b>三角形面積</b>、<b>點到直線的距離</b>。物理的「功 = 力 × 位移 × cos 夾角」其實就是內積。</p></div>
+<h4 class="sub">一、正射影</h4>
+<div class="fig"><svg class="ckt" viewBox="0 0 300 185" role="img" aria-label="b 在 a 方向上的正射影"><defs><marker id="mk-proj" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker></defs><path class="arr" d="M30.0 150.0 L260.0 150.0" marker-end="url(#mk-proj)"/><path class="arr" d="M30.0 150.0 L126.4 35.1" marker-end="url(#mk-proj)"/><path class="dash" d="M126.4 35.1 V150"/><path class="ln2" d="M30 150 L126.4 150"/><text class="t" x="262" y="154">a</text><text class="t" x="132.4" y="35.1">b</text><text class="tz" x="78.2" y="170" text-anchor="middle">b 在 a 上的正射影</text><text class="t" x="66" y="140">θ</text></svg></div><p class="cap">用垂直於 <span class="vec">a</span> 的光線照 <span class="vec">b</span>，<span class="vec">b</span> 落在 <span class="vec">a</span> 所在直線上的影子，就是 <span class="vec">b</span> 在 <span class="vec">a</span> 上的正射影</p>
+<div class="formulas"><span class="f"><span class="vec">b</span> 在 <span class="vec">a</span> 上的正射影（向量）= <span class="frac"><span class="num"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby></span><span class="den">&#124;<span class="vec">a</span>&#124;²</span></span> <ruby><span class="vec">a</span><rt>向量</rt></ruby></span><span class="f">正射影的長度（有號）= <span class="frac"><span class="num"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby></span><span class="den">&#124;<span class="vec">a</span>&#124;</span></span></span></div>
+<ul class="pts"><li>有號的長度：<b>正</b>表示影子和 <span class="vec">a</span> 同方向（夾角是銳角）；<b>負</b>表示反方向（夾角是鈍角）；0 表示垂直。</li><li>這是因為影子長度 = |<span class="vec">b</span>| cos θ，而 <span class="vec">a</span>·<span class="vec">b</span> = |<span class="vec">a</span>||<span class="vec">b</span>|cos θ，所以 |<span class="vec">b</span>|cos θ = <span class="vec">a</span>·<span class="vec">b</span> ÷ |<span class="vec">a</span>|。</li></ul>
+<div class="note ex"><b class="tag">例題：正射影</b><p><span class="vec">a</span> = (3, 4)、<span class="vec">b</span> = (2, 1)：<span class="vec">a</span>·<span class="vec">b</span> = 6 + 4 = 10，|<span class="vec">a</span>|² = 25。正射影向量 = <span class="frac"><span class="num">10</span><span class="den">25</span></span> × (3, 4) = <b>(6／5, 8／5)</b>；有號長度 = <span class="frac"><span class="num">10</span><span class="den">5</span></span> = <b>2</b>。</p></div>
+<h4 class="sub">二、三角形的面積</h4>
+<div class="formulas"><span class="f">△ABC 的面積 = <span class="frac"><span class="num">1</span><span class="den">2</span></span> |<ruby>x₁<rt>橫分量</rt></ruby><ruby>y₂<rt>縱分量</rt></ruby> − <ruby>x₂<rt>橫分量</rt></ruby><ruby>y₁<rt>縱分量</rt></ruby>|（<span class="vec">AB</span> = (x₁, y₁)、<span class="vec">AC</span> = (x₂, y₂)）</span></div>
+<p>面積 = ½|<span class="vec">AB</span>||<span class="vec">AC</span>| sin θ。因為 sin²θ = 1 − cos²θ，所以 (|<span class="vec">a</span>||<span class="vec">b</span>| sin θ)² = |<span class="vec">a</span>|²|<span class="vec">b</span>|² − (<span class="vec">a</span>·<span class="vec">b</span>)² = (a₁b₂ − a₂b₁)²，開根號就得到上面的公式。</p>
+<div class="note ex"><b class="tag">例題：用向量求面積</b><p>A(0, 0)、B(4, 0)、C(1, 3)：<span class="vec">AB</span> = (4, 0)、<span class="vec">AC</span> = (1, 3)，面積 = <span class="frac"><span class="num">1</span><span class="den">2</span></span> |4 × 3 − 1 × 0| = <b>6</b>（底 4、高 3，和直接算一樣）。</p></div>
+<h4 class="sub">三、直線的法向量與點到直線的距離</h4>
+<ul class="pts"><li><b>法向量</b>：和直線垂直的向量。直線 ax + by + c = 0 的法向量是 <b>(a, b)</b>（因為直線上任兩點的差向量 (x₂ − x₁, y₂ − y₁) 滿足 a(x₂ − x₁) + b(y₂ − y₁) = 0）。</li><li><b>方向向量</b>：和直線平行的向量，可取 (b, −a)（和法向量垂直）。</li><li>兩條直線的夾角，可以用它們的法向量（或方向向量）的夾角求出。</li></ul>
+<div class="formulas"><span class="f">點 P(<ruby>x₀<rt>橫坐標</rt></ruby>, <ruby>y₀<rt>縱坐標</rt></ruby>) 到直線 <ruby>a<rt>係數</rt></ruby>x + <ruby>b<rt>係數</rt></ruby>y + <ruby>c<rt>常數</rt></ruby> = 0 的距離：<ruby>d<rt>距離</rt></ruby> = <span class="frac"><span class="num">&#124;<ruby>a<rt>係數</rt></ruby><ruby>x₀<rt>橫坐標</rt></ruby> + <ruby>b<rt>係數</rt></ruby><ruby>y₀<rt>縱坐標</rt></ruby> + <ruby>c<rt>常數</rt></ruby>&#124;</span><span class="den">√(<ruby>a<rt>係數</rt></ruby>² + <ruby>b<rt>係數</rt></ruby>²)</span></span></span></div>
+<p><b>為什麼？</b>在直線上任取一點 Q，<span class="vec">PQ</span> 在法向量 <span class="vec">n</span> = (a, b) 上的正射影長度，就是 P 到直線的距離，也就是 |<span class="vec">n</span>·<span class="vec">PQ</span>| ÷ |<span class="vec">n</span>|，化簡後就是上面的公式。</p>
+<div class="note ex"><b class="tag">例題：點到直線的距離</b><p>點 (1, 2) 到直線 3x + 4y − 5 = 0：d = <span class="frac"><span class="num">&#124;3 × 1 + 4 × 2 − 5&#124;</span><span class="den">√(9 + 16)</span></span> = <span class="frac"><span class="num">6</span><span class="den">5</span></span> = <b>1.2</b>。</p></div>
+<h4 class="sub">四、功與內積（和物理的連結）</h4>
+<p>力 <span class="vec">F</span> 使物體產生位移 <span class="vec">s</span> 時，做的功 W = |<span class="vec">F</span>||<span class="vec">s</span>| cos θ = <b><span class="vec">F</span>·<span class="vec">s</span></b>：只有力在位移方向上的「分量」才有做功。</p>
+<div class="note ex"><b class="tag">例題：功</b><p><span class="vec">F</span> = (3, 4) N、位移 <span class="vec">s</span> = (5, 0) m：W = 3 × 5 + 4 × 0 = <b>15 J</b>。</p></div>
+<div class="note one"><b class="tag">一句話記住</b><p>正射影長度 = a·b ÷ |a|；面積 = ½|a₁b₂ − a₂b₁|；點到直線 ax + by + c = 0 的距離 = |ax₀ + by₀ + c| ÷ √(a² + b²)；功 = 力 · 位移。</p></div>
+<div class="note warn"><b class="tag">陷阱</b><p>正射影有<b>方向</b>：<span class="vec">b</span> 在 <span class="vec">a</span> 上，和 <span class="vec">a</span> 在 <span class="vec">b</span> 上不一樣（分母是被投影到的那個向量的長度）。點到直線距離公式的直線必須先整理成 <b>ax + by + c = 0</b>（右邊是 0）。</p></div>
+</section>
+
+<section class="sec" id="appx">
+<h3><span class="id">附錄</span>特殊角三角函數值表與公式推導</h3>
+<h4 class="sub">附錄一：特殊角的三角函數值</h4>
+<div class="tbl"><table class="wf"><thead><tr><th>θ</th><th>sin θ</th><th>cos θ</th><th>tan θ</th></tr></thead><tbody><tr><td>0°</td><td class="f">0</td><td class="f">1</td><td class="f">0</td></tr><tr><td>30°</td><td class="f">1／2</td><td class="f">√3／2</td><td class="f">√3／3</td></tr><tr><td>45°</td><td class="f">√2／2</td><td class="f">√2／2</td><td class="f">1</td></tr><tr><td>60°</td><td class="f">√3／2</td><td class="f">1／2</td><td class="f">√3</td></tr><tr><td>90°</td><td class="f">1</td><td class="f">0</td><td class="f">無定義</td></tr><tr><td>120°</td><td class="f">√3／2</td><td class="f">−1／2</td><td class="f">−√3</td></tr><tr><td>135°</td><td class="f">√2／2</td><td class="f">−√2／2</td><td class="f">−1</td></tr><tr><td>150°</td><td class="f">1／2</td><td class="f">−√3／2</td><td class="f">−√3／3</td></tr><tr><td>180°</td><td class="f">0</td><td class="f">−1</td><td class="f">0</td></tr><tr><td>210°</td><td class="f">−1／2</td><td class="f">−√3／2</td><td class="f">√3／3</td></tr><tr><td>225°</td><td class="f">−√2／2</td><td class="f">−√2／2</td><td class="f">1</td></tr><tr><td>240°</td><td class="f">−√3／2</td><td class="f">−1／2</td><td class="f">√3</td></tr><tr><td>270°</td><td class="f">−1</td><td class="f">0</td><td class="f">無定義</td></tr><tr><td>300°</td><td class="f">−√3／2</td><td class="f">1／2</td><td class="f">−√3</td></tr><tr><td>315°</td><td class="f">−√2／2</td><td class="f">√2／2</td><td class="f">−1</td></tr><tr><td>330°</td><td class="f">−1／2</td><td class="f">√3／2</td><td class="f">−√3／3</td></tr><tr><td>360°</td><td class="f">0</td><td class="f">1</td><td class="f">0</td></tr></tbody></table></div>
+<p>記法：先背 0°～90° 的值，其餘用 2-3 的參考角與象限正負號推出來，不用另外硬背。</p>
+<h4 class="sub">附錄二：重要公式是怎麼推出來的</h4>
+<div class="tbl"><table class="wf"><thead><tr><th>公式</th><th>推導的想法</th></tr></thead><tbody><tr><td>兩點距離</td><td>用橫向差、直向差做直角三角形，再用畢氏定理</td></tr><tr><td>內分點</td><td>P = A + m／(m + n) × (B − A)，整理成 (nA + mB)／(m + n)</td></tr><tr><td>頂點公式</td><td>ax² + bx + c = a(x + b／2a)² − (b² − 4ac)／4a，由配方得到</td></tr><tr><td>公式解</td><td>令 a(x + b／2a)² = (b² − 4ac)／4a，開平方後移項</td></tr><tr><td>算幾不等式</td><td>(√a − √b)² ≥ 0，展開移項</td></tr><tr><td>sin² + cos² = 1</td><td>直角三角形 a² + b² = c²，兩邊同除以 c²</td></tr><tr><td>正弦定理</td><td>從一個頂點作高，用兩種方式表示這個高</td></tr><tr><td>餘弦定理</td><td>作高後，把一邊當直角三角形的斜邊，用畢氏定理</td></tr><tr><td>內積的坐標式</td><td>餘弦定理與坐標展開的 |a − b|² 比較</td></tr><tr><td>點到直線的距離</td><td>取直線上一點 Q，<span class="vec">PQ</span> 在法向量上的正射影長度</td></tr></tbody></table></div>
 </section>
 
 <section class="sec" id="sum">
   <h3><span class="id">總表</span>考前 1 分鐘公式總複習</h3>
   <p style="margin:0;color:var(--muted);font-size:14px">最左邊是公式出自哪一個單元，忘記時可以翻回那一節看。</p>
-  <div class="tbl"><table class="sumtbl">
+  <div class="tbl"><table class="sumtbl wf">
     <thead><tr><th>單元</th><th>主題</th><th>公式</th></tr></thead>
     <tbody>
       <tr><td><span class="utag">1-1</span></td><td>有理數</td><td class="f"><span class="frac"><span class="num"><ruby>q<rt>整數</rt></ruby></span><span class="den"><ruby>p<rt>整數</rt></ruby></span></span>，p ≠ 0</td></tr>
-      <tr><td><span class="utag">1-1</span></td><td>算幾不等式</td><td class="f"><span class="frac"><span class="num"><ruby>a<rt>非負實數</rt></ruby> + <ruby>b<rt>非負實數</rt></ruby></span><span class="den">2</span></span> ≥ √(<ruby>a<rt>非負實數</rt></ruby><ruby>b<rt>非負實數</rt></ruby>)，a = b 時等號成立</td></tr>
       <tr><td><span class="utag">1-1</span></td><td>循環小數</td><td class="f">0.<span class="ol">ab</span> = <span class="frac"><span class="num">ab</span><span class="den">99</span></span>；0.a<span class="ol">b</span> = <span class="frac"><span class="num">ab − a</span><span class="den">90</span></span></td></tr>
       <tr><td><span class="utag">1-1</span></td><td>分母有理化</td><td class="f"><span class="frac"><span class="num">1</span><span class="den">√<ruby>a<rt>正數</rt></ruby> + √<ruby>b<rt>正數</rt></ruby></span></span> = <span class="frac"><span class="num">√<ruby>a<rt>正數</rt></ruby> − √<ruby>b<rt>正數</rt></ruby></span><span class="den"><ruby>a<rt>正數</rt></ruby> − <ruby>b<rt>正數</rt></ruby></span></span></td></tr>
-      <tr><td><span class="utag">1-2</span></td><td>絕對值不等式</td><td class="f">|x| ≥ a ⇔ x ≥ a 或 x ≤ −a；|x| ≤ a ⇔ −a ≤ x ≤ a</td></tr>
+      <tr><td><span class="utag">1-1</span></td><td>雙重根號</td><td class="f">√(<ruby>a<rt>大的數</rt></ruby> + <ruby>b<rt>小的數</rt></ruby> ± 2√(<ruby>a<rt>大的數</rt></ruby><ruby>b<rt>小的數</rt></ruby>)) = √<ruby>a<rt>大的數</rt></ruby> ± √<ruby>b<rt>小的數</rt></ruby></td></tr>
+      <tr><td><span class="utag">1-1</span></td><td>乘法公式</td><td class="f">(<ruby>a<rt>第一項</rt></ruby> ± <ruby>b<rt>第二項</rt></ruby>)² = <ruby>a<rt>第一項</rt></ruby>² ± 2<ruby>a<rt>第一項</rt></ruby><ruby>b<rt>第二項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>²；(<ruby>a<rt>第一項</rt></ruby> + <ruby>b<rt>第二項</rt></ruby>)(<ruby>a<rt>第一項</rt></ruby> − <ruby>b<rt>第二項</rt></ruby>) = <ruby>a<rt>第一項</rt></ruby>² − <ruby>b<rt>第二項</rt></ruby>²</td></tr>
+      <tr><td><span class="utag">1-1</span></td><td>算幾不等式</td><td class="f"><span class="frac"><span class="num"><ruby>a<rt>非負實數</rt></ruby> + <ruby>b<rt>非負實數</rt></ruby></span><span class="den">2</span></span> ≥ √(<ruby>a<rt>非負實數</rt></ruby><ruby>b<rt>非負實數</rt></ruby>)，a = b 時等號成立</td></tr>
+      <tr><td><span class="utag">1-2</span></td><td>絕對值不等式</td><td class="f">|x − c| &lt; r ⇔ c − r &lt; x &lt; c + r；|x − c| &gt; r ⇔ x &gt; c + r 或 x &lt; c − r</td></tr>
       <tr><td><span class="utag">1-2</span></td><td>兩點距離</td><td class="f">√((<ruby>x₁<rt>A的x</rt></ruby> − <ruby>x₂<rt>B的x</rt></ruby>)² + (<ruby>y₁<rt>A的y</rt></ruby> − <ruby>y₂<rt>B的y</rt></ruby>)²)</td></tr>
       <tr><td><span class="utag">1-2</span></td><td>內分點</td><td class="f">( <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>x₁<rt>A的x</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>x₂<rt>B的x</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> , <span class="frac"><span class="num"><ruby>n<rt>後段比</rt></ruby><ruby>y₁<rt>A的y</rt></ruby> + <ruby>m<rt>前段比</rt></ruby><ruby>y₂<rt>B的y</rt></ruby></span><span class="den"><ruby>m<rt>前段比</rt></ruby> + <ruby>n<rt>後段比</rt></ruby></span></span> )</td></tr>
       <tr><td><span class="utag">1-2</span></td><td>中點</td><td class="f">( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby></span><span class="den">2</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby></span><span class="den">2</span></span> )</td></tr>
       <tr><td><span class="utag">1-2</span></td><td>重心</td><td class="f">( <span class="frac"><span class="num"><ruby>x₁<rt>A的x</rt></ruby> + <ruby>x₂<rt>B的x</rt></ruby> + <ruby>x₃<rt>C的x</rt></ruby></span><span class="den">3</span></span> , <span class="frac"><span class="num"><ruby>y₁<rt>A的y</rt></ruby> + <ruby>y₂<rt>B的y</rt></ruby> + <ruby>y₃<rt>C的y</rt></ruby></span><span class="den">3</span></span> )</td></tr>
       <tr><td><span class="utag">1-3</span></td><td>斜率</td><td class="f"><ruby>m<rt>斜率</rt></ruby> = <span class="frac"><span class="num"><ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby></span><span class="den"><ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">1-3</span></td><td>點斜式</td><td class="f"><ruby>y<rt>函數值</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby> = <ruby>m<rt>斜率</rt></ruby>(<ruby>x<rt>自變數</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>)</td></tr>
+      <tr><td><span class="utag">1-3</span></td><td>頂點式</td><td class="f"><ruby>y<rt>函數值</rt></ruby> = <ruby>a<rt>二次項係數</rt></ruby>(<ruby>x<rt>自變數</rt></ruby> − <ruby>h<rt>頂點x</rt></ruby>)² + <ruby>k<rt>頂點y</rt></ruby></td></tr>
       <tr><td><span class="utag">1-3</span></td><td>頂點</td><td class="f">( −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span> , −<span class="frac"><span class="num"><ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby></span><span class="den">4<ruby>a<rt>二次項係數</rt></ruby></span></span> )</td></tr>
       <tr><td><span class="utag">1-3</span></td><td>判別式</td><td class="f"><ruby>D<rt>判別式</rt></ruby> = <ruby>b<rt>一次項係數</rt></ruby>² − 4<ruby>a<rt>二次項係數</rt></ruby><ruby>c<rt>常數項</rt></ruby>：&gt;0 兩交點、=0 相切、&lt;0 不相交</td></tr>
-      <tr><td><span class="utag">1-4</span></td><td>恆正／恆負</td><td class="f">恆正：a &gt; 0 且 D &lt; 0；恆負：a &lt; 0 且 D &lt; 0</td></tr>
       <tr><td><span class="utag">1-4</span></td><td>公式解</td><td class="f"><ruby>x<rt>根</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby> ± √<ruby>D<rt>判別式</rt></ruby></span><span class="den">2<ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
       <tr><td><span class="utag">1-4</span></td><td>根與係數</td><td class="f"><ruby>α<rt>根1</rt></ruby> + <ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num">−<ruby>b<rt>一次項係數</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span>，<ruby>α<rt>根1</rt></ruby><ruby>β<rt>根2</rt></ruby> = <span class="frac"><span class="num"><ruby>c<rt>常數項</rt></ruby></span><span class="den"><ruby>a<rt>二次項係數</rt></ruby></span></span></td></tr>
       <tr><td><span class="utag">1-4</span></td><td>二次不等式</td><td class="f">a &gt; 0、α &gt; β：&gt; 0 → x &gt; α 或 x &lt; β；&lt; 0 → β &lt; x &lt; α</td></tr>
+      <tr><td><span class="utag">1-4</span></td><td>恆正／恆負</td><td class="f">恆正：a &gt; 0 且 D &lt; 0；恆負：a &lt; 0 且 D &lt; 0</td></tr>
+      <tr><td><span class="utag">2-1</span></td><td>弧度</td><td class="f">π rad = 180°；<ruby>θ<rt>弧度</rt></ruby> = <ruby>θ<rt>角度</rt></ruby> × <span class="frac"><span class="num">π</span><span class="den">180</span></span></td></tr>
+      <tr><td><span class="utag">2-1</span></td><td>弧長</td><td class="f"><ruby>s<rt>弧長</rt></ruby> = <ruby>r<rt>半徑</rt></ruby> × <ruby>θ<rt>弧度</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-1</span></td><td>扇形面積</td><td class="f"><ruby>A<rt>面積</rt></ruby> = <span class="frac"><span class="num">1</span><span class="den">2</span></span> <ruby>r<rt>半徑</rt></ruby>² <ruby>θ<rt>弧度</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-1</span></td><td>同界角</td><td class="f"><ruby>θ<rt>角</rt></ruby> + 360° × <ruby>k<rt>整數</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-2</span></td><td>三角函數</td><td class="f">sin<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">對邊</span><span class="den">斜邊</span></span>，cos<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">鄰邊</span><span class="den">斜邊</span></span>，tan<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">對邊</span><span class="den">鄰邊</span></span></td></tr>
+      <tr><td><span class="utag">2-2</span></td><td>平方關係</td><td class="f">sin²<ruby>θ<rt>角</rt></ruby> + cos²<ruby>θ<rt>角</rt></ruby> = 1；1 + tan²<ruby>θ<rt>角</rt></ruby> = sec²<ruby>θ<rt>角</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-2</span></td><td>商數關係</td><td class="f">tan<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num">sin<ruby>θ<rt>角</rt></ruby></span><span class="den">cos<ruby>θ<rt>角</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">2-3</span></td><td>坐標定義</td><td class="f">sin<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>y<rt>縱坐標</rt></ruby></span><span class="den"><ruby>r<rt>距離</rt></ruby></span></span>，cos<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>x<rt>橫坐標</rt></ruby></span><span class="den"><ruby>r<rt>距離</rt></ruby></span></span>，tan<ruby>θ<rt>角</rt></ruby> = <span class="frac"><span class="num"><ruby>y<rt>縱坐標</rt></ruby></span><span class="den"><ruby>x<rt>橫坐標</rt></ruby></span></span></td></tr>
+      <tr><td><span class="utag">2-3</span></td><td>象限正負</td><td class="f">Ⅰ 全正、Ⅱ sin 正、Ⅲ tan 正、Ⅳ cos 正</td></tr>
+      <tr><td><span class="utag">2-3</span></td><td>負角</td><td class="f">sin(−<ruby>θ<rt>角</rt></ruby>) = −sin<ruby>θ<rt>角</rt></ruby>；cos(−<ruby>θ<rt>角</rt></ruby>) = cos<ruby>θ<rt>角</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-4</span></td><td>週期</td><td class="f">sin、cos：2π；tan：π；一般式 <ruby>a<rt>振幅係數</rt></ruby> sin(<ruby>b<rt>頻率係數</rt></ruby>x + c) + d 的週期 = <span class="frac"><span class="num">2π</span><span class="den">&#124;<ruby>b<rt>頻率係數</rt></ruby>&#124;</span></span></td></tr>
+      <tr><td><span class="utag">2-4</span></td><td>振幅與最大最小值</td><td class="f">振幅 = |<ruby>a<rt>振幅係數</rt></ruby>|；最大值 d + |a|，最小值 d − |a|</td></tr>
+      <tr><td><span class="utag">2-5</span></td><td>正弦定理</td><td class="f"><span class="frac"><span class="num"><ruby>a<rt>邊a</rt></ruby></span><span class="den">sin<ruby>A<rt>角A</rt></ruby></span></span> = <span class="frac"><span class="num"><ruby>b<rt>邊b</rt></ruby></span><span class="den">sin<ruby>B<rt>角B</rt></ruby></span></span> = <span class="frac"><span class="num"><ruby>c<rt>邊c</rt></ruby></span><span class="den">sin<ruby>C<rt>角C</rt></ruby></span></span> = 2<ruby>R<rt>外接圓半徑</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-5</span></td><td>餘弦定理</td><td class="f"><ruby>a<rt>邊a</rt></ruby>² = <ruby>b<rt>邊b</rt></ruby>² + <ruby>c<rt>邊c</rt></ruby>² − 2<ruby>b<rt>邊b</rt></ruby><ruby>c<rt>邊c</rt></ruby> cos<ruby>A<rt>角A</rt></ruby></td></tr>
+      <tr><td><span class="utag">2-5</span></td><td>三角形面積</td><td class="f"><span class="frac"><span class="num">1</span><span class="den">2</span></span> <ruby>a<rt>邊a</rt></ruby><ruby>b<rt>邊b</rt></ruby> sin<ruby>C<rt>角C</rt></ruby></td></tr>
+      <tr><td><span class="utag">3-1</span></td><td>向量坐標</td><td class="f"><span class="vec">AB</span> = (<ruby>x₂<rt>B的x</rt></ruby> − <ruby>x₁<rt>A的x</rt></ruby>, <ruby>y₂<rt>B的y</rt></ruby> − <ruby>y₁<rt>A的y</rt></ruby>)</td></tr>
+      <tr><td><span class="utag">3-1</span></td><td>向量長度</td><td class="f">|<ruby><span class="vec">a</span><rt>向量</rt></ruby>| = √(<ruby>a₁<rt>橫分量</rt></ruby>² + <ruby>a₂<rt>縱分量</rt></ruby>²)</td></tr>
+      <tr><td><span class="utag">3-1</span></td><td>平行</td><td class="f"><ruby>a₁<rt>橫分量</rt></ruby><ruby>b₂<rt>縱分量</rt></ruby> − <ruby>a₂<rt>縱分量</rt></ruby><ruby>b₁<rt>橫分量</rt></ruby> = 0</td></tr>
+      <tr><td><span class="utag">3-2</span></td><td>內積</td><td class="f"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby> = |<span class="vec">a</span>||<span class="vec">b</span>| cos<ruby>θ<rt>夾角</rt></ruby> = <ruby>a₁<rt>橫分量</rt></ruby><ruby>b₁<rt>橫分量</rt></ruby> + <ruby>a₂<rt>縱分量</rt></ruby><ruby>b₂<rt>縱分量</rt></ruby></td></tr>
+      <tr><td><span class="utag">3-2</span></td><td>夾角</td><td class="f">cos<ruby>θ<rt>夾角</rt></ruby> = <span class="frac"><span class="num"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby></span><span class="den">&#124;<span class="vec">a</span>&#124; × &#124;<span class="vec">b</span>&#124;</span></span></td></tr>
+      <tr><td><span class="utag">3-2</span></td><td>垂直</td><td class="f"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby> = 0</td></tr>
+      <tr><td><span class="utag">3-3</span></td><td>正射影長度</td><td class="f"><span class="frac"><span class="num"><ruby><span class="vec">a</span><rt>向量</rt></ruby>·<ruby><span class="vec">b</span><rt>向量</rt></ruby></span><span class="den">&#124;<span class="vec">a</span>&#124;</span></span></td></tr>
+      <tr><td><span class="utag">3-3</span></td><td>三角形面積</td><td class="f"><span class="frac"><span class="num">1</span><span class="den">2</span></span> |<ruby>x₁<rt>橫分量</rt></ruby><ruby>y₂<rt>縱分量</rt></ruby> − <ruby>x₂<rt>橫分量</rt></ruby><ruby>y₁<rt>縱分量</rt></ruby>|</td></tr>
+      <tr><td><span class="utag">3-3</span></td><td>點到直線距離</td><td class="f"><ruby>d<rt>距離</rt></ruby> = <span class="frac"><span class="num">&#124;<ruby>a<rt>係數</rt></ruby><ruby>x₀<rt>橫坐標</rt></ruby> + <ruby>b<rt>係數</rt></ruby><ruby>y₀<rt>縱坐標</rt></ruby> + <ruby>c<rt>常數</rt></ruby>&#124;</span><span class="den">√(<ruby>a<rt>係數</rt></ruby>² + <ruby>b<rt>係數</rt></ruby>²)</span></span></td></tr>
     </tbody>
   </table></div>
 </section>
 
-<footer>依課本目錄 1-1～1-4 與 CH.1 重點整理整理。若與老師上課有出入，以老師為主。</footer>
+<footer>依課本目錄 1-1～3-3 整理。內容以課本為準，若與老師上課有出入，以老師為主。</footer>
 </div>
 
 <script>
